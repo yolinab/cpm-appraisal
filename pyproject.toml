@@ -1,0 +1,19 @@
+[project]
+name = "cpm-appraisal"
+version = "0.1.0"
+description = "CPM-structured LLM appraisal pipeline measuring emotion convergence"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+openai = ["openai>=1.0"]
+local = ["transformers>=4.40", "torch", "accelerate"]
+langgraph = ["langgraph", "langchain"]
+dev = ["pytest"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
