@@ -2,8 +2,7 @@
 
 These dataclasses are the shared vocabulary of the whole project. Everything
 upstream (generation) produces them; everything downstream (convergence)
-consumes them. Keeping them in one place means a teammate can read this file
-and understand the data flow without touching any logic.
+consumes them.
 """
 from __future__ import annotations
 

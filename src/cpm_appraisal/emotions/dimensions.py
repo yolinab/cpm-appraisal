@@ -1,13 +1,7 @@
 """The appraisal dimensions, grouped by SEC.
 
-This follows the report's Figure 3 layout, split across the four checks as
+Split across the four checks as
 5 / 13 / 3 / 2 = 23 dimensions. Each dimension is rated 1..5 by the LLM.
-
-KNOWN DISCREPANCY (flag for the team): the report PROSE says "25 dimensions"
-but Figure 3 only LISTS 23 (5+13+3+2). We implement the 23 that are actually
-named and prompted. Resolve before the final report: either add the 2 missing
-dimensions here or correct the prose to 23. Either way, changing this file and
-prototypes.py is the ONLY change needed -- nothing else hard-codes the count.
 """
 from __future__ import annotations
 
@@ -68,11 +62,6 @@ def dimensions_completed(completed_secs: list[SEC]) -> list[str]:
             if any(d in DIMENSIONS_FOR_SEC[s] for s in done)]
 
 
-# Self-consistency check. NOTE: the report PROSE says "25 dimensions" but its
-# Figure 3 actually LISTS 5+13+3+2 = 23. We implement the 23 that are named,
-# since those are the only ones with defined prompts. This discrepancy is a
-# real error in the source material the team should resolve (either find the 2
-# missing dimensions or correct the prose to 23).
 EXPECTED_DIMENSION_COUNT = 23
 assert len(ALL_DIMENSIONS) == EXPECTED_DIMENSION_COUNT, (
     f"expected {EXPECTED_DIMENSION_COUNT} dims, got {len(ALL_DIMENSIONS)}"

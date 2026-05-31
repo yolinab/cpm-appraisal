@@ -1,17 +1,14 @@
 """The 13 discrete emotion prototypes.
 
-Each prototype is a point in the 25-dimensional appraisal space (each dim 1..5).
+Each prototype is a point in the 23-dimensional appraisal space (each dim 1..5).
 An appraisal vector is classified by distance to these prototypes.
 
-The 13 labels match the report / crowd-enVENT:
+The 13 labels:
   anger, boredom, disgust, fear, guilt, joy, no_emotion, pride, relief,
   sadness, shame, surprise, trust
 
 THE NUMBERS BELOW ARE PLACEHOLDERS. They are NOT the real Scherer/crowd-enVENT
-profiles -- they exist so the pipeline runs end-to-end today. Replacing them is
-a concrete, well-scoped task (see TODO). The crowd-enVENT paper's Figure 8 gives
-average appraisal values per emotion; those should be transcribed here and
-rescaled to the 25-dim layout in dimensions.py.
+profiles - they exist so the pipeline runs end-to-end today.
 """
 from __future__ import annotations
 
@@ -31,7 +28,7 @@ def _placeholder_prototypes() -> dict[str, dict[str, float]]:
     """Deterministic placeholder profiles so distances are non-degenerate.
 
     Spreads the 13 emotions across the appraisal space using a simple hash so
-    they aren't all identical. TODO: replace with crowd-enVENT Figure 8 values.
+    they aren't all identical. TODO: replace with crowd-enVENT values.
     """
     protos: dict[str, dict[str, float]] = {}
     for i, label in enumerate(EMOTION_LABELS):

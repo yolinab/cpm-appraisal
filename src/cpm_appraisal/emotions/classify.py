@@ -1,13 +1,12 @@
 """Turning an appraisal vector into an emotion distribution, and measuring it.
 
-Pipeline (report Section 3.3, Figure 3):
+Pipeline:
   appraisal vector --Manhattan distance--> distances to 13 prototypes
                    --softmin / normalise--> probability distribution
                    --Shannon entropy--> scalar uncertainty (convergence signal)
 
 Partial vectors: when only some SECs are done, we compare ONLY on the
-dimensions present in the vector (the report excludes unspecified dims from the
-distance computation).
+dimensions present in the vector.
 """
 from __future__ import annotations
 

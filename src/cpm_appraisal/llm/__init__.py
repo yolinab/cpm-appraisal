@@ -9,7 +9,7 @@ Three backends are provided:
   - MockLLM            : deterministic fake, for development & CI.
   - OpenAICompatLLM    : any OpenAI-compatible HTTP endpoint
                          (Groq / Together / local vLLM server). Stubbed.
-  - LocalTransformersLLM : in-process HuggingFace model, for DelftBlue. Stubbed.
+  - LocalTransformersLLM : in-process HuggingFace model. Stubbed.
 
 DelftBlue note: compute nodes have no internet, so on the cluster you must use
 LocalTransformersLLM (or a vLLM server launched inside the same job), NOT an

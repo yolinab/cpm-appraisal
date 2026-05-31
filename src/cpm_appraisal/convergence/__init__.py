@@ -5,7 +5,7 @@ For each AppraisalStep we:
   2. compute its entropy,
 giving an entropy trace over the appraisal timeline.
 
-Convergence (report Section 3.3) = the point at which entropy stops changing
+Convergence = the point at which entropy stops changing
 meaningfully: |H(tau) - H(tau-1)| < threshold, sustained. We report the first
 tau where the change stays below threshold for `patience` consecutive steps.
 """

@@ -5,9 +5,6 @@
 
 The persona is injected into the scene generator's system prompt so the
 narrative is written from Alex's first-person point of view.
-
-Prompts here are lifted from the team's shared doc ("Narrative Prompts" and
-"Timeline prompt") so they stay consistent with what was already designed.
 """
 from __future__ import annotations
 
