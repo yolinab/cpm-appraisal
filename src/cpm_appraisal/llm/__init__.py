@@ -112,14 +112,44 @@ class OpenAICompatLLM(LanguageModel):
 
 
 class LocalTransformersLLM(LanguageModel):
-    """In-process HuggingFace model for DelftBlue compute nodes. Stubbed."""
+    """In-process HuggingFace model for DelftBlue compute nodes."""
 
-    def __init__(self, model_id: str):
-        self.model_id = model_id
+    def __init__(self, model_id: str, max_new_tokens: int = 512):
+        import torch
+        from transformers import AutoModelForCausalLM, AutoTokenizer
+
+        self.max_new_tokens = max_new_tokens
+        self.tokenizer = AutoTokenizer.from_pretrained(model_id)
+        self.model = AutoModelForCausalLM.from_pretrained(
+            model_id, torch_dtype=torch.bfloat16, device_map="auto"
+        )
+        self.model.eval()
 
     def generate(self, system: str, user: str, *, temperature: float = 0.7) -> LLMResponse:
-        raise NotImplementedError(
-            "LocalTransformersLLM: load tokenizer + model with transformers/vLLM here."
+        import torch
+
+        messages = []
+        if system:
+            messages.append({"role": "system", "content": system})
+        messages.append({"role": "user", "content": user})
+
+        text = self.tokenizer.apply_chat_template(
+            messages, tokenize=False, add_generation_prompt=True
+        )
+        inputs = self.tokenizer(text, return_tensors="pt").to(self.model.device)
+
+        with torch.no_grad():
+            outputs = self.model.generate(
+                **inputs,
+                max_new_tokens=self.max_new_tokens,
+                temperature=temperature,
+                do_sample=temperature > 0,
+            )
+
+        new_tokens = outputs[0][inputs["input_ids"].shape[1]:]
+        return LLMResponse(
+            self.tokenizer.decode(new_tokens, skip_special_tokens=True),
+            "local_transformers",
         )
 
 

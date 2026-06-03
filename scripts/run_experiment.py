@@ -21,12 +21,16 @@ from cpm_appraisal.pipeline import run_one
 def main() -> None:
     p = argparse.ArgumentParser()
     p.add_argument("--backend", default="mock")
+    p.add_argument("--model-id", default=None, help="HuggingFace model id or local path (local_transformers backend)")
     p.add_argument("--prototypes", default=None, help="path to prototype CSV/JSON")
     p.add_argument("--t-max", type=int, default=20)
     p.add_argument("--out", default="data/outputs/results.json")
     args = p.parse_args()
 
-    llm = build_llm(args.backend)
+    llm_kwargs = {}
+    if args.model_id:
+        llm_kwargs["model_id"] = args.model_id
+    llm = build_llm(args.backend, **llm_kwargs)
     prototypes = load_prototypes(args.prototypes)
     config = SchedulerConfig(t_max=args.t_max)
 
