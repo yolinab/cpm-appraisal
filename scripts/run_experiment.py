@@ -14,7 +14,7 @@ from pathlib import Path
 
 from cpm_appraisal.emotions.prototypes import load_prototypes
 from cpm_appraisal.llm import build_llm
-from cpm_appraisal.pipeline import run_one
+from cpm_appraisal.pipeline import appraise_scenario
 from cpm_appraisal.scheduler import SchedulerConfig
 
 
@@ -39,7 +39,7 @@ def main() -> None:
     # for each complexity level
     for level in (1, 2, 3):
         # run full pipeline using LangGraph
-        scenario, conv = run_one(llm, level, prototypes, config, seed=args.seed)
+        scenario, conv = appraise_scenario(llm, level, prototypes, config, seed=args.seed)
         top2 = conv.final_distribution.top(2)
         print(f"\n=== Complexity level {level} ===")
         print(f"  sampled event    : {scenario.events[0].id} — {scenario.events[0].description}")

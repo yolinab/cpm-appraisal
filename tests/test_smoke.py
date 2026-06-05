@@ -3,7 +3,7 @@ from cpm_appraisal.scheduler import SchedulerConfig
 from cpm_appraisal.emotions.dimensions import ALL_DIMENSIONS
 from cpm_appraisal.emotions.prototypes import EMOTION_LABELS, load_prototypes
 from cpm_appraisal.llm import build_llm
-from cpm_appraisal.pipeline import run_one
+from cpm_appraisal.pipeline import appraise_scenario
 
 
 def test_dimension_and_emotion_counts():
@@ -15,7 +15,7 @@ def test_pipeline_runs_end_to_end():
     llm = build_llm("mock")
     protos = load_prototypes()
     for level in (1, 2, 3):
-        scenario, conv = run_one(llm, level, protos, SchedulerConfig(t_max=20))
+        scenario, conv = appraise_scenario(llm, level, protos, SchedulerConfig(t_max=20))
         assert len(scenario.events) == 1  # single sampled event
         assert len(conv.entropy_trace) >= 1
         # probabilities form a valid distribution

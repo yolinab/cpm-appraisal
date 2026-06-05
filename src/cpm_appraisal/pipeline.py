@@ -161,7 +161,7 @@ def run_appraisal_timeline_graph(
     return result["trajectory"]
 
 
-def run_one(
+def appraise_scenario(
     llm: LanguageModel,
     complexity_level: int,
     prototypes: dict[str, dict[str, float]],
