@@ -19,27 +19,7 @@ from cpm_appraisal.convergence import analyse_trajectory
 from cpm_appraisal.generation import PERSONA_SYSTEM, generate_scenario
 from cpm_appraisal.llm import build_llm, LanguageModel
 from cpm_appraisal.types import Scenario, ConvergencePoint
-
-
-def run_one(
-    llm: LanguageModel,
-    complexity_level: int,
-    prototypes: dict[str, dict[str, float]],
-    scheduler_config: SchedulerConfig | None = None,
-) -> tuple[Scenario, ConvergencePoint]:
-    scenario = generate_scenario(llm, complexity_level)
-
-    def run_check(sec, event_description, prior):
-        return run_sec(llm, sec, event_description, prior, PERSONA_SYSTEM)
-
-    trajectory = run_appraisal_timeline(
-        scenario.events, run_check, config=scheduler_config
-    )
-
-    result = analyse_trajectory(
-        scenario.scenario_id, complexity_level, trajectory, prototypes
-    )
-    return scenario, result
+from cpm_appraisal.pipeline import run_one
 
 
 def main() -> None:

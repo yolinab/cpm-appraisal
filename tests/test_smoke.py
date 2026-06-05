@@ -1,5 +1,5 @@
 """End-to-end smoke tests against the MockLLM. No keys, no network, no GPU."""
-from cpm_appraisal.appraisal.scheduler import SchedulerConfig
+from cpm_appraisal.scheduler import SchedulerConfig
 from cpm_appraisal.emotions.dimensions import ALL_DIMENSIONS
 from cpm_appraisal.emotions.prototypes import EMOTION_LABELS, load_prototypes
 from cpm_appraisal.llm import build_llm
@@ -28,3 +28,41 @@ def test_entropy_in_unit_range():
     protos = load_prototypes()
     h = entropy(appraisal_to_distribution({}, protos))
     assert 0.99 <= h <= 1.0001  # empty vector -> uniform -> max entropy
+
+
+def test_langgraph_matches_plain_loop():
+    from cpm_appraisal.generation import PERSONA_SYSTEM, generate_scenario
+    from cpm_appraisal.scheduler import run_appraisal_timeline
+    from cpm_appraisal.pipeline import run_appraisal_timeline_graph
+    from cpm_appraisal.secs import run_sec
+
+    llm = build_llm("mock")
+    scenario = generate_scenario(llm, 2)
+
+    def run_check(sec, desc, prior):
+        return run_sec(llm, sec, desc, prior, PERSONA_SYSTEM)
+
+    config = SchedulerConfig(t_max=20)
+    plain = run_appraisal_timeline(scenario.events, run_check, config=config)
+    graph = run_appraisal_timeline_graph(scenario.events, run_check, config=config)
+
+    assert len(plain) == len(graph)
+    assert [s.tau for s in plain] == [s.tau for s in graph]
+    assert [s.vector for s in plain] == [s.vector for s in graph]
+
+
+def test_langgraph_respects_budget():
+    from cpm_appraisal.generation import PERSONA_SYSTEM, generate_scenario
+    from cpm_appraisal.pipeline import run_appraisal_timeline_graph
+    from cpm_appraisal.secs import run_sec
+
+    llm = build_llm("mock")
+    scenario = generate_scenario(llm, 1)
+
+    def run_check(sec, desc, prior):
+        return run_sec(llm, sec, desc, prior, PERSONA_SYSTEM)
+
+    tight_config = SchedulerConfig(t_max=4, schematic_cost=1, conceptual_cost=3)
+    trajectory = run_appraisal_timeline_graph(scenario.events, run_check, config=tight_config)
+
+    assert all(s.tau <= tight_config.t_max for s in trajectory)

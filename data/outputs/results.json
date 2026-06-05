@@ -1,0 +1,212 @@
+[
+  {
+    "scenario": {
+      "scenario_id": "L1",
+      "complexity_level": 1,
+      "base_seed": "Two parents meet to discuss childcare arrangements for their young child.",
+      "narrative": "It is early evening in the apartment. Sara sits across the table. She slides a calendar toward me and points at the week ahead. Mia is on the floor with a picture book. Sara's voice is even as she lists the days. I tap the table and read down the column. The light from the window is going orange. (MOCK NARRATIVE)",
+      "events": [
+        {
+          "id": "e1",
+          "description": "mock event 1"
+        },
+        {
+          "id": "e2",
+          "description": "mock event 2"
+        },
+        {
+          "id": "e3",
+          "description": "mock event 3"
+        },
+        {
+          "id": "e4",
+          "description": "mock event 4"
+        },
+        {
+          "id": "e5",
+          "description": "mock event 5"
+        },
+        {
+          "id": "e6",
+          "description": "mock event 6"
+        }
+      ]
+    },
+    "convergence": {
+      "converged": true,
+      "converged_at_tau": 4,
+      "entropy_trace": [
+        0.4865468116869849,
+        0.4382123704028543,
+        0.42857720762952717,
+        0.4295030612332363,
+        0.5154949703155208,
+        0.4584914264258646,
+        0.45301886030230804,
+        0.5325777319793261,
+        0.4296269539022567,
+        0.42835363239093105,
+        0.4283206434973101,
+        0.42831786166525654,
+        0.42844719886765403,
+        0.6789820885626919,
+        0.4329083242672775,
+        0.4283463709866481,
+        0.4292593834286372,
+        0.5934328945265017,
+        0.5708711299902979,
+        0.4635138648752185
+      ],
+      "final_top2": [
+        [
+          "anger",
+          0.327333032400205
+        ],
+        [
+          "joy",
+          0.327333032400205
+        ]
+      ]
+    }
+  },
+  {
+    "scenario": {
+      "scenario_id": "L2",
+      "complexity_level": 2,
+      "base_seed": "Two parents meet to discuss childcare arrangements for their young child.",
+      "narrative": "It is early evening in the apartment. Sara sits across the table. She slides a calendar toward me and points at the week ahead. Mia is on the floor with a picture book. Sara's voice is even as she lists the days. I tap the table and read down the column. The light from the window is going orange. (MOCK NARRATIVE)",
+      "events": [
+        {
+          "id": "e1",
+          "description": "mock event 1"
+        },
+        {
+          "id": "e2",
+          "description": "mock event 2"
+        },
+        {
+          "id": "e3",
+          "description": "mock event 3"
+        },
+        {
+          "id": "e4",
+          "description": "mock event 4"
+        },
+        {
+          "id": "e5",
+          "description": "mock event 5"
+        },
+        {
+          "id": "e6",
+          "description": "mock event 6"
+        }
+      ]
+    },
+    "convergence": {
+      "converged": true,
+      "converged_at_tau": 4,
+      "entropy_trace": [
+        0.4865468116869849,
+        0.4382123704028543,
+        0.42857720762952717,
+        0.4295030612332363,
+        0.5154949703155208,
+        0.4584914264258646,
+        0.45301886030230804,
+        0.5325777319793261,
+        0.4296269539022567,
+        0.42835363239093105,
+        0.4283206434973101,
+        0.42831786166525654,
+        0.42844719886765403,
+        0.6789820885626919,
+        0.4329083242672775,
+        0.4283463709866481,
+        0.4292593834286372,
+        0.5934328945265017,
+        0.5708711299902979,
+        0.4635138648752185
+      ],
+      "final_top2": [
+        [
+          "anger",
+          0.327333032400205
+        ],
+        [
+          "joy",
+          0.327333032400205
+        ]
+      ]
+    }
+  },
+  {
+    "scenario": {
+      "scenario_id": "L3",
+      "complexity_level": 3,
+      "base_seed": "Two parents meet to discuss childcare arrangements for their young child.",
+      "narrative": "It is early evening in the apartment. Sara sits across the table. She slides a calendar toward me and points at the week ahead. Mia is on the floor with a picture book. Sara's voice is even as she lists the days. I tap the table and read down the column. The light from the window is going orange. (MOCK NARRATIVE)",
+      "events": [
+        {
+          "id": "e1",
+          "description": "mock event 1"
+        },
+        {
+          "id": "e2",
+          "description": "mock event 2"
+        },
+        {
+          "id": "e3",
+          "description": "mock event 3"
+        },
+        {
+          "id": "e4",
+          "description": "mock event 4"
+        },
+        {
+          "id": "e5",
+          "description": "mock event 5"
+        },
+        {
+          "id": "e6",
+          "description": "mock event 6"
+        }
+      ]
+    },
+    "convergence": {
+      "converged": true,
+      "converged_at_tau": 4,
+      "entropy_trace": [
+        0.4865468116869849,
+        0.4382123704028543,
+        0.42857720762952717,
+        0.4295030612332363,
+        0.5154949703155208,
+        0.4584914264258646,
+        0.45301886030230804,
+        0.5325777319793261,
+        0.4296269539022567,
+        0.42835363239093105,
+        0.4283206434973101,
+        0.42831786166525654,
+        0.42844719886765403,
+        0.6789820885626919,
+        0.4329083242672775,
+        0.4283463709866481,
+        0.4292593834286372,
+        0.5934328945265017,
+        0.5708711299902979,
+        0.4635138648752185
+      ],
+      "final_top2": [
+        [
+          "anger",
+          0.327333032400205
+        ],
+        [
+          "joy",
+          0.327333032400205
+        ]
+      ]
+    }
+  }
+]
