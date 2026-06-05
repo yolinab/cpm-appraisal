@@ -8,9 +8,10 @@ from __future__ import annotations
 
 import json
 
-from ..emotions.dimensions import DIMENSIONS_BY_SEC
-from ..llm import LanguageModel
-from ..types import AppraisalVector, SEC
+from .emotions.dimensions import DIMENSIONS_BY_SEC
+from .llm import LanguageModel
+from .types import AppraisalVector, SEC
+from .utils import extract_json
 
 
 def sec_prompt(sec: SEC, event_description: str, prior: AppraisalVector) -> str:
@@ -49,11 +50,7 @@ def run_sec(
 
 
 def _parse_ratings(raw: str) -> dict[str, float]:
-    raw = raw.strip()
-    start, end = raw.find("{"), raw.rfind("}")
-    if start != -1 and end != -1:
-        raw = raw[start : end + 1]
-    return {k: float(v) for k, v in json.loads(raw).items()}
+    return {k: float(v) for k, v in json.loads(extract_json(raw)).items()}
 
 
 def _clamp(v: float) -> float:

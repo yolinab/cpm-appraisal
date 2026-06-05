@@ -20,7 +20,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 
-from ..types import Event, ProcessingLevel, SEC
+from .types import Event, ProcessingLevel, SEC
 
 # Cue words that, if present in an event description, make a given check
 # conceptual (require deliberate reasoning). Extend as needed.

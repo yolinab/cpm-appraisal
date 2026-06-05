@@ -21,8 +21,11 @@ from __future__ import annotations
 import hashlib
 import json
 import random
+import re
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
+
+from .emotions.dimensions import ALL_DIMENSIONS
 
 
 @dataclass
@@ -82,13 +85,9 @@ class MockLLM(LanguageModel):
         return json.dumps(events)
 
     def _fake_appraisal(self, user: str) -> str:
-        import re
         rng = self._rng(user)
         # SEC prompts list each dimension as: - "dim_name": phrasing
-        names = re.findall(r'-\s*"([a-z_]+)":', user)
-        if not names:
-            from ..emotions.dimensions import ALL_DIMENSIONS
-            names = ALL_DIMENSIONS
+        names = re.findall(r'-\s*"([a-z_]+)":', user) or ALL_DIMENSIONS
         vec = {name: rng.randint(1, 5) for name in names}
         return json.dumps(vec)
 

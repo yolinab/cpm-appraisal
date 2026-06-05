@@ -25,7 +25,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Callable
 
-from ..types import AppraisalStep, AppraisalVector, Event, SEC
+from .types import AppraisalStep, AppraisalVector, Event, SEC
 from .levels import ProcessingLevelPolicy, default_policy
 
 # A check runner: (sec, event_description, prior_vector) -> ratings for that sec
@@ -71,10 +71,12 @@ def run_appraisal_timeline(
 
     for event in events:
         for sec in SEC.ordered():
+            # assign conceptual or schematic level processing to an event
             level = policy.level_for(event, sec)
             cost = (config.conceptual_cost if level.value == "conceptual"
                     else config.schematic_cost)
 
+            # TODO: cannot assume fixed times for conceptual/schematic processings
             if tau + cost > config.t_max:
                 return trajectory  # budget exhausted mid-process
 

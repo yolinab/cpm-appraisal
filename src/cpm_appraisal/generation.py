@@ -10,8 +10,9 @@ from __future__ import annotations
 
 import json
 
-from ..llm import LanguageModel
-from ..types import Event, Scenario
+from .llm import LanguageModel
+from .types import Event, Scenario
+from .utils import extract_json
 
 # The three base scenarios + appraisal-conflict structure, from the shared doc.
 COMPLEXITY_SITUATIONS: dict[int, str] = {
@@ -88,9 +89,4 @@ def generate_scenario(llm: LanguageModel, complexity_level: int) -> Scenario:
 
 
 def _parse_events(raw: str) -> list[dict]:
-    """Tolerant JSON-array extraction (LLMs sometimes wrap output in prose)."""
-    raw = raw.strip()
-    start, end = raw.find("["), raw.rfind("]")
-    if start != -1 and end != -1:
-        raw = raw[start : end + 1]
-    return json.loads(raw)
+    return json.loads(extract_json(raw, "[", "]"))

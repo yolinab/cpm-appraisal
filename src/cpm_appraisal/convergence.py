@@ -11,8 +11,8 @@ tau where the change stays below threshold for `patience` consecutive steps.
 """
 from __future__ import annotations
 
-from ..emotions.classify import appraisal_to_distribution, entropy
-from ..types import AppraisalStep, ConvergencePoint, EmotionDistribution
+from .emotions.classify import appraisal_to_distribution, entropy
+from .types import AppraisalStep, ConvergencePoint, EmotionDistribution
 
 
 def analyse_trajectory(
