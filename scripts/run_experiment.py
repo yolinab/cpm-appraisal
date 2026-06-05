@@ -12,14 +12,10 @@ import json
 from dataclasses import asdict
 from pathlib import Path
 
-from cpm_appraisal.scheduler import SchedulerConfig, run_appraisal_timeline
-from cpm_appraisal.secs import run_sec
 from cpm_appraisal.emotions.prototypes import load_prototypes
-from cpm_appraisal.convergence import analyse_trajectory
-from cpm_appraisal.generation import PERSONA_SYSTEM, generate_scenario
-from cpm_appraisal.llm import build_llm, LanguageModel
-from cpm_appraisal.types import Scenario, ConvergencePoint
+from cpm_appraisal.llm import build_llm
 from cpm_appraisal.pipeline import run_one
+from cpm_appraisal.scheduler import SchedulerConfig
 
 
 def main() -> None:
@@ -28,6 +24,7 @@ def main() -> None:
     p.add_argument("--model-id", default=None, help="HuggingFace model id or local path (local_transformers backend)")
     p.add_argument("--prototypes", default=None, help="path to prototype CSV/JSON")
     p.add_argument("--t-max", type=int, default=20)
+    p.add_argument("--seed", type=int, default=None, help="seed for reproducible event sampling")
     p.add_argument("--out", default="data/outputs/results.json")
     args = p.parse_args()
 
@@ -39,11 +36,13 @@ def main() -> None:
     config = SchedulerConfig(t_max=args.t_max)
 
     results = []
+    # for each complexity level
     for level in (1, 2, 3):
-        scenario, conv = run_one(llm, level, prototypes, config)
+        # run full pipeline using LangGraph
+        scenario, conv = run_one(llm, level, prototypes, config, seed=args.seed)
         top2 = conv.final_distribution.top(2)
         print(f"\n=== Complexity level {level} ===")
-        print(f"  events generated : {len(scenario.events)}")
+        print(f"  sampled event    : {scenario.events[0].id} — {scenario.events[0].description}")
         print(f"  trajectory length: {len(conv.entropy_trace)} steps")
         print(f"  converged        : {conv.converged} "
               f"(at tau={conv.converged_at_tau})")

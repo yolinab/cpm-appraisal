@@ -24,6 +24,17 @@ def analyse_trajectory(
     patience: int = 2,
     temperature: float = 1.0,
 ) -> ConvergencePoint:
+    """ 
+    Takes the list of AppraisalStep snapshots and turns it into a ConvergencePoint. For each 
+    AppraisalStep:
+    1) computes the Manhattan distance from the current appraisal vector to each of the 13 emotion prototypes,
+    2) applies softmin normalization (smaller distance = higher probability) to convert those distances into
+       a probability distribution over emotions
+    3) computes the Shannon entropy via entropy(dist) of that distribution
+
+    _first_stable finds the step where the appraisal converged. It returns a ConvergencePoint with the appraisal
+    step (tau) where it converged, the final distribution over emotions and the entropy trace.
+    """
     entropy_trace: list[float] = []
     dists: list[EmotionDistribution] = []
     for step in trajectory:

@@ -24,6 +24,7 @@ run_appraisal_timeline.
 """
 from __future__ import annotations
 
+import random
 from operator import add
 from typing import Annotated
 
@@ -165,16 +166,30 @@ def run_one(
     complexity_level: int,
     prototypes: dict[str, dict[str, float]],
     scheduler_config: SchedulerConfig | None = None,
+    seed: int | None = None,
 ) -> tuple[Scenario, ConvergencePoint]:
-    """Run the full pipeline for one complexity level using LangGraph."""
+    """Run the full pipeline for one complexity level using LangGraph.
+
+    Generates a narrative and full event timeline, then samples a single
+    event from it and runs all four SECs on that event only.
+    Pass `seed` for reproducible event sampling.
+    """
+    # generate scenario with events 
     scenario = generate_scenario(llm, complexity_level)
+
+    # sample a single event
+    rng = random.Random(seed)
+    sampled_event = rng.choice(scenario.events)
+    scenario.events = [sampled_event]
 
     def run_check(sec, event_description, prior):
         return run_sec(llm, sec, event_description, prior, PERSONA_SYSTEM)
 
+    # run appraisal pipeline
     trajectory = run_appraisal_timeline_graph(
         scenario.events, run_check, config=scheduler_config
     )
+    # find convergence point and final distribution
     result = analyse_trajectory(
         scenario.scenario_id, complexity_level, trajectory, prototypes
     )

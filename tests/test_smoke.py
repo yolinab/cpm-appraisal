@@ -16,7 +16,7 @@ def test_pipeline_runs_end_to_end():
     protos = load_prototypes()
     for level in (1, 2, 3):
         scenario, conv = run_one(llm, level, protos, SchedulerConfig(t_max=20))
-        assert 6 <= len(scenario.events) <= 12
+        assert len(scenario.events) == 1  # single sampled event
         assert len(conv.entropy_trace) >= 1
         # probabilities form a valid distribution
         total = sum(conv.final_distribution.probabilities.values())
