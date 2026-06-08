@@ -13,6 +13,10 @@ StateGraph. This enables two things the plain loop cannot do:
      and long DelftBlue runs survive job preemption — resume from the last
      completed SEC rather than restarting from scratch.
 
+Check costs come from config.cost_model (durations.py): schematic checks cost
+one step, conceptual checks cost a per-SEC number of steps derived from neural
+appraisal latencies, replacing the old flat 1:3 ratio.
+
 Usage:
 
     from cpm_appraisal.pipeline import run_appraisal_timeline_graph
@@ -81,12 +85,9 @@ def build_appraisal_graph(
         event = state["events"][event_index]
         sec = secs[sec_index]
 
+        # levels.py picks the mode; durations.py turns (sec, mode) into a step cost
         level = policy.level_for(event, sec)
-        cost = (
-            config.conceptual_cost
-            if level.value == "conceptual"
-            else config.schematic_cost
-        )
+        cost = config.cost_model.steps_for(sec, level)
 
         # guard: budget exhausted before this check can run
         if state["tau"] + cost > config.t_max:
@@ -174,7 +175,7 @@ def appraise_scenario(
     event from it and runs all four SECs on that event only.
     Pass `seed` for reproducible event sampling.
     """
-    # generate scenario with events 
+    # generate scenario with events
     scenario = generate_scenario(llm, complexity_level)
 
     # sample a single event

@@ -6,7 +6,11 @@ The scheduler orchestrates the appraisal process across multiple events and SECs
 
 Mechanics:
   - Each (event, SEC) pair is resolved at ONE processing LEVEL: schematic
-    (fast, 1 step) or conceptual (slow, 3 steps), assigned by levels.py.
+    (fast) or conceptual (slow), assigned by levels.py.
+  - The cost of a check, in appraisal steps, comes from the StepCostModel in
+    durations.py. Schematic checks cost one step; conceptual checks cost a
+    per-SEC number of steps grounded in the appraisal latencies reviewed by
+    Smith & Lane (2015), rather than a single flat schematic:conceptual ratio.
   - A global budget t_max (in steps) bounds processing; when spent, appraisal
     halts and the current emotion state is the outcome.
   - Every time a check COMPLETES we emit a snapshot of the whole appraisal
@@ -22,11 +26,12 @@ earlier ones) is OFF by default -- see SchedulerConfig.cross_event_coupling.
 """
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Callable
 
 from .types import AppraisalStep, AppraisalVector, Event, SEC
 from .levels import ProcessingLevelPolicy, default_policy
+from .durations import StepCostModel, default_cost_model
 
 # A check runner: (sec, event_description, prior_vector) -> ratings for that sec
 RunCheck = Callable[[SEC, str, AppraisalVector], AppraisalVector]
@@ -34,16 +39,19 @@ RunCheck = Callable[[SEC, str, AppraisalVector], AppraisalVector]
 
 @dataclass
 class SchedulerConfig:
-    t_max: int = 20          # budget in appraisal steps (report: 10s / dt=0.5s)
-    schematic_cost: int = 1  # steps a schematic check occupies
-    conceptual_cost: int = 3 # steps a conceptual check occupies
+    # Budget in appraisal steps. At dt = 0.1 s, 100 steps = 10 s (report budget).
+    t_max: int = 100
+
+    # Per-(SEC, level) step costs, derived from neural appraisal latencies.
+    # Replaces the old flat schematic_cost=1 / conceptual_cost=3 ratio.
+    cost_model: StepCostModel = field(default_factory=default_cost_model)
 
     # The "DECISION" box from the shared-clock diagram (Fig. 2 in the readme)
     # should the running appraisal state loop back and bias events still being
     # processed (cross-event coupling / "background loop")?
     #
     # OFF (default): events accumulate sequentially into the shared vector; no
-    #   later event retroactively re-biases an earlier one. 
+    #   later event retroactively re-biases an earlier one.
     # ON: would require cyclical re-evaluation (LangGraph loops) and a
     #   convergence guarantee we don't have time to validate. Leave for future
     #   work. NOT implemented yet -- setting this True currently does nothing.
@@ -71,12 +79,11 @@ def run_appraisal_timeline(
 
     for event in events:
         for sec in SEC.ordered():
-            # assign conceptual or schematic level processing to an event
+            # levels.py picks the mode (schematic/conceptual) from event content;
+            # durations.py turns (sec, mode) into a cost in appraisal steps.
             level = policy.level_for(event, sec)
-            cost = (config.conceptual_cost if level.value == "conceptual"
-                    else config.schematic_cost)
+            cost = config.cost_model.steps_for(sec, level)
 
-            # TODO: cannot assume fixed times for conceptual/schematic processings
             if tau + cost > config.t_max:
                 return trajectory  # budget exhausted mid-process
 
