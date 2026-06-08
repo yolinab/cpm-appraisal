@@ -14,17 +14,21 @@ from .llm import LanguageModel
 from .types import Event, Scenario
 from .utils import extract_json
 
-# The three base scenarios + appraisal-conflict structure, from the shared doc.
+# The three levels of complexity defined as a dual construct:
+# objective situational shifts + subjective friction experienced during appraisal.
 COMPLEXITY_SITUATIONS: dict[int, str] = {
-    1: ("Alex and Sara are together and on good terms. They calmly settle which "
-        "of them collects Mia from nursery each day next week. Goals are aligned; "
-        "no disagreement. Every appraisal admits a clean, uncontested answer."),
-    2: ("Alex and Sara are together but face a trade-off: one of them must reduce "
-        "work to care for Mia. Implication is contested (good for Mia, bad for a "
-        "career) and coping is contested (control depends on what Sara will do)."),
-    3: ("Alex and Sara are divorced. Alex returns to the old apartment; the talk "
-        "becomes an accusation that he has failed as a father. Mia is present and "
-        "distressed. All four checks are contested."),
+    1: ("Low Complexity: Two parents calmly discussing child collection logistics. "
+        "This is driven by an isolated change in exactly 1 situational dimension (Object: the schedule). "
+        "Because the objective shift is minimal and their goals are aligned, the SECs remain mostly mutually consistent, "
+        "resulting in 0 to 1 conflicting checks that admit clean answers without internal friction."),
+    2: ("Medium Complexity: Two parents discussing which parent must reduce work hours. "
+        "This is caused by simultaneous changes across 2 to 3 situational dimensions (Goal and Object). "
+        "This overlapping objective load introduces moderate subjective friction, predictably resulting in exactly 2 contested SECs "
+        "(Implication and Coping Potential), as the outcome is incongruent with career goals and depends on the other person."),
+    3: ("High Complexity: A heated argument between divorced parents in front of their child. "
+        "This is triggered by massive situational shifts across 4 to 5 dimensions (Character, Goal, Setting, and Causality). "
+        "This severe operational load triggers deep appraisal friction, resulting in 3 to 4 contested SECs. "
+        "The agent must resolve heavy relevance and normative significance loads, severely burdening coping potential and social judgment, requiring maximum processing time."),
 }
 
 BASE_SEED = "Two parents meet to discuss childcare arrangements for their young child."
@@ -38,6 +42,8 @@ told in the first person from Alex's point of view.
 BASE SCENARIO: {BASE_SEED}
 SITUATION (complexity level {complexity_level}): {situation}
 
+Note: Complexity in this scenario is a dual construct, combining the objective situational shifts of the event with the subjective friction experienced during appraisal. Ensure the narrative actions implicitly reflect this specific level of complexity.
+
 REQUIRED ELEMENTS: who is present (Alex 35, Sara 34, Mia 4), where and when
 (a residential apartment; specify time of day), concrete observable actions and
 speech, and sensory/relational detail.
@@ -49,17 +55,16 @@ Return only the narrative text."""
 
 def timeline_prompt(narrative: str) -> str:
     return f'''Decompose the following first-person narrative into an ordered
-sequence of discrete events as perceived by Alex.
+sequence of discrete events as perceived by Alex, utilizing Event Segmentation Theory (EST).
 
 NARRATIVE:
 """
 {narrative}
 """
 
-An event is a single atomic occurrence (one action, one expression change, one
-utterance, one thing Alex notices) that can be appraised on its own. Keep
-chronological order. Produce between 6 and 12 events. Describe observable
-happenings only; do NOT name emotions.
+Under Event Segmentation Theory (EST), baseline operational complexity is quantified objectively. An event boundary occurs when there are shifts across situational dimensions (such as character, setting, object, or goal). 
+Segment the narrative into discrete, atomic occurrences strictly based on these objective situational shifts. 
+Keep chronological order. Produce between 6 and 12 events. Describe observable happenings only; do NOT name emotions.
 
 Return ONLY a JSON array of objects with keys "id" and "description":
 [{{"id": "e1", "description": "..."}}]'''
