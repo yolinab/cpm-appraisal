@@ -166,6 +166,7 @@ def appraise_scenario(
     llm: LanguageModel,
     complexity_level: int,
     prototypes: dict[str, dict[str, float]],
+    weights: dict[str, float] | None = None,
     scheduler_config: SchedulerConfig | None = None,
     seed: int | None = None,
 ) -> tuple[Scenario, ConvergencePoint]:
@@ -192,6 +193,10 @@ def appraise_scenario(
     )
     # find convergence point and final distribution
     result = analyse_trajectory(
-        scenario.scenario_id, complexity_level, trajectory, prototypes
+        scenario.scenario_id,
+        complexity_level,
+        trajectory,
+        prototypes,
+        weights=weights,
     )
     return scenario, result

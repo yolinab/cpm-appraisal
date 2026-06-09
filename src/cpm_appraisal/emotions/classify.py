@@ -16,9 +16,14 @@ from ..types import AppraisalVector, EmotionDistribution
 from .prototypes import EMOTION_LABELS
 
 
-def manhattan(vec: AppraisalVector, proto: dict[str, float]) -> float:
-    """L1 distance over the dimensions PRESENT in `vec` only."""
-    return sum(abs(vec[d] - proto[d]) for d in vec)
+def manhattan(
+    vec: AppraisalVector, proto: dict[str, float], weights: dict[str, float] | None = None
+) -> float:
+    """Weighted L1 distance over the dimensions PRESENT in `vec` only."""
+    if weights is None:
+        return sum(abs(vec[d] - proto[d]) for d in vec)
+
+    return sum(abs(weights[d] * vec[d] - proto[d]) for d in vec)
 
 
 def distances_to_distribution(
@@ -39,14 +44,16 @@ def distances_to_distribution(
 def appraisal_to_distribution(
     vec: AppraisalVector,
     prototypes: dict[str, dict[str, float]],
+    weights: dict[str, float] | None = None,
     temperature: float = 1.0,
 ) -> EmotionDistribution:
     if not vec:
         # nothing processed yet -> uniform distribution (maximum uncertainty)
         u = 1.0 / len(EMOTION_LABELS)
         return EmotionDistribution({e: u for e in EMOTION_LABELS})
-    distances = {e: manhattan(vec, prototypes[e]) for e in prototypes}
+    distances = {e: manhattan(vec, prototypes[e], weights) for e in prototypes}
     return distances_to_distribution(distances, temperature)
+
 
 
 def entropy(dist: EmotionDistribution, normalise: bool = True) -> float:

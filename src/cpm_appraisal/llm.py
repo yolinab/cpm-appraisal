@@ -119,6 +119,16 @@ class LocalTransformersLLM(LanguageModel):
 
         self.max_new_tokens = max_new_tokens
         self.tokenizer = AutoTokenizer.from_pretrained(model_id)
+        if self.tokenizer.chat_template is None:
+            # Fallback for base models: simple ChatML-like format
+            self.tokenizer.chat_template = (
+                "{% for message in messages %}"
+                "{{ '<|' + message['role'] + '|>\\n' + message['content'] + '<|im_end|>\\n' }}"
+                "{% endfor %}"
+                "{% if add_generation_prompt %}"
+                "{{ '<|assistant|>\\n' }}"
+                "{% endif %}"
+            )
         self.model = AutoModelForCausalLM.from_pretrained(
             model_id, torch_dtype=torch.bfloat16, device_map="auto"
         )

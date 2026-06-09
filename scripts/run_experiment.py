@@ -12,7 +12,7 @@ import json
 from dataclasses import asdict
 from pathlib import Path
 
-from cpm_appraisal.emotions.prototypes import load_prototypes
+from cpm_appraisal.emotions.prototypes import load_prototypes, load_weights
 from cpm_appraisal.llm import build_llm
 from cpm_appraisal.pipeline import appraise_scenario
 from cpm_appraisal.scheduler import SchedulerConfig
@@ -22,7 +22,8 @@ def main() -> None:
     p = argparse.ArgumentParser()
     p.add_argument("--backend", default="mock")
     p.add_argument("--model-id", default=None, help="HuggingFace model id or local path (local_transformers backend)")
-    p.add_argument("--prototypes", default=None, help="path to prototype CSV/JSON")
+    p.add_argument("--prototypes", default="data/prototypes/prototypes.json", help="path to prototype CSV/JSON")
+    p.add_argument("--weights", default="data/prototypes/weights.json", help="path to weights CSV/JSON")
     p.add_argument("--t-max", type=int, default=20)
     p.add_argument("--seed", type=int, default=None, help="seed for reproducible event sampling")
     p.add_argument("--out", default="data/outputs/results.json")
@@ -33,13 +34,16 @@ def main() -> None:
         llm_kwargs["model_id"] = args.model_id
     llm = build_llm(args.backend, **llm_kwargs)
     prototypes = load_prototypes(args.prototypes)
+    weights = load_weights(args.weights)
     config = SchedulerConfig(t_max=args.t_max)
 
     results = []
     # for each complexity level
     for level in (1, 2, 3):
         # run full pipeline using LangGraph
-        scenario, conv = appraise_scenario(llm, level, prototypes, config, seed=args.seed)
+        scenario, conv = appraise_scenario(
+            llm, level, prototypes, weights=weights, scheduler_config=config, seed=args.seed
+        )
         top2 = conv.final_distribution.top(2)
         print(f"\n=== Complexity level {level} ===")
         print(f"  sampled event    : {scenario.events[0].id} — {scenario.events[0].description}")

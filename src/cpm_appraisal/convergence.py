@@ -20,6 +20,7 @@ def analyse_trajectory(
     complexity_level: int,
     trajectory: list[AppraisalStep],
     prototypes: dict[str, dict[str, float]],
+    weights: dict[str, float] | None = None,
     threshold: float = 0.02,
     patience: int = 2,
     temperature: float = 1.0,
@@ -38,13 +39,15 @@ def analyse_trajectory(
     entropy_trace: list[float] = []
     dists: list[EmotionDistribution] = []
     for step in trajectory:
-        dist = appraisal_to_distribution(step.vector, prototypes, temperature)
+        dist = appraisal_to_distribution(
+            step.vector, prototypes, weights=weights, temperature=temperature
+        )
         dists.append(dist)
         entropy_trace.append(entropy(dist))
 
     converged_at = _first_stable(entropy_trace, threshold, patience)
 
-    final = dists[-1] if dists else appraisal_to_distribution({}, prototypes)
+    final = dists[-1] if dists else appraisal_to_distribution({}, prototypes, weights=weights)
     return ConvergencePoint(
         scenario_id=scenario_id,
         complexity_level=complexity_level,

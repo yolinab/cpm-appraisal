@@ -19,8 +19,8 @@ from pathlib import Path
 from .dimensions import ALL_DIMENSIONS
 
 EMOTION_LABELS: list[str] = [
-    "anger", "boredom", "disgust", "fear", "guilt", "joy", "no_emotion",
-    "pride", "relief", "sadness", "shame", "surprise", "trust",
+    "Sadness", "Joy", "Rage", "Anxiety", "Fear", "Irritation", "Shame",
+    "Guilt", "Contempt", "Disgust", "Pleasure", "Despair", "Pride"
 ]
 
 
@@ -38,6 +38,28 @@ def _placeholder_prototypes() -> dict[str, dict[str, float]]:
             vec[dim] = float(((i * 7 + j * 3) % 5) + 1)
         protos[label] = vec
     return protos
+
+
+def _default_weights() -> dict[str, float]:
+    """Uniform weights (1.0) for all dimensions."""
+    return {dim: 1.0 for dim in ALL_DIMENSIONS}
+
+
+def load_weights(path: str | Path | None = None) -> dict[str, float]:
+    """Load dimension weights from a JSON file, else uniform 1.0."""
+    if path is None:
+        return _default_weights()
+    path = Path(path)
+    if path.suffix == ".json":
+        data = json.loads(path.read_text())
+        return {k: float(v) for k, v in data.items()}
+    # Optional: support CSV if needed, but JSON is simpler for a flat dict
+    weights = {}
+    with path.open() as f:
+        for row in csv.DictReader(f):
+            # assume CSV has columns: dimension, weight
+            weights[row["dimension"]] = float(row["weight"])
+    return weights
 
 
 def load_prototypes(path: str | Path | None = None) -> dict[str, dict[str, float]]:

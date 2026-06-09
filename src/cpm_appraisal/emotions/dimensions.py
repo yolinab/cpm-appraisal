@@ -10,36 +10,38 @@ from ..types import SEC
 # dimension name -> human-readable prompt phrasing (used when building SEC prompts)
 DIMENSIONS_BY_SEC: dict[SEC, dict[str, str]] = {
     SEC.RELEVANCE: {
-        "unpleasantness": "The event was unpleasant.",
-        "suddenness": "The event was sudden or abrupt.",
-        "predictability": "I could have predicted that this event would occur.",
-        "familiarity": "The event was familiar.",
-        "goal_importance": "I expected the event to have important consequences for me.",
+        "Pleas": "Was this event pleasent?",
+        "Unpleas": "Was this event unpleasant?",
+        "Sudden": "The event happened very suddenly and abruptly?",
+        "Predict": "You could have predicted the occurrence of the event?",
+        "Famil": "You are familiar with this type of event?",
+        "Impcons": "The event would have very important consequences for you?"
     },
     SEC.IMPLICATION: {
-        "agency_chance": "The event was caused by chance or circumstances.",
-        "agency_self": "The event was caused by my own behaviour.",
-        "intent_self": "I caused the event on purpose.",
-        "agency_other": "The event was caused by someone else's behaviour.",
-        "intent_other": "Someone else caused the event on purpose.",
-        "conseq_known": "I understood what the consequences of the event would be.",
-        "conseq_expected": "The consequences were expected.",
-        "conseq_near_future": "The event had consequences for my near future.",
-        "conseq_far_future": "The event had consequences for my distant future.",
-        "goal_conducive": "The event was good for my goals.",
-        "goal_obstructive": "The event obstructed my goals.",
-        "injustice": "The event was unfair.",
-        "urgency": "The event required an immediate response.",
+        "Chance": "Chance, special circumstances, or natural forces?",
+        "Ownbehav": "Your own behavior?",
+        "Intent": "— If so, did you cause the event intentionally?",
+        "Othbehav": "The behavior of one or more other person(s)?",
+        "Othint": "— If so, did (this) these other person(s) cause the event intentionally?",
+        "Consfelt": "At the time of experiencing the emotion, did you think that real or potential consequences of the event… had already been felt by you or were completely predictable?",
+        "Consexp": "At the time of experiencing the emotion, did you think that real or potential consequences of the event… had been expected to occur at that time and in that specific form?",
+        "Conearfu": "At the time of experiencing the emotion, did you think that real or potential consequences of the event… could be clearly envisaged and might occur in the near future with a fairly high probability?",
+        "Cofarfu": "At the time of experiencing the emotion, did you think that real or potential consequences of the event… were somewhat unpredictable but might occur in the distant future (with uncertain probability)?",
+        "Posoutc": "At the time of experiencing the emotion, did you think that real or potential consequences of the event… did or would bring about positive, desirable outcomes for you (e.g., helping you to reach a goal, giving pleasure, or terminating an unpleasant situation)?",
+        "Negoutc": "At the time of experiencing the emotion, did you think that real or potential consequences of the event… did or would bring about negative, undesirable outcomes for you (e.g., preventing you from reaching a goal or satisfying a need, resulting in bodily harm, or producing unpleasant feelings)?",
+        "Unjust": "At the time of experiencing the emotion, did you think that real or potential consequences of the event… were or would be unjust or unfair?",
+        "Urgact": "That it was urgent to act immediately?"
     },
     SEC.COPING: {
-        "avoidability": "The outcome could have been avoided.",
-        "power": "I had the power to deal with the event.",
-        "adjustment": "I could live with the consequences of the event.",
+        "Avoidabl": "At the time of experiencing the emotion, did you think that real or potential consequences of the event… could have been or could still be avoided or modified by appropriate human action?",
+        "Modifcon": "That you would be able to avoid the consequences or modify them to your advantage (through your own power or helped by others)?",
+        "Adjustcon": "That you could live with, and adjust to, the consequences of the event that could not possibly be avoided or modified?"
     },
     SEC.NORMATIVE: {
-        "moral_acceptability": "My behaviour was morally acceptable.",
-        "norm_violation": "The event violated laws or socially accepted norms.",
-    },
+        "Moralacc": "The actions that produced the event were morally and ethically acceptable?",
+        "Violnorm": "The actions that produced the event violated laws or social norms?",
+        "Consimag": "— If so, was your behavior consistent with the image you have of yourself?"
+    }
 }
 
 # Flat ordered list of all 25 dimension names. The ORDER here defines the
@@ -62,7 +64,7 @@ def dimensions_completed(completed_secs: list[SEC]) -> list[str]:
             if any(d in DIMENSIONS_FOR_SEC[s] for s in done)]
 
 
-EXPECTED_DIMENSION_COUNT = 23
+EXPECTED_DIMENSION_COUNT = 25 
 assert len(ALL_DIMENSIONS) == EXPECTED_DIMENSION_COUNT, (
     f"expected {EXPECTED_DIMENSION_COUNT} dims, got {len(ALL_DIMENSIONS)}"
 )
