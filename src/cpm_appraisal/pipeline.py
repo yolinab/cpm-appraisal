@@ -69,7 +69,6 @@ def build_appraisal_graph(
         from langgraph.checkpoint.memory import MemorySaver
         app = build_appraisal_graph(run_check, checkpointer=MemorySaver())
     """
-    policy = policy or default_policy()
     config = config or SchedulerConfig()
     secs = SEC.ordered()
 
@@ -111,6 +110,9 @@ def build_appraisal_graph(
                 tau=new_tau,
                 completed_secs=new_completed,
                 vector=dict(new_vector),
+                sec=sec,
+                latency_ms=latency_ms,
+                step_cost=cost,
             )],
             "tau": new_tau,
             "event_index": new_event_index,
@@ -164,34 +166,29 @@ def appraise_scenario(
     weights: dict[str, float] | None = None,
     scheduler_config: SchedulerConfig | None = None,
     seed: int | None = None,
-) -> tuple[Scenario, ConvergencePoint]:
-    """Run the full pipeline for one complexity level using LangGraph.
+    temperature: float = 1.0,
+) -> tuple[Scenario, list[AppraisalStep], ConvergencePoint]:
+    """Run the full pipeline for one complexity level.
 
-    Generates a narrative and full event timeline, then samples a single
-    event from it and runs all four SECs on that event only.
-    Pass `seed` for reproducible event sampling.
+    Returns the scenario, the appraisal trajectory (needed for the enriched run
+    record), and the ConvergencePoint.
     """
-    # generate scenario with events
     scenario = generate_scenario(llm, complexity_level)
 
-    # sample a single event
+    # sample one event
     rng = random.Random(seed)
     sampled_event = rng.choice(scenario.events)
     scenario.events = [sampled_event]
 
-    def run_check(sec, event_description, prior) -> tuple[AppraisalVector, float]:
+    def run_check(sec, event_description, prior):
         return run_sec(llm, sec, event_description, prior, PERSONA_SYSTEM)
 
-    # run appraisal pipeline
     trajectory = run_appraisal_timeline_graph(
         scenario.events, run_check, config=scheduler_config
     )
-    # find convergence point and final distribution
     result = analyse_trajectory(
-        scenario.scenario_id,
-        complexity_level,
-        trajectory,
-        prototypes,
-        weights=weights,
+        scenario.scenario_id, complexity_level, trajectory,
+        prototypes, weights=weights, temperature=temperature,
     )
-    return scenario, result
+    return scenario, trajectory, result
+

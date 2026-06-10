@@ -68,7 +68,7 @@ def run_appraisal_timeline(
     Returns one AppraisalStep per COMPLETED check (a trajectory snapshot),
     until the budget t_max is spent or all events are fully appraised.
     """
-    policy = policy or default_policy()
+    policy = policy
     config = config or SchedulerConfig()
 
     running_vector: AppraisalVector = {}
@@ -95,6 +95,9 @@ def run_appraisal_timeline(
                     tau=tau,
                     completed_secs=list(completed_secs),
                     vector=dict(running_vector),
+                    sec=sec,
+                    latency_ms=latency_ms,
+                    step_cost=cost,
                 )
             )
 

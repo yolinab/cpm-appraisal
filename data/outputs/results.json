@@ -4,101 +4,518 @@
       "scenario_id": "L1",
       "complexity_level": 1,
       "base_seed": "Two parents meet to discuss childcare arrangements for their young child.",
-      "narrative": "The late afternoon light filters through the floor-to-ceiling windows of our living room, casting long, amber shadows across the hardwood. It is 5:15 PM. Mia is occupied on the rug, methodically lining up her wooden blocks into a fortress, completely absorbed in the quiet industry of her play. Sara sits across from me at the dining table, her laptop pushed to the side, a paper calendar spread open between us. \n\nI set my phone down, the screen dark, and rest my forearms on the tabletop. The atmosphere is steady and measured. I point to the Tuesday box on the calendar where I\u00e2\u20ac\u2122ve penciled in a slight adjustment. My project meeting next week has shifted by forty-five minutes, which means I will be the one arriving at the daycare center at 4:30 PM instead of 3:45 PM.\n\n\"I\u00e2\u20ac\u2122ve cleared the block,\" I say, my voice steady. \"I\u00e2\u20ac\u2122ll handle the pickup on Tuesday, and I\u00e2\u20ac\u2122ll have her home by five. That keeps the transition consistent for her.\"\n\nSara nods once, her eyes scanning the updated schedule before she circles the date with a pen. \"That works. I\u00e2\u20ac\u2122ll shift my administrative block to the morning so I\u00e2\u20ac\u2122m free to handle the Wednesday drop-off as usual. It keeps our flow undisturbed.\"\n\nI acknowledge the adjustment, noting the efficiency of the arrangement. We both understand the importance of predictability for Mia\u00e2\u20ac\u2122s routine. I look over at our daughter, who is currently focused on balancing a small blue block on the apex of her wall. She is settled and content, oblivious to the brief logistics exchange, which is exactly how it should be.\n\nI stand up, smoothing the front of my shirt, and walk toward the kitchen to start the water for dinner. The sequence of the evening remains intact, grounded by the clear division of labor we\u00e2\u20ac\u2122ve established. Sara closes the calendar and gathers her things, the movement fluid and rhythmic. There is nothing further to discuss; the plan is set, the transition is accounted for, and the household remains in balance. I reach for the cutting board, the rhythm of the evening continuing without friction.",
-      "events": [
+      "narrative": "It is early evening in the apartment. Sara sits across the table. She slides a calendar toward me and points at the week ahead. Mia is on the floor with a picture book. Sara's voice is even as she lists the days. I tap the table and read down the column. The light from the window is going orange. (MOCK NARRATIVE)",
+      "event": {
+        "id": "e2",
+        "description": "mock event 2"
+      }
+    },
+    "timing": {
+      "total_tau": 19,
+      "total_ms": 1907.0,
+      "budget_exhausted": false,
+      "per_sec": [
         {
-          "id": "e6",
-          "description": "The narrator observes Mia balancing a blue block on the wall of her fortress."
+          "sec": "relevance",
+          "latency_ms": 173.0,
+          "step_cost": 2,
+          "cumulative_tau": 2
+        },
+        {
+          "sec": "implication",
+          "latency_ms": 606.0,
+          "step_cost": 6,
+          "cumulative_tau": 8
+        },
+        {
+          "sec": "coping",
+          "latency_ms": 613.0,
+          "step_cost": 6,
+          "cumulative_tau": 14
+        },
+        {
+          "sec": "normative",
+          "latency_ms": 515.0,
+          "step_cost": 5,
+          "cumulative_tau": 19
         }
       ]
     },
     "convergence": {
       "converged": true,
-      "converged_at_tau": 3,
-      "entropy_trace": [
-        0.9927138065760538,
-        0.9909835654672985,
-        0.9916701250914975,
-        0.9920820481012268
-      ],
-      "final_top2": [
-        [
-          "Pride",
-          0.10368031897330017
+      "converged_at_step": 0,
+      "converged_at_tau": 2,
+      "converged_before_completion": true,
+      "steps_total": 4,
+      "fraction_processed_before_convergence": 0.10526315789473684,
+      "criterion": {
+        "measure": "js_consecutive",
+        "threshold": 0.01
+      },
+      "final_entropy": 0.99397952851938,
+      "final_entropy_bits": 3.6781613263522703,
+      "initial_div_from_final": 0.006956835803417707,
+      "max_div_from_final": 0.006956835803417707
+    },
+    "trajectory": [
+      {
+        "step": 0,
+        "tau": 2,
+        "sec_completed": "relevance",
+        "completed_secs": [
+          "relevance"
         ],
-        [
-          "Disgust",
-          0.10278158969670091
+        "latency_ms": 173.0,
+        "step_cost": 2,
+        "entropy": 0.9840502183500031,
+        "entropy_bits": 3.6414185126277654,
+        "js_from_prev": null,
+        "js_from_final": 0.006956835803417707,
+        "top": [
+          [
+            "Irritation",
+            0.11886793304923186
+          ],
+          [
+            "Pleasure",
+            0.10448477990136094
+          ]
         ]
+      },
+      {
+        "step": 1,
+        "tau": 8,
+        "sec_completed": "implication",
+        "completed_secs": [
+          "relevance",
+          "implication"
+        ],
+        "latency_ms": 606.0,
+        "step_cost": 6,
+        "entropy": 0.996790927602104,
+        "entropy_bits": 3.6885647391815275,
+        "js_from_prev": 0.007857734358654566,
+        "js_from_final": 0.0022381143596522544,
+        "top": [
+          [
+            "Shame",
+            0.09170969785322637
+          ],
+          [
+            "Irritation",
+            0.09152253700631183
+          ]
+        ]
+      },
+      {
+        "step": 2,
+        "tau": 14,
+        "sec_completed": "coping",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping"
+        ],
+        "latency_ms": 613.0,
+        "step_cost": 6,
+        "entropy": 0.9955102645690229,
+        "entropy_bits": 3.683825722828359,
+        "js_from_prev": 0.0010643549667613272,
+        "js_from_final": 0.000707677073497543,
+        "top": [
+          [
+            "Disgust",
+            0.0938103587258136
+          ],
+          [
+            "Shame",
+            0.09370007179078672
+          ]
+        ]
+      },
+      {
+        "step": 3,
+        "tau": 19,
+        "sec_completed": "normative",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping",
+          "normative"
+        ],
+        "latency_ms": 515.0,
+        "step_cost": 5,
+        "entropy": 0.99397952851938,
+        "entropy_bits": 3.6781613263522703,
+        "js_from_prev": 0.000707677073497543,
+        "js_from_final": 0.0,
+        "top": [
+          [
+            "Disgust",
+            0.10184622377251545
+          ],
+          [
+            "Irritation",
+            0.09680678392350285
+          ]
+        ]
+      }
+    ],
+    "final_distribution": [
+      [
+        "Disgust",
+        0.10184622377251545
+      ],
+      [
+        "Irritation",
+        0.09680678392350285
       ]
-    }
+    ]
   },
   {
     "scenario": {
       "scenario_id": "L2",
       "complexity_level": 2,
       "base_seed": "Two parents meet to discuss childcare arrangements for their young child.",
-      "narrative": "The kitchen island serves as the staging ground for the evening. It is 7:15 PM, and the floor is scattered with wooden blocks where Mia is methodically constructing a tower. Across from me, Sara sits with her laptop open, the blue light catching the edges of her organized spreadsheets. I lean against the counter, my arms crossed, watching the cursor blink on her screen while the cooling scent of leftover pasta lingers in the air. \n\nThe proposal sits between us: the new project leads at my firm require an increased physical presence, coinciding precisely with the restructuring of Sara\u00e2\u20ac\u2122s department that demands her full-time oversight. We are both operating at maximum capacity, and the current childcare schedule no longer accommodates the combined trajectory of our professional obligations.\n\nI slide a printed calendar toward the center of the granite surface, tapping the highlighted blocks of time that represent Mia\u00e2\u20ac\u2122s after-school coverage. \"The shift in my firm\u00e2\u20ac\u2122s requirements necessitates a recalibration of these hours,\" I state, keeping my voice level. I pull out a chair and sit, my posture deliberate, grounding the space. \"If I assume the morning drop-offs, the structural integrity of your midday availability collapses. We are looking at a direct conflict in our professional mobility.\"\n\nSara does not look up immediately. She traces the lines of the calendar with a pen, her movements precise. She mentions the promotion track she has secured, noting that a reduction in her hours now would effectively dismantle the infrastructure she spent two years building. I observe the weight of her words, measuring them against the firm commitment I have to the upcoming firm merger. Every minute we carve out for Mia requires a corresponding subtraction from our career objectives; the trade-off is mathematically rigid. \n\nI rest my palms flat on the table, maintaining steady eye contact. I point to the Tuesday and Thursday slots. \"If you retain your current schedule, my contribution to the firm becomes untenable. Conversely, if I prioritize the firm's requirements, your ability to meet your department\u00e2\u20ac\u2122s mandate vanishes.\" I wait, observing the rhythmic tapping of Mia\u00e2\u20ac\u2122s blocks against the hardwood, the sound underscoring the silence as we appraise the variables of our own agency against the reality of the clock.",
-      "events": [
+      "narrative": "It is early evening in the apartment. Sara sits across the table. She slides a calendar toward me and points at the week ahead. Mia is on the floor with a picture book. Sara's voice is even as she lists the days. I tap the table and read down the column. The light from the window is going orange. (MOCK NARRATIVE)",
+      "event": {
+        "id": "e3",
+        "description": "mock event 3"
+      }
+    },
+    "timing": {
+      "total_tau": 22,
+      "total_ms": 2220.0,
+      "budget_exhausted": false,
+      "per_sec": [
         {
-          "id": "e5",
-          "description": "Sara traces the lines on the calendar with a pen while maintaining her gaze on the document."
+          "sec": "relevance",
+          "latency_ms": 117.0,
+          "step_cost": 1,
+          "cumulative_tau": 1
+        },
+        {
+          "sec": "implication",
+          "latency_ms": 684.0,
+          "step_cost": 7,
+          "cumulative_tau": 8
+        },
+        {
+          "sec": "coping",
+          "latency_ms": 741.0,
+          "step_cost": 7,
+          "cumulative_tau": 15
+        },
+        {
+          "sec": "normative",
+          "latency_ms": 678.0,
+          "step_cost": 7,
+          "cumulative_tau": 22
         }
       ]
     },
     "convergence": {
       "converged": true,
-      "converged_at_tau": 3,
-      "entropy_trace": [
-        0.9765107374873551,
-        0.9921415693859994,
-        0.994022993906484,
-        0.9931139030114283
-      ],
-      "final_top2": [
-        [
-          "Disgust",
-          0.10213449468631579
+      "converged_at_step": 0,
+      "converged_at_tau": 1,
+      "converged_before_completion": true,
+      "steps_total": 4,
+      "fraction_processed_before_convergence": 0.045454545454545456,
+      "criterion": {
+        "measure": "js_consecutive",
+        "threshold": 0.01
+      },
+      "final_entropy": 0.9944935423813792,
+      "final_entropy_bits": 3.680063403662887,
+      "initial_div_from_final": 0.017717171531633977,
+      "max_div_from_final": 0.017717171531633977
+    },
+    "trajectory": [
+      {
+        "step": 0,
+        "tau": 1,
+        "sec_completed": "relevance",
+        "completed_secs": [
+          "relevance"
         ],
-        [
-          "Contempt",
-          0.09632076319097171
+        "latency_ms": 117.0,
+        "step_cost": 1,
+        "entropy": 0.991976747823459,
+        "entropy_bits": 3.670750157118358,
+        "js_from_prev": null,
+        "js_from_final": 0.017717171531633977,
+        "top": [
+          [
+            "Contempt",
+            0.10664890594758397
+          ],
+          [
+            "Disgust",
+            0.10192791612560488
+          ]
         ]
+      },
+      {
+        "step": 1,
+        "tau": 8,
+        "sec_completed": "implication",
+        "completed_secs": [
+          "relevance",
+          "implication"
+        ],
+        "latency_ms": 684.0,
+        "step_cost": 7,
+        "entropy": 0.9966124580733621,
+        "entropy_bits": 3.687904323448893,
+        "js_from_prev": 0.008360665933788522,
+        "js_from_final": 0.002880481471778592,
+        "top": [
+          [
+            "Disgust",
+            0.09257100462797724
+          ],
+          [
+            "Rage",
+            0.08962148369018699
+          ]
+        ]
+      },
+      {
+        "step": 2,
+        "tau": 15,
+        "sec_completed": "coping",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping"
+        ],
+        "latency_ms": 741.0,
+        "step_cost": 7,
+        "entropy": 0.9972132250924318,
+        "entropy_bits": 3.6901274255876078,
+        "js_from_prev": 0.0001912502017074164,
+        "js_from_final": 0.0021978827373598762,
+        "top": [
+          [
+            "Disgust",
+            0.09197236714468521
+          ],
+          [
+            "Fear",
+            0.08531969245763883
+          ]
+        ]
+      },
+      {
+        "step": 3,
+        "tau": 22,
+        "sec_completed": "normative",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping",
+          "normative"
+        ],
+        "latency_ms": 678.0,
+        "step_cost": 7,
+        "entropy": 0.9944935423813792,
+        "entropy_bits": 3.680063403662887,
+        "js_from_prev": 0.0021978827373598762,
+        "js_from_final": 0.0,
+        "top": [
+          [
+            "Shame",
+            0.09392368899291773
+          ],
+          [
+            "Fear",
+            0.09005110298579547
+          ]
+        ]
+      }
+    ],
+    "final_distribution": [
+      [
+        "Shame",
+        0.09392368899291773
+      ],
+      [
+        "Fear",
+        0.09005110298579547
       ]
-    }
+    ]
   },
   {
     "scenario": {
       "scenario_id": "L3",
       "complexity_level": 3,
       "base_seed": "Two parents meet to discuss childcare arrangements for their young child.",
-      "narrative": "The mid-afternoon light cuts through the living room of my apartment, illuminating dust motes dancing between me and Sara. Mia is huddled on the plush rug near the window, clutching a stuffed rabbit while she watches us, her eyes wide and unblinking. I stand by the kitchen island, hands braced against the granite, keeping my posture measured despite the jagged energy Sara radiates. She has just announced her intent to relocate to a state three time zones away, a pivot that invalidates the shared custody schedule we finalized only last month. The air in the room is thin, pressurized by the sudden, radical collapse of our logistical foundation.\n\n\"This is not a negotiation, Alex, it's a necessity,\" Sara says, her voice rising to meet the sharp edge of her frustration. She paces the small floor space, her heels clicking against the hardwood like a metronome. I don't move to intercept her. Instead, I hold her gaze, processing the massive shift this exerts on Mia\u00e2\u20ac\u2122s stability and my own career trajectory. The weight of this decision sits heavy, a complex collision of personal agency and the long-term, normative requirements of co-parenting. I maintain a steady, lower-register tone, choosing my words to anchor the conversation in the reality of our legal agreement rather than the turbulence of her sudden demand. \n\n\"The school registration and the medical network we established don't dissolve because you\u00e2\u20ac\u2122ve decided on a whim,\" I respond, my voice firm and grounded. I can see the tension in Mia\u00e2\u20ac\u2122s shoulders as she pulls the rabbit closer, a sight that triggers a rapid recalculation of my current leverage. Sara dismisses my point with a sharp wave of her hand, but I do not retreat. I adjust my grip on the edge of the counter, fully aware of the social and structural consequences of the choice before us. The environment is rigid, defined by the immovable fact of my daughter\u00e2\u20ac\u2122s routine, and I refuse to let the situation spiral into aimless volatility. I hold the space, waiting for the oscillation of the argument to settle into something I can effectively manage.",
-      "events": [
+      "narrative": "It is early evening in the apartment. Sara sits across the table. She slides a calendar toward me and points at the week ahead. Mia is on the floor with a picture book. Sara's voice is even as she lists the days. I tap the table and read down the column. The light from the window is going orange. (MOCK NARRATIVE)",
+      "event": {
+        "id": "e4",
+        "description": "mock event 4"
+      }
+    },
+    "timing": {
+      "total_tau": 21,
+      "total_ms": 2086.0,
+      "budget_exhausted": false,
+      "per_sec": [
         {
-          "id": "e7",
-          "description": "Sara waves her hand in a dismissive gesture."
+          "sec": "relevance",
+          "latency_ms": 196.0,
+          "step_cost": 2,
+          "cumulative_tau": 2
+        },
+        {
+          "sec": "implication",
+          "latency_ms": 610.0,
+          "step_cost": 6,
+          "cumulative_tau": 8
+        },
+        {
+          "sec": "coping",
+          "latency_ms": 700.0,
+          "step_cost": 7,
+          "cumulative_tau": 15
+        },
+        {
+          "sec": "normative",
+          "latency_ms": 580.0,
+          "step_cost": 6,
+          "cumulative_tau": 21
         }
       ]
     },
     "convergence": {
       "converged": true,
-      "converged_at_tau": 3,
-      "entropy_trace": [
-        0.9794425303502187,
-        0.9947350216661834,
-        0.9953781132095822,
-        0.9937414508552996
-      ],
-      "final_top2": [
-        [
-          "Anxiety",
-          0.10287714567248553
+      "converged_at_step": 0,
+      "converged_at_tau": 2,
+      "converged_before_completion": true,
+      "steps_total": 4,
+      "fraction_processed_before_convergence": 0.09523809523809523,
+      "criterion": {
+        "measure": "js_consecutive",
+        "threshold": 0.01
+      },
+      "final_entropy": 0.9942364866545015,
+      "final_entropy_bits": 3.6791121844413732,
+      "initial_div_from_final": 0.009240831512295941,
+      "max_div_from_final": 0.009240831512295941
+    },
+    "trajectory": [
+      {
+        "step": 0,
+        "tau": 2,
+        "sec_completed": "relevance",
+        "completed_secs": [
+          "relevance"
         ],
-        [
-          "Guilt",
-          0.09934061398258745
+        "latency_ms": 196.0,
+        "step_cost": 2,
+        "entropy": 0.988616198336479,
+        "entropy_bits": 3.6583146463219585,
+        "js_from_prev": null,
+        "js_from_final": 0.009240831512295941,
+        "top": [
+          [
+            "Shame",
+            0.10126556968053253
+          ],
+          [
+            "Anxiety",
+            0.09890556814444804
+          ]
         ]
+      },
+      {
+        "step": 1,
+        "tau": 8,
+        "sec_completed": "implication",
+        "completed_secs": [
+          "relevance",
+          "implication"
+        ],
+        "latency_ms": 610.0,
+        "step_cost": 6,
+        "entropy": 0.9948747647954808,
+        "entropy_bits": 3.6814740942254742,
+        "js_from_prev": 0.008770086211600437,
+        "js_from_final": 0.002623554557590892,
+        "top": [
+          [
+            "Sadness",
+            0.09216166758636819
+          ],
+          [
+            "Anxiety",
+            0.09071464545053218
+          ]
+        ]
+      },
+      {
+        "step": 2,
+        "tau": 15,
+        "sec_completed": "coping",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping"
+        ],
+        "latency_ms": 700.0,
+        "step_cost": 7,
+        "entropy": 0.9952757166489458,
+        "entropy_bits": 3.6829577923890984,
+        "js_from_prev": 0.00016083406110534257,
+        "js_from_final": 0.002415498557006319,
+        "top": [
+          [
+            "Anxiety",
+            0.09111769316198592
+          ],
+          [
+            "Irritation",
+            0.08986333811422698
+          ]
+        ]
+      },
+      {
+        "step": 3,
+        "tau": 21,
+        "sec_completed": "normative",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping",
+          "normative"
+        ],
+        "latency_ms": 580.0,
+        "step_cost": 6,
+        "entropy": 0.9942364866545015,
+        "entropy_bits": 3.6791121844413732,
+        "js_from_prev": 0.002415498557006319,
+        "js_from_final": 0.0,
+        "top": [
+          [
+            "Irritation",
+            0.09318090167468658
+          ],
+          [
+            "Joy",
+            0.09267510110087598
+          ]
+        ]
+      }
+    ],
+    "final_distribution": [
+      [
+        "Irritation",
+        0.09318090167468658
+      ],
+      [
+        "Joy",
+        0.09267510110087598
       ]
-    }
+    ]
   }
 ]
