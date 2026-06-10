@@ -30,7 +30,6 @@ from dataclasses import dataclass, field
 from typing import Callable
 
 from .types import AppraisalStep, AppraisalVector, Event, SEC
-from .levels import ProcessingLevelPolicy, default_policy
 from .durations import StepCostModel, default_cost_model
 
 

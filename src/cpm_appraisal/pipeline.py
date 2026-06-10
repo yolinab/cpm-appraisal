@@ -37,7 +37,6 @@ from langgraph.graph import END, START, StateGraph
 
 from .convergence import analyse_trajectory
 from .generation import PERSONA_SYSTEM, generate_scenario
-from .levels import ProcessingLevelPolicy, default_policy
 from .llm import LanguageModel
 from .scheduler import RunCheck, SchedulerConfig
 from .secs import run_sec

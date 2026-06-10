@@ -14,10 +14,10 @@ from .types import AppraisalVector, SEC
 from .utils import extract_json
 
 LATENCY_INTERVALS: dict[SEC, tuple[int, int]] = {
-    SEC.RELEVANCE:   (50,  250),
+    SEC.RELEVANCE:   (100,  250),
     SEC.IMPLICATION: (450, 800),
-    SEC.COPING:      (500, 900),
-    SEC.NORMATIVE:   (500, 900),
+    SEC.COPING:      (500, 800),
+    SEC.NORMATIVE:   (500, 800),
 }
 
 
