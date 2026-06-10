@@ -28,15 +28,15 @@ class SEC(str, Enum):
         return [cls.RELEVANCE, cls.IMPLICATION, cls.COPING, cls.NORMATIVE]
 
 
-class ProcessingLevel(str, Enum):
-    """Collapsed version of Scherer's processing levels (we use two).
+# class ProcessingLevel(str, Enum):
+#     """Collapsed version of Scherer's processing levels (we use two).
 
-    SCHEMATIC  -> fast, automatic, costs 1 appraisal step.
-    CONCEPTUAL -> slow, deliberate, costs 3 appraisal steps.
-    """
+#     SCHEMATIC  -> fast, automatic, costs 1 appraisal step.
+#     CONCEPTUAL -> slow, deliberate, costs 3 appraisal steps.
+#     """
 
-    SCHEMATIC = "schematic"
-    CONCEPTUAL = "conceptual"
+#     SCHEMATIC = "schematic"
+#     CONCEPTUAL = "conceptual"
 
 
 @dataclass

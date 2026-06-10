@@ -86,11 +86,14 @@ class MockLLM(LanguageModel):
 
     def _fake_appraisal(self, user: str) -> str:
         rng = self._rng(user)
-        # SEC prompts list each dimension as: - "dim_name": phrasing
         names = re.findall(r'-\s*"([a-z_]+)":', user) or ALL_DIMENSIONS
         vec = {name: rng.randint(1, 5) for name in names}
+        # extract the interval from the prompt and pick a random value within it
+        match = re.search(r"between (\d+) and (\d+)", user)
+        if match:
+            lo, hi = int(match.group(1)), int(match.group(2))
+            vec["_latency_ms"] = rng.randint(lo, hi)
         return json.dumps(vec)
-
 
 class OpenAICompatLLM(LanguageModel):
     """OpenAI-compatible HTTP backend (Groq, Together, local vLLM server).

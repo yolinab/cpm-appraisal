@@ -13,6 +13,13 @@ from .llm import LanguageModel
 from .types import AppraisalVector, SEC
 from .utils import extract_json
 
+LATENCY_INTERVALS: dict[SEC, tuple[int, int]] = {
+    SEC.RELEVANCE:   (50,  250),
+    SEC.IMPLICATION: (450, 800),
+    SEC.COPING:      (500, 900),
+    SEC.NORMATIVE:   (500, 900),
+}
+
 
 def sec_prompt(sec: SEC, event_description: str, prior: AppraisalVector) -> str:
     dims = DIMENSIONS_BY_SEC[sec]
@@ -20,6 +27,7 @@ def sec_prompt(sec: SEC, event_description: str, prior: AppraisalVector) -> str:
     prior_block = (
         f"\nYour earlier ratings so far: {json.dumps(prior)}\n" if prior else "\n"
     )
+    interval = LATENCY_INTERVALS[sec]
     return f"""You are appraising this event as Alex.
 
 EVENT: {event_description}
@@ -30,7 +38,13 @@ consistent.
 
 {lines}
 
-Return ONLY a JSON object mapping each item name to its integer rating."""
+Also estimate how long this check would take to process, in milliseconds.
+Consider only the content and demands of this specific event and check.
+Use a value between {interval[0]} and {interval[1]}.
+Return this as "_latency_ms" in your response.
+
+Return ONLY a JSON object mapping each item name to its integer rating,
+plus "_latency_ms" to your millisecond estimate."""
 
 
 def run_sec(
@@ -39,14 +53,14 @@ def run_sec(
     event_description: str,
     prior: AppraisalVector,
     persona_system: str,
-) -> AppraisalVector:
+) -> tuple[AppraisalVector, float]:
     raw = llm.generate(
         system=persona_system, user=sec_prompt(sec, event_description, prior)
     ).text
     ratings = _parse_ratings(raw)
-    # keep only this SEC's dimensions, clamp to 1..5
+    latency_ms = float(ratings.pop("_latency_ms", LATENCY_INTERVALS[sec][0]))
     valid = set(DIMENSIONS_BY_SEC[sec].keys())
-    return {k: _clamp(v) for k, v in ratings.items() if k in valid}
+    return {k: _clamp(v) for k, v in ratings.items() if k in valid}, latency_ms
 
 
 def _parse_ratings(raw: str) -> dict[str, float]:

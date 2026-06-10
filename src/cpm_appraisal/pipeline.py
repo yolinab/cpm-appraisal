@@ -86,14 +86,10 @@ def build_appraisal_graph(
         sec = secs[sec_index]
 
         # levels.py picks the mode; durations.py turns (sec, mode) into a step cost
-        level = policy.level_for(event, sec)
-        cost = config.cost_model.steps_for(sec, level)
-
-        # guard: budget exhausted before this check can run
+        ratings, latency_ms = run_check(sec, event.description, dict(state["running_vector"]))
+        cost = config.cost_model.steps_from_ms(latency_ms)
         if state["tau"] + cost > config.t_max:
             return {"done": True}
-
-        ratings = run_check(sec, event.description, dict(state["running_vector"]))
         new_vector = {**state["running_vector"], **ratings}
         new_completed = list(state["completed_secs"])
         if sec not in new_completed:
@@ -184,7 +180,7 @@ def appraise_scenario(
     sampled_event = rng.choice(scenario.events)
     scenario.events = [sampled_event]
 
-    def run_check(sec, event_description, prior):
+    def run_check(sec, event_description, prior) -> tuple[AppraisalVector, float]:
         return run_sec(llm, sec, event_description, prior, PERSONA_SYSTEM)
 
     # run appraisal pipeline

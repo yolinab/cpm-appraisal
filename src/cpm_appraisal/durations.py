@@ -85,6 +85,10 @@ class StepCostModel:
     def steps_for(self, sec: SEC, level: ProcessingLevel) -> int:
         """Cost of one (SEC, level) check in whole appraisal steps (>= 1)."""
         return max(1, round(self.latency_ms_for(sec, level) / self.dt_ms))
+    
+    def steps_from_ms(self, latency_ms: float) -> int:
+        """Convert a runtime-estimated latency (ms) into whole appraisal steps."""
+        return max(1, round(latency_ms / self.dt_ms))
 
 
 def default_cost_model() -> StepCostModel:

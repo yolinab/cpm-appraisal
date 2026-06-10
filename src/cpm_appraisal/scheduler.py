@@ -33,8 +33,8 @@ from .types import AppraisalStep, AppraisalVector, Event, SEC
 from .levels import ProcessingLevelPolicy, default_policy
 from .durations import StepCostModel, default_cost_model
 
-# A check runner: (sec, event_description, prior_vector) -> ratings for that sec
-RunCheck = Callable[[SEC, str, AppraisalVector], AppraisalVector]
+
+RunCheck = Callable[[SEC, str, AppraisalVector], tuple[AppraisalVector, float]]
 
 
 @dataclass
@@ -81,16 +81,11 @@ def run_appraisal_timeline(
         for sec in SEC.ordered():
             # levels.py picks the mode (schematic/conceptual) from event content;
             # durations.py turns (sec, mode) into a cost in appraisal steps.
-            level = policy.level_for(event, sec)
-            cost = config.cost_model.steps_for(sec, level)
-
+            ratings, latency_ms = run_check(sec, event.description, dict(running_vector))
+            cost = config.cost_model.steps_from_ms(latency_ms)
             if tau + cost > config.t_max:
-                return trajectory  # budget exhausted mid-process
-
-            # advance the appraisal clock by the cost of this check
+                return trajectory
             tau += cost
-
-            ratings = run_check(sec, event.description, dict(running_vector))
             running_vector.update(ratings)
             if sec not in completed_secs:
                 completed_secs.append(sec)
