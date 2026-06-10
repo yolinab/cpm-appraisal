@@ -1,0 +1,44 @@
+{
+  "scenario_id": "L3",
+  "complexity_level": 3,
+  "base_seed": "Two parents meet to discuss childcare arrangements for their young child.",
+  "narrative": "The mid-afternoon light cuts through the living room of my apartment, illuminating dust motes dancing between me and Sara. Mia is huddled on the plush rug near the window, clutching a stuffed rabbit while she watches us, her eyes wide and unblinking. I stand by the kitchen island, hands braced against the granite, keeping my posture measured despite the jagged energy Sara radiates. She has just announced her intent to relocate to a state three time zones away, a pivot that invalidates the shared custody schedule we finalized only last month. The air in the room is thin, pressurized by the sudden, radical collapse of our logistical foundation.\n\n\"This is not a negotiation, Alex, it's a necessity,\" Sara says, her voice rising to meet the sharp edge of her frustration. She paces the small floor space, her heels clicking against the hardwood like a metronome. I don't move to intercept her. Instead, I hold her gaze, processing the massive shift this exerts on Mia’s stability and my own career trajectory. The weight of this decision sits heavy, a complex collision of personal agency and the long-term, normative requirements of co-parenting. I maintain a steady, lower-register tone, choosing my words to anchor the conversation in the reality of our legal agreement rather than the turbulence of her sudden demand. \n\n\"The school registration and the medical network we established don't dissolve because you’ve decided on a whim,\" I respond, my voice firm and grounded. I can see the tension in Mia’s shoulders as she pulls the rabbit closer, a sight that triggers a rapid recalculation of my current leverage. Sara dismisses my point with a sharp wave of her hand, but I do not retreat. I adjust my grip on the edge of the counter, fully aware of the social and structural consequences of the choice before us. The environment is rigid, defined by the immovable fact of my daughter’s routine, and I refuse to let the situation spiral into aimless volatility. I hold the space, waiting for the oscillation of the argument to settle into something I can effectively manage.",
+  "events": [
+    {
+      "id": "e1",
+      "description": "Alex stands by the kitchen island, facing Sara in the living room while Mia sits on the rug."
+    },
+    {
+      "id": "e2",
+      "description": "Sara announces her intention to move to another state."
+    },
+    {
+      "id": "e3",
+      "description": "Sara paces across the hardwood floor."
+    },
+    {
+      "id": "e4",
+      "description": "Alex maintains eye contact with Sara without moving from the island."
+    },
+    {
+      "id": "e5",
+      "description": "Alex speaks to Sara regarding the existing school and medical network agreements."
+    },
+    {
+      "id": "e6",
+      "description": "Mia pulls the stuffed rabbit closer to herself."
+    },
+    {
+      "id": "e7",
+      "description": "Sara waves her hand in a dismissive gesture."
+    },
+    {
+      "id": "e8",
+      "description": "Alex tightens his grip on the edge of the kitchen counter."
+    },
+    {
+      "id": "e9",
+      "description": "Alex stands stationary, waiting for the conversation to pause."
+    }
+  ]
+}

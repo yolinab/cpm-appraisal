@@ -1,0 +1,44 @@
+{
+  "scenario_id": "L1",
+  "complexity_level": 1,
+  "base_seed": "Two parents meet to discuss childcare arrangements for their young child.",
+  "narrative": "The late afternoon light filters through the floor-to-ceiling windows of our living room, casting long, amber shadows across the hardwood. It is 5:15 PM. Mia is occupied on the rug, methodically lining up her wooden blocks into a fortress, completely absorbed in the quiet industry of her play. Sara sits across from me at the dining table, her laptop pushed to the side, a paper calendar spread open between us. \n\nI set my phone down, the screen dark, and rest my forearms on the tabletop. The atmosphere is steady and measured. I point to the Tuesday box on the calendar where I’ve penciled in a slight adjustment. My project meeting next week has shifted by forty-five minutes, which means I will be the one arriving at the daycare center at 4:30 PM instead of 3:45 PM.\n\n\"I’ve cleared the block,\" I say, my voice steady. \"I’ll handle the pickup on Tuesday, and I’ll have her home by five. That keeps the transition consistent for her.\"\n\nSara nods once, her eyes scanning the updated schedule before she circles the date with a pen. \"That works. I’ll shift my administrative block to the morning so I’m free to handle the Wednesday drop-off as usual. It keeps our flow undisturbed.\"\n\nI acknowledge the adjustment, noting the efficiency of the arrangement. We both understand the importance of predictability for Mia’s routine. I look over at our daughter, who is currently focused on balancing a small blue block on the apex of her wall. She is settled and content, oblivious to the brief logistics exchange, which is exactly how it should be.\n\nI stand up, smoothing the front of my shirt, and walk toward the kitchen to start the water for dinner. The sequence of the evening remains intact, grounded by the clear division of labor we’ve established. Sara closes the calendar and gathers her things, the movement fluid and rhythmic. There is nothing further to discuss; the plan is set, the transition is accounted for, and the household remains in balance. I reach for the cutting board, the rhythm of the evening continuing without friction.",
+  "events": [
+    {
+      "id": "e1",
+      "description": "Mia lines up wooden blocks on the living room rug."
+    },
+    {
+      "id": "e2",
+      "description": "Sara sits at the dining table with a laptop and an open paper calendar."
+    },
+    {
+      "id": "e3",
+      "description": "The narrator sets a phone on the table and rests forearms on the surface."
+    },
+    {
+      "id": "e4",
+      "description": "The narrator points to a Tuesday box on the calendar."
+    },
+    {
+      "id": "e5",
+      "description": "Sara circles the date on the calendar with a pen."
+    },
+    {
+      "id": "e6",
+      "description": "The narrator observes Mia balancing a blue block on the wall of her fortress."
+    },
+    {
+      "id": "e7",
+      "description": "The narrator stands up and walks toward the kitchen."
+    },
+    {
+      "id": "e8",
+      "description": "Sara closes the calendar and gathers her belongings."
+    },
+    {
+      "id": "e9",
+      "description": "The narrator reaches for a cutting board in the kitchen."
+    }
+  ]
+}

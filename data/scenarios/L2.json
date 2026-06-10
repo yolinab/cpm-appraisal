@@ -1,0 +1,44 @@
+{
+  "scenario_id": "L2",
+  "complexity_level": 2,
+  "base_seed": "Two parents meet to discuss childcare arrangements for their young child.",
+  "narrative": "The kitchen island serves as the staging ground for the evening. It is 7:15 PM, and the floor is scattered with wooden blocks where Mia is methodically constructing a tower. Across from me, Sara sits with her laptop open, the blue light catching the edges of her organized spreadsheets. I lean against the counter, my arms crossed, watching the cursor blink on her screen while the cooling scent of leftover pasta lingers in the air. \n\nThe proposal sits between us: the new project leads at my firm require an increased physical presence, coinciding precisely with the restructuring of Sara’s department that demands her full-time oversight. We are both operating at maximum capacity, and the current childcare schedule no longer accommodates the combined trajectory of our professional obligations.\n\nI slide a printed calendar toward the center of the granite surface, tapping the highlighted blocks of time that represent Mia’s after-school coverage. \"The shift in my firm’s requirements necessitates a recalibration of these hours,\" I state, keeping my voice level. I pull out a chair and sit, my posture deliberate, grounding the space. \"If I assume the morning drop-offs, the structural integrity of your midday availability collapses. We are looking at a direct conflict in our professional mobility.\"\n\nSara does not look up immediately. She traces the lines of the calendar with a pen, her movements precise. She mentions the promotion track she has secured, noting that a reduction in her hours now would effectively dismantle the infrastructure she spent two years building. I observe the weight of her words, measuring them against the firm commitment I have to the upcoming firm merger. Every minute we carve out for Mia requires a corresponding subtraction from our career objectives; the trade-off is mathematically rigid. \n\nI rest my palms flat on the table, maintaining steady eye contact. I point to the Tuesday and Thursday slots. \"If you retain your current schedule, my contribution to the firm becomes untenable. Conversely, if I prioritize the firm's requirements, your ability to meet your department’s mandate vanishes.\" I wait, observing the rhythmic tapping of Mia’s blocks against the hardwood, the sound underscoring the silence as we appraise the variables of our own agency against the reality of the clock.",
+  "events": [
+    {
+      "id": "e1",
+      "description": "Alex stands leaning against the kitchen counter while Mia builds a tower with wooden blocks on the floor and Sara views spreadsheets on her laptop."
+    },
+    {
+      "id": "e2",
+      "description": "Alex slides a printed calendar onto the kitchen island toward the center of the surface."
+    },
+    {
+      "id": "e3",
+      "description": "Alex taps on the highlighted blocks of time on the calendar and speaks about the firm's requirements."
+    },
+    {
+      "id": "e4",
+      "description": "Alex pulls out a chair and sits at the table."
+    },
+    {
+      "id": "e5",
+      "description": "Sara traces the lines on the calendar with a pen while maintaining her gaze on the document."
+    },
+    {
+      "id": "e6",
+      "description": "Sara speaks about her promotion track and the potential impact of reducing her work hours."
+    },
+    {
+      "id": "e7",
+      "description": "Alex places both palms flat on the surface of the table."
+    },
+    {
+      "id": "e8",
+      "description": "Alex points to the Tuesday and Thursday slots on the calendar and describes the conflict in schedules."
+    },
+    {
+      "id": "e9",
+      "description": "Alex watches Mia tap wooden blocks against the hardwood floor while waiting for Sara's response."
+    }
+  ]
+}
