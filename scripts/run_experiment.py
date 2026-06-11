@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import logging
 from dataclasses import asdict
 from pathlib import Path
 
@@ -16,6 +17,8 @@ from cpm_appraisal.emotions.prototypes import load_prototypes, load_weights
 from cpm_appraisal.llm import build_llm
 from cpm_appraisal.pipeline import appraise_scenario
 from cpm_appraisal.scheduler import SchedulerConfig
+
+log = logging.getLogger(__name__)
 
 
 def main() -> None:
@@ -27,30 +30,44 @@ def main() -> None:
     p.add_argument("--t-max", type=int, default=20)
     p.add_argument("--seed", type=int, default=None, help="seed for reproducible event sampling")
     p.add_argument("--out", default="data/outputs/results.json")
+    p.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING", "ERROR"])
     args = p.parse_args()
+
+    logging.basicConfig(
+        level=args.log_level,
+        format="%(asctime)s %(levelname)-8s %(name)s — %(message)s",
+        datefmt="%H:%M:%S",
+    )
+
+    log.info("backend=%s model_id=%s t_max=%d seed=%s", args.backend, args.model_id, args.t_max, args.seed)
 
     llm_kwargs = {}
     if args.model_id:
         llm_kwargs["model_id"] = args.model_id
     llm = build_llm(args.backend, **llm_kwargs)
+    log.info("LLM ready: %s", llm.__class__.__name__)
+
     prototypes = load_prototypes(args.prototypes)
     weights = load_weights(args.weights)
     config = SchedulerConfig(t_max=args.t_max)
 
     results = []
-    # for each complexity level
     for level in (1, 2, 3):
         # run full pipeline using LangGraph
         scenario, conv = appraise_scenario(
             llm, level, prototypes, weights=weights, scheduler_config=config, seed=args.seed
         )
         top2 = conv.final_distribution.top(2)
-        print(f"\n=== Complexity level {level} ===")
-        print(f"  sampled event    : {scenario.events[0].id} — {scenario.events[0].description}")
-        print(f"  trajectory length: {len(conv.entropy_trace)} steps")
-        print(f"  converged        : {conv.converged} "
-              f"(at tau={conv.converged_at_tau})")
-        print(f"  final top-2      : {top2}")
+
+        log.info(
+            "level=%d event=%s steps=%d converged=%s tau=%s top2=%s",
+            level,
+            scenario.events[0].id,
+            len(conv.entropy_trace),
+            conv.converged,
+            conv.converged_at_tau,
+            top2,
+        )
         results.append({
             "scenario": asdict(scenario),
             "convergence": {
@@ -64,7 +81,7 @@ def main() -> None:
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(results, indent=2))
-    print(f"\nWrote {out}")
+    log.info("wrote %s", out)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,104 @@
+[
+  {
+    "scenario": {
+      "scenario_id": "L1",
+      "complexity_level": 1,
+      "base_seed": "Two parents meet to discuss childcare arrangements for their young child.",
+      "narrative": "The morning light filters through the living room windows, casting a warm glow over the soft furnishings. Sara and I sit side by side on the couch, sipping coffee as we discuss Mia\u2019s daily routine. Mia, our little girl with curly hair and bright eyes, is playing quietly with her toys nearby, her focus unwavering as she builds a tower with blocks.\n\nWe\u2019ve chosen this time because it\u2019s a quiet moment, free from the hustle of the day ahead. The apartment feels cozy and familiar, the scent of fresh coffee mingling with the faint aroma of breakfast cooking in the kitchen. The refrigerator hums softly, a steady reminder of the world outside.\n\n\u201cDo you think you can collect her tomorrow?\u201d I ask, looking at Sara. She nods, her expression calm and reassuring. \u201cSure, I can handle it. What about Wednesday?\u201d\n\nSara considers this for a moment, then smiles. \u201cI can pick her up on Wednesday. I have a bit more free time that day.\u201d Her voice is gentle, her tone one of understanding and cooperation.\n\nI lean back, feeling a sense of relief wash over me. \u201cGreat, that works perfectly. And Thursday?\u201d\n\n\u201cI\u2019ll take her,\u201d she says, her eyes meeting mine. \u201cI\u2019m free after work.\u201d\n\nI nod, pleased with how smoothly this conversation is going. \u201cAnd Friday?\u201d\n\n\u201cFriday, I can do it,\u201d she confirms, her smile growing wider. \u201cIt looks like we\u2019re all set.\u201d\n\nMia, sensing the positive energy, looks up from her play and giggles, her laughter light and pure. We both smile at her, and she returns our smiles with enthusiasm. The simplicity of this arrangement feels right, a natural flow of our lives.\n\nAs we finish discussing the details, I notice the clock on the wall. It\u2019s just before noon, and the day stretches out ahead, filled with possibilities and plans. We both stand, ready to face the rest of the day, feeling a sense of unity and ease. The world outside might be unpredictable, but here, in this moment, everything feels just as it should.",
+      "events": [
+        {
+          "id": "e9",
+          "description": "Mia looks up from her play, giggling, and exchanges smiles with them."
+        }
+      ]
+    },
+    "convergence": {
+      "converged": true,
+      "converged_at_tau": 4,
+      "entropy_trace": [
+        0.4969509419206789,
+        0.42852888399351385,
+        0.44215478454327584,
+        0.4354643660037364
+      ],
+      "final_top2": [
+        [
+          "anger",
+          0.3324762752914796
+        ],
+        [
+          "joy",
+          0.3324762752914796
+        ]
+      ]
+    }
+  },
+  {
+    "scenario": {
+      "scenario_id": "L2",
+      "complexity_level": 2,
+      "base_seed": "Two parents meet to discuss childcare arrangements for their young child.",
+      "narrative": "The apartment is quiet as we sit across from each other in the living room, the afternoon sun casting a warm glow through the window. The gentle hum of the refrigerator and the distant chatter of neighbors blend into a soothing backdrop. Mia, our four-year-old daughter, is sprawled out on the floor, engrossed in a colorful puzzle. Her little hands move with practiced precision, placing pieces into place without a hint of frustration.\n\nSara and I have been here for about an hour, discussing the future of our careers and how it might affect Mia. The coffee table between us is cluttered with papers and notes, remnants of our extensive planning. I reach for a cup of tea, the warmth of it a comforting sensation against my fingers. Sara sips her own tea, her gaze occasionally drifting to Mia, who is now attempting to fit a particularly tricky piece into the puzzle.\n\nWe\u2019ve come to a crossroads that feels both inevitable and daunting. Our current work schedules, while successful, have taken a toll on our family time. Mia\u2019s early mornings and late nights at the office mean she often misses out on important moments. We both want to provide the best for her, but the decision before us is a difficult one.\n\n\"Maybe we could look into part-time options,\" Sara suggests, her voice soft yet firm. \"I could go back to part-time if you need me to.\"\n\nI nod, considering the implications. \"What would that mean for your career? It\u2019s been going so well, and we\u2019re both invested in it.\"\n\nShe takes a deep breath, her eyes reflecting a mix of determination and concern. \"It\u2019s hard to say. There\u2019s a lot of uncertainty. But I believe we can find a way. We just need to be creative.\"\n\nMia looks up from her puzzle, her big brown eyes curious. She climbs onto the couch, snuggling up next to me. Her presence is a reminder of why this discussion is so crucial. She reaches for my hand, and I squeeze hers gently, offering reassurance.\n\n\"I know it\u2019s tough,\" I say, \"but we\u2019ll figure it out together. For Mia, for us.\"\n\nSara nods, a small smile tugging at the corners of her mouth. \"Let\u2019s start by exploring all the possibilities. We can\u2019t make any decisions until we have all the information.\"\n\nMia giggles, her laughter light and joyful. She\u2019s oblivious to the gravity of the conversation, and for a moment, it feels like the weight of the world lifts",
+      "events": [
+        {
+          "id": "e2",
+          "description": "Mia sprawls out on the floor, engrossed in a colorful puzzle."
+        }
+      ]
+    },
+    "convergence": {
+      "converged": false,
+      "converged_at_tau": null,
+      "entropy_trace": [
+        0.5231969165173377,
+        0.8830994955945994,
+        0.5148444342807584,
+        0.7147308489823632
+      ],
+      "final_top2": [
+        [
+          "fear",
+          0.28327770620771087
+        ],
+        [
+          "relief",
+          0.28327770620771087
+        ]
+      ]
+    }
+  },
+  {
+    "scenario": {
+      "scenario_id": "L3",
+      "complexity_level": 3,
+      "base_seed": "Two parents meet to discuss childcare arrangements for their young child.",
+      "narrative": "The sun is just beginning to set outside, casting a warm glow through the windows of our old apartment. The living room is dimly lit, with a flickering lamp on the coffee table illuminating the space. I can feel the tension in the air even before Sara enters, her presence like a shadow that seems to follow me wherever I go. Mia, my daughter, is standing quietly by the window, her eyes wide with anxiety. She\u2019s wearing her favorite blue dress, and her hair is tied back in a messy bun. Her face shows a mix of fear and anticipation, and I can see the worry etched into her small features.\n\nSara walks in, her arms crossed tightly over her chest. She looks at me with a mixture of disappointment and anger, her eyes narrowing slightly. \u201cWe need to talk about Mia,\u201d she says, her voice firm but tinged with a sharp edge. I nod, feeling a knot form in my stomach as I brace myself for what\u2019s coming next.\n\n\u201cFirst of all,\u201d Sara begins, her tone growing more assertive, \u201cyou\u2019ve completely failed as a father.\u201d Her words cut through the air like a knife, and I feel a surge of defensive energy. I open my mouth to protest, but she cuts me off. \u201cMia\u2019s grades have dropped, and she\u2019s been acting out at school. I think it\u2019s because you\u2019re not involved enough in her life.\u201d\n\nI take a deep breath, trying to keep my composure. \u201cSara, I know I\u2019ve had my challenges, but I\u2019ve been doing my best.\u201d My voice is steady, but inside, I\u2019m fighting against the wave of guilt and frustration that threatens to overwhelm me. \u201cI\u2019ve been working hard to make sure she has what she needs, even if it\u2019s not always easy.\u201d\n\nSara shakes her head, her expression one of disbelief. \u201cYou\u2019ve missed every parent-teacher conference, and you barely show up for her extracurricular activities. How can you expect her to thrive under these conditions?\u201d\n\nMia shifts uncomfortably, her small hands fidgeting with the hem of her dress. I notice her taking deep breaths, trying to calm herself. \u201cMia, honey, why don\u2019t you go get a snack? We\u2019ll be done soon,\u201d I say gently, hoping to ease some of the tension. She nods, her eyes still filled with worry, and slowly makes her way to the kitchen.\n\nSara continues, her voice rising slightly. \u201cI want to",
+      "events": [
+        {
+          "id": "e8",
+          "description": "Sara asserts that Alex has failed as a father."
+        }
+      ]
+    },
+    "convergence": {
+      "converged": false,
+      "converged_at_tau": null,
+      "entropy_trace": [
+        0.8620372148067877,
+        0.47906128346169013,
+        0.5960804299652178,
+        0.4538053458678618
+      ],
+      "final_top2": [
+        [
+          "disgust",
+          0.329136327895008
+        ],
+        [
+          "pride",
+          0.329136327895008
+        ]
+      ]
+    }
+  }
+]
