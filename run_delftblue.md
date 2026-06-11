@@ -83,6 +83,7 @@ From inside the project directory:
 
 ```bash
 cd ~/cpm-appraisal
+conda activate cpm
 sbatch jobs/run_experiment.sh
 ```
 

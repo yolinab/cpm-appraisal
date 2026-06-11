@@ -6,56 +6,56 @@
       "base_seed": "Two parents meet to discuss childcare arrangements for their young child.",
       "narrative": "It is early evening in the apartment. Sara sits across the table. She slides a calendar toward me and points at the week ahead. Mia is on the floor with a picture book. Sara's voice is even as she lists the days. I tap the table and read down the column. The light from the window is going orange. (MOCK NARRATIVE)",
       "event": {
-        "id": "e2",
-        "description": "mock event 2"
+        "id": "e5",
+        "description": "mock event 5"
       }
     },
     "timing": {
-      "total_tau": 19,
-      "total_ms": 1907.0,
+      "total_tau": 23,
+      "total_ms": 2339.0,
       "budget_exhausted": false,
       "per_sec": [
         {
           "sec": "relevance",
-          "latency_ms": 173.0,
+          "latency_ms": 207.0,
           "step_cost": 2,
           "cumulative_tau": 2
         },
         {
           "sec": "implication",
-          "latency_ms": 606.0,
+          "latency_ms": 622.0,
           "step_cost": 6,
           "cumulative_tau": 8
         },
         {
           "sec": "coping",
-          "latency_ms": 613.0,
-          "step_cost": 6,
-          "cumulative_tau": 14
+          "latency_ms": 798.0,
+          "step_cost": 8,
+          "cumulative_tau": 16
         },
         {
           "sec": "normative",
-          "latency_ms": 515.0,
-          "step_cost": 5,
-          "cumulative_tau": 19
+          "latency_ms": 712.0,
+          "step_cost": 7,
+          "cumulative_tau": 23
         }
       ]
     },
     "convergence": {
       "converged": true,
-      "converged_at_step": 0,
-      "converged_at_tau": 2,
+      "converged_at_step": 1,
+      "converged_at_tau": 8,
       "converged_before_completion": true,
       "steps_total": 4,
-      "fraction_processed_before_convergence": 0.10526315789473684,
+      "fraction_processed_before_convergence": 0.34782608695652173,
       "criterion": {
         "measure": "js_consecutive",
         "threshold": 0.01
       },
-      "final_entropy": 0.99397952851938,
-      "final_entropy_bits": 3.6781613263522703,
-      "initial_div_from_final": 0.006956835803417707,
-      "max_div_from_final": 0.006956835803417707
+      "final_entropy": 0.9937278814118286,
+      "final_entropy_bits": 3.6772301214005316,
+      "initial_div_from_final": 0.03337303665134338,
+      "max_div_from_final": 0.03337303665134338
     },
     "trajectory": [
       {
@@ -65,20 +65,20 @@
         "completed_secs": [
           "relevance"
         ],
-        "latency_ms": 173.0,
+        "latency_ms": 207.0,
         "step_cost": 2,
-        "entropy": 0.9840502183500031,
-        "entropy_bits": 3.6414185126277654,
+        "entropy": 0.9449778191139674,
+        "entropy_bits": 3.4968334546116733,
         "js_from_prev": null,
-        "js_from_final": 0.006956835803417707,
+        "js_from_final": 0.03337303665134338,
         "top": [
           [
-            "Irritation",
-            0.11886793304923186
+            "Contempt",
+            0.18829292826259386
           ],
           [
-            "Pleasure",
-            0.10448477990136094
+            "Disgust",
+            0.14360620608776037
           ]
         ]
       },
@@ -90,52 +90,52 @@
           "relevance",
           "implication"
         ],
-        "latency_ms": 606.0,
+        "latency_ms": 622.0,
         "step_cost": 6,
-        "entropy": 0.996790927602104,
-        "entropy_bits": 3.6885647391815275,
-        "js_from_prev": 0.007857734358654566,
-        "js_from_final": 0.0022381143596522544,
+        "entropy": 0.9875736443145391,
+        "entropy_bits": 3.654456738010864,
+        "js_from_prev": 0.020382867875413727,
+        "js_from_final": 0.004240820824135235,
         "top": [
           [
-            "Shame",
-            0.09170969785322637
+            "Contempt",
+            0.11878648546624086
           ],
           [
             "Irritation",
-            0.09152253700631183
+            0.10451877095881762
           ]
         ]
       },
       {
         "step": 2,
-        "tau": 14,
+        "tau": 16,
         "sec_completed": "coping",
         "completed_secs": [
           "relevance",
           "implication",
           "coping"
         ],
-        "latency_ms": 613.0,
-        "step_cost": 6,
-        "entropy": 0.9955102645690229,
-        "entropy_bits": 3.683825722828359,
-        "js_from_prev": 0.0010643549667613272,
-        "js_from_final": 0.000707677073497543,
+        "latency_ms": 798.0,
+        "step_cost": 8,
+        "entropy": 0.9900063211476264,
+        "entropy_bits": 3.6634587119854225,
+        "js_from_prev": 0.00037539317624178767,
+        "js_from_final": 0.003178971017454329,
         "top": [
           [
-            "Disgust",
-            0.0938103587258136
+            "Contempt",
+            0.11481435639087256
           ],
           [
-            "Shame",
-            0.09370007179078672
+            "Irritation",
+            0.10070376148800506
           ]
         ]
       },
       {
         "step": 3,
-        "tau": 19,
+        "tau": 23,
         "sec_completed": "normative",
         "completed_secs": [
           "relevance",
@@ -143,32 +143,32 @@
           "coping",
           "normative"
         ],
-        "latency_ms": 515.0,
-        "step_cost": 5,
-        "entropy": 0.99397952851938,
-        "entropy_bits": 3.6781613263522703,
-        "js_from_prev": 0.000707677073497543,
+        "latency_ms": 712.0,
+        "step_cost": 7,
+        "entropy": 0.9937278814118286,
+        "entropy_bits": 3.6772301214005316,
+        "js_from_prev": 0.003178971017454329,
         "js_from_final": 0.0,
         "top": [
           [
-            "Disgust",
-            0.10184622377251545
+            "Irritation",
+            0.10705474398148414
           ],
           [
-            "Irritation",
-            0.09680678392350285
+            "Contempt",
+            0.09651359024680797
           ]
         ]
       }
     ],
     "final_distribution": [
       [
-        "Disgust",
-        0.10184622377251545
+        "Irritation",
+        0.10705474398148414
       ],
       [
-        "Irritation",
-        0.09680678392350285
+        "Contempt",
+        0.09651359024680797
       ]
     ]
   },
@@ -179,56 +179,56 @@
       "base_seed": "Two parents meet to discuss childcare arrangements for their young child.",
       "narrative": "It is early evening in the apartment. Sara sits across the table. She slides a calendar toward me and points at the week ahead. Mia is on the floor with a picture book. Sara's voice is even as she lists the days. I tap the table and read down the column. The light from the window is going orange. (MOCK NARRATIVE)",
       "event": {
-        "id": "e3",
-        "description": "mock event 3"
+        "id": "e6",
+        "description": "mock event 6"
       }
     },
     "timing": {
-      "total_tau": 22,
-      "total_ms": 2220.0,
+      "total_tau": 23,
+      "total_ms": 2321.0,
       "budget_exhausted": false,
       "per_sec": [
         {
           "sec": "relevance",
-          "latency_ms": 117.0,
+          "latency_ms": 118.0,
           "step_cost": 1,
           "cumulative_tau": 1
         },
         {
           "sec": "implication",
-          "latency_ms": 684.0,
-          "step_cost": 7,
-          "cumulative_tau": 8
+          "latency_ms": 633.0,
+          "step_cost": 6,
+          "cumulative_tau": 7
         },
         {
           "sec": "coping",
-          "latency_ms": 741.0,
-          "step_cost": 7,
+          "latency_ms": 777.0,
+          "step_cost": 8,
           "cumulative_tau": 15
         },
         {
           "sec": "normative",
-          "latency_ms": 678.0,
-          "step_cost": 7,
-          "cumulative_tau": 22
+          "latency_ms": 793.0,
+          "step_cost": 8,
+          "cumulative_tau": 23
         }
       ]
     },
     "convergence": {
       "converged": true,
-      "converged_at_step": 0,
-      "converged_at_tau": 1,
+      "converged_at_step": 1,
+      "converged_at_tau": 7,
       "converged_before_completion": true,
       "steps_total": 4,
-      "fraction_processed_before_convergence": 0.045454545454545456,
+      "fraction_processed_before_convergence": 0.30434782608695654,
       "criterion": {
         "measure": "js_consecutive",
         "threshold": 0.01
       },
-      "final_entropy": 0.9944935423813792,
-      "final_entropy_bits": 3.680063403662887,
-      "initial_div_from_final": 0.017717171531633977,
-      "max_div_from_final": 0.017717171531633977
+      "final_entropy": 0.987615579470392,
+      "final_entropy_bits": 3.654611916527169,
+      "initial_div_from_final": 0.02838637365138509,
+      "max_div_from_final": 0.02838637365138509
     },
     "trajectory": [
       {
@@ -238,45 +238,45 @@
         "completed_secs": [
           "relevance"
         ],
-        "latency_ms": 117.0,
+        "latency_ms": 118.0,
         "step_cost": 1,
-        "entropy": 0.991976747823459,
-        "entropy_bits": 3.670750157118358,
+        "entropy": 0.9782051895796728,
+        "entropy_bits": 3.6197893360123583,
         "js_from_prev": null,
-        "js_from_final": 0.017717171531633977,
+        "js_from_final": 0.02838637365138509,
         "top": [
           [
             "Contempt",
-            0.10664890594758397
+            0.1192551023849952
           ],
           [
             "Disgust",
-            0.10192791612560488
+            0.11421426133464581
           ]
         ]
       },
       {
         "step": 1,
-        "tau": 8,
+        "tau": 7,
         "sec_completed": "implication",
         "completed_secs": [
           "relevance",
           "implication"
         ],
-        "latency_ms": 684.0,
-        "step_cost": 7,
-        "entropy": 0.9966124580733621,
-        "entropy_bits": 3.687904323448893,
-        "js_from_prev": 0.008360665933788522,
-        "js_from_final": 0.002880481471778592,
+        "latency_ms": 633.0,
+        "step_cost": 6,
+        "entropy": 0.9910769468922221,
+        "entropy_bits": 3.6674204980139886,
+        "js_from_prev": 0.019743770050705867,
+        "js_from_final": 0.002615948916892297,
         "top": [
           [
-            "Disgust",
-            0.09257100462797724
+            "Anxiety",
+            0.10379497841075937
           ],
           [
-            "Rage",
-            0.08962148369018699
+            "Sadness",
+            0.09933011296888726
           ]
         ]
       },
@@ -289,26 +289,26 @@
           "implication",
           "coping"
         ],
-        "latency_ms": 741.0,
-        "step_cost": 7,
-        "entropy": 0.9972132250924318,
-        "entropy_bits": 3.6901274255876078,
-        "js_from_prev": 0.0001912502017074164,
-        "js_from_final": 0.0021978827373598762,
+        "latency_ms": 777.0,
+        "step_cost": 8,
+        "entropy": 0.9920930123637346,
+        "entropy_bits": 3.671180387041005,
+        "js_from_prev": 0.0003438510339203667,
+        "js_from_final": 0.001890968377617819,
         "top": [
           [
-            "Disgust",
-            0.09197236714468521
+            "Anxiety",
+            0.10141608635894256
           ],
           [
-            "Fear",
-            0.08531969245763883
+            "Irritation",
+            0.09565212412632297
           ]
         ]
       },
       {
         "step": 3,
-        "tau": 22,
+        "tau": 23,
         "sec_completed": "normative",
         "completed_secs": [
           "relevance",
@@ -316,20 +316,20 @@
           "coping",
           "normative"
         ],
-        "latency_ms": 678.0,
-        "step_cost": 7,
-        "entropy": 0.9944935423813792,
-        "entropy_bits": 3.680063403662887,
-        "js_from_prev": 0.0021978827373598762,
+        "latency_ms": 793.0,
+        "step_cost": 8,
+        "entropy": 0.987615579470392,
+        "entropy_bits": 3.654611916527169,
+        "js_from_prev": 0.001890968377617819,
         "js_from_final": 0.0,
         "top": [
           [
             "Shame",
-            0.09392368899291773
+            0.10312831398365781
           ],
           [
-            "Fear",
-            0.09005110298579547
+            "Anxiety",
+            0.10154495747808445
           ]
         ]
       }
@@ -337,11 +337,11 @@
     "final_distribution": [
       [
         "Shame",
-        0.09392368899291773
+        0.10312831398365781
       ],
       [
-        "Fear",
-        0.09005110298579547
+        "Anxiety",
+        0.10154495747808445
       ]
     ]
   },
@@ -352,56 +352,56 @@
       "base_seed": "Two parents meet to discuss childcare arrangements for their young child.",
       "narrative": "It is early evening in the apartment. Sara sits across the table. She slides a calendar toward me and points at the week ahead. Mia is on the floor with a picture book. Sara's voice is even as she lists the days. I tap the table and read down the column. The light from the window is going orange. (MOCK NARRATIVE)",
       "event": {
-        "id": "e4",
-        "description": "mock event 4"
+        "id": "e5",
+        "description": "mock event 5"
       }
     },
     "timing": {
-      "total_tau": 21,
-      "total_ms": 2086.0,
+      "total_tau": 23,
+      "total_ms": 2339.0,
       "budget_exhausted": false,
       "per_sec": [
         {
           "sec": "relevance",
-          "latency_ms": 196.0,
+          "latency_ms": 207.0,
           "step_cost": 2,
           "cumulative_tau": 2
         },
         {
           "sec": "implication",
-          "latency_ms": 610.0,
+          "latency_ms": 622.0,
           "step_cost": 6,
           "cumulative_tau": 8
         },
         {
           "sec": "coping",
-          "latency_ms": 700.0,
-          "step_cost": 7,
-          "cumulative_tau": 15
+          "latency_ms": 798.0,
+          "step_cost": 8,
+          "cumulative_tau": 16
         },
         {
           "sec": "normative",
-          "latency_ms": 580.0,
-          "step_cost": 6,
-          "cumulative_tau": 21
+          "latency_ms": 712.0,
+          "step_cost": 7,
+          "cumulative_tau": 23
         }
       ]
     },
     "convergence": {
       "converged": true,
-      "converged_at_step": 0,
-      "converged_at_tau": 2,
+      "converged_at_step": 1,
+      "converged_at_tau": 8,
       "converged_before_completion": true,
       "steps_total": 4,
-      "fraction_processed_before_convergence": 0.09523809523809523,
+      "fraction_processed_before_convergence": 0.34782608695652173,
       "criterion": {
         "measure": "js_consecutive",
         "threshold": 0.01
       },
-      "final_entropy": 0.9942364866545015,
-      "final_entropy_bits": 3.6791121844413732,
-      "initial_div_from_final": 0.009240831512295941,
-      "max_div_from_final": 0.009240831512295941
+      "final_entropy": 0.9937278814118286,
+      "final_entropy_bits": 3.6772301214005316,
+      "initial_div_from_final": 0.03337303665134338,
+      "max_div_from_final": 0.03337303665134338
     },
     "trajectory": [
       {
@@ -411,20 +411,20 @@
         "completed_secs": [
           "relevance"
         ],
-        "latency_ms": 196.0,
+        "latency_ms": 207.0,
         "step_cost": 2,
-        "entropy": 0.988616198336479,
-        "entropy_bits": 3.6583146463219585,
+        "entropy": 0.9449778191139674,
+        "entropy_bits": 3.4968334546116733,
         "js_from_prev": null,
-        "js_from_final": 0.009240831512295941,
+        "js_from_final": 0.03337303665134338,
         "top": [
           [
-            "Shame",
-            0.10126556968053253
+            "Contempt",
+            0.18829292826259386
           ],
           [
-            "Anxiety",
-            0.09890556814444804
+            "Disgust",
+            0.14360620608776037
           ]
         ]
       },
@@ -436,52 +436,52 @@
           "relevance",
           "implication"
         ],
-        "latency_ms": 610.0,
+        "latency_ms": 622.0,
         "step_cost": 6,
-        "entropy": 0.9948747647954808,
-        "entropy_bits": 3.6814740942254742,
-        "js_from_prev": 0.008770086211600437,
-        "js_from_final": 0.002623554557590892,
+        "entropy": 0.9875736443145391,
+        "entropy_bits": 3.654456738010864,
+        "js_from_prev": 0.020382867875413727,
+        "js_from_final": 0.004240820824135235,
         "top": [
           [
-            "Sadness",
-            0.09216166758636819
+            "Contempt",
+            0.11878648546624086
           ],
           [
-            "Anxiety",
-            0.09071464545053218
+            "Irritation",
+            0.10451877095881762
           ]
         ]
       },
       {
         "step": 2,
-        "tau": 15,
+        "tau": 16,
         "sec_completed": "coping",
         "completed_secs": [
           "relevance",
           "implication",
           "coping"
         ],
-        "latency_ms": 700.0,
-        "step_cost": 7,
-        "entropy": 0.9952757166489458,
-        "entropy_bits": 3.6829577923890984,
-        "js_from_prev": 0.00016083406110534257,
-        "js_from_final": 0.002415498557006319,
+        "latency_ms": 798.0,
+        "step_cost": 8,
+        "entropy": 0.9900063211476264,
+        "entropy_bits": 3.6634587119854225,
+        "js_from_prev": 0.00037539317624178767,
+        "js_from_final": 0.003178971017454329,
         "top": [
           [
-            "Anxiety",
-            0.09111769316198592
+            "Contempt",
+            0.11481435639087256
           ],
           [
             "Irritation",
-            0.08986333811422698
+            0.10070376148800506
           ]
         ]
       },
       {
         "step": 3,
-        "tau": 21,
+        "tau": 23,
         "sec_completed": "normative",
         "completed_secs": [
           "relevance",
@@ -489,20 +489,20 @@
           "coping",
           "normative"
         ],
-        "latency_ms": 580.0,
-        "step_cost": 6,
-        "entropy": 0.9942364866545015,
-        "entropy_bits": 3.6791121844413732,
-        "js_from_prev": 0.002415498557006319,
+        "latency_ms": 712.0,
+        "step_cost": 7,
+        "entropy": 0.9937278814118286,
+        "entropy_bits": 3.6772301214005316,
+        "js_from_prev": 0.003178971017454329,
         "js_from_final": 0.0,
         "top": [
           [
             "Irritation",
-            0.09318090167468658
+            0.10705474398148414
           ],
           [
-            "Joy",
-            0.09267510110087598
+            "Contempt",
+            0.09651359024680797
           ]
         ]
       }
@@ -510,11 +510,11 @@
     "final_distribution": [
       [
         "Irritation",
-        0.09318090167468658
+        0.10705474398148414
       ],
       [
-        "Joy",
-        0.09267510110087598
+        "Contempt",
+        0.09651359024680797
       ]
     ]
   }
