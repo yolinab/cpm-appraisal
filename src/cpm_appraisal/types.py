@@ -74,11 +74,14 @@ class AppraisalStep:
     """
 
     event_id: str
-    tau: int                                   # index on the appraisal timeline
+    tau: int
     completed_secs: list[SEC]
     vector: AppraisalVector
-    raw_llm_output: Optional[str] = None       # kept for debugging / inspection
-
+    raw_llm_output: Optional[str] = None
+    sec: Optional[SEC] = None           # the SEC completed at this step
+    latency_ms: Optional[float] = None  # latency this check reported
+    step_cost: Optional[int] = None     # steps this check cost
+    
 
 @dataclass
 class EmotionDistribution:

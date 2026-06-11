@@ -54,9 +54,6 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 
-from .types import ProcessingLevel, SEC
-
-
 @dataclass
 class StepCostModel:
     """Maps (SEC, processing level) -> cost in appraisal steps.
@@ -64,27 +61,7 @@ class StepCostModel:
     Latencies are stored in milliseconds; one appraisal step lasts dt_ms. Steps
     are rounded to the nearest whole step, with a floor of 1 (no check is free).
     """
-
-    dt_ms: float = 100.0          # one appraisal step (tau); dt = 0.1 s
-    schematic_ms: float = 120.0   # uniform across SECs (fast tier)
-    conceptual_ms: dict[SEC, float] = field(
-        default_factory=lambda: {
-            SEC.RELEVANCE: 400.0,
-            SEC.IMPLICATION: 700.0,
-            SEC.COPING: 700.0,
-            SEC.NORMATIVE: 500.0,
-        }
-    )
-
-    def latency_ms_for(self, sec: SEC, level: ProcessingLevel) -> float:
-        """Underlying latency (ms) before discretisation -- handy for figures."""
-        if level == ProcessingLevel.CONCEPTUAL:
-            return self.conceptual_ms[sec]
-        return self.schematic_ms
-
-    def steps_for(self, sec: SEC, level: ProcessingLevel) -> int:
-        """Cost of one (SEC, level) check in whole appraisal steps (>= 1)."""
-        return max(1, round(self.latency_ms_for(sec, level) / self.dt_ms))
+    dt_ms: float = 100.0
     
     def steps_from_ms(self, latency_ms: float) -> int:
         """Convert a runtime-estimated latency (ms) into whole appraisal steps."""
