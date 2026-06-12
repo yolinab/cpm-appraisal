@@ -15,6 +15,7 @@ cd $HOME/cpm-appraisal
 mkdir -p logs data/outputs
 
 module load miniconda3
+source "$(conda info --base)/etc/profile.d/conda.sh"
 conda activate cpm
 
 export HF_HOME=/scratch/$USER/hf_cache
