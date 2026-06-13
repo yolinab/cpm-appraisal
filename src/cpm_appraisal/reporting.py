@@ -165,7 +165,7 @@ def build_run_record(
         },
         "convergence": {
             "converged": conv_step is not None,
-            "converged_at_step": conv_step,
+            "converged_at_sec": conv_step,
             "converged_at_tau": converged_at_tau,
             "converged_before_completion": (conv_step is not None and conv_step < n - 1),
             "steps_total": n,
