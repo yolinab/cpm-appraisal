@@ -20,8 +20,10 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import random
 import re
+import time
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 
@@ -98,19 +100,41 @@ class MockLLM(LanguageModel):
 class OpenAICompatLLM(LanguageModel):
     """OpenAI-compatible HTTP backend (Groq, Together, local vLLM server).
 
-    Stubbed for now. Fill in with the `openai` client pointed at base_url.
+    API key is read from the OPENAI_API_KEY env var, or pass it explicitly.
+    Set base_url to the provider's endpoint, e.g.:
+      Groq:    https://api.groq.com/openai/v1
+      Together: https://api.together.xyz/v1
     """
 
-    def __init__(self, model: str, base_url: str, api_key: str | None = None):
-        self.model = model
-        self.base_url = base_url
-        self.api_key = api_key
+    def __init__(self, model_id: str, base_url: str, api_key: str | None = None):
+        from openai import OpenAI
+        self.model_id = model_id
+        self.client = OpenAI(
+            base_url=base_url,
+            api_key=api_key or os.environ["OPENAI_API_KEY"],
+        )
 
     def generate(self, system: str, user: str, *, temperature: float = 0.7) -> LLMResponse:
-        raise NotImplementedError(
-            "OpenAICompatLLM: wire up the openai client here. "
-            "from openai import OpenAI; client = OpenAI(base_url=self.base_url, api_key=...)"
-        )
+        from openai import RateLimitError
+        messages = []
+        if system:
+            messages.append({"role": "system", "content": system})
+        messages.append({"role": "user", "content": user})
+        for attempt in range(6):
+            try:
+                response = self.client.chat.completions.create(
+                    model=self.model_id,
+                    messages=messages,
+                    temperature=temperature,
+                )
+                return LLMResponse(response.choices[0].message.content, "openai_compat")
+            except RateLimitError as e:
+                if attempt == 5:
+                    raise
+                match = re.search(r"try again in (\d+\.?\d*)s", str(e))
+                wait = float(match.group(1)) + 1.0 if match else 15.0
+                print(f"  [rate limit] waiting {wait:.1f}s before retry...")
+                time.sleep(wait)
 
 
 class LocalTransformersLLM(LanguageModel):

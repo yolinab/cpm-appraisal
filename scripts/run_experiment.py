@@ -27,7 +27,10 @@ def main() -> None:
     p = argparse.ArgumentParser()
     p.add_argument("--backend", default="mock")
     p.add_argument("--model-id", default=None,
-                   help="HuggingFace model id or local path (local_transformers backend)")
+                   help="HuggingFace model id or local path (local_transformers / openai_compat)")
+    p.add_argument("--base-url", default=None,
+                   help="API base URL for openai_compat backend "
+                        "(e.g. https://api.groq.com/openai/v1)")
     p.add_argument("--prototypes", default="data/prototypes/prototypes.json",
                    help="path to prototype CSV/JSON")
     p.add_argument("--weights", default="data/prototypes/weights.json",
@@ -47,6 +50,8 @@ def main() -> None:
     llm_kwargs = {}
     if args.model_id:
         llm_kwargs["model_id"] = args.model_id
+    if args.base_url:
+        llm_kwargs["base_url"] = args.base_url
     llm = build_llm(args.backend, **llm_kwargs)
 
     prototypes = load_prototypes(args.prototypes)
