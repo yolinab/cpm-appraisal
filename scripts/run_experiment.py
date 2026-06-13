@@ -84,7 +84,7 @@ def main() -> None:
         ev = record["scenario"]["event"]
         print(f"\n=== Complexity level {level} ({scenario.scenario_id}) ===")
         print(f"  sampled event : {ev['id']} — {ev['description']}")
-        print(f"  steps         : {c['steps_total']}")
+        print(f"  secs          : {c['secs_total']}")
         print(f"  timing        : total_tau={t['total_tau']} "
               f"({t['total_ms']:.0f} ms), budget_exhausted={t['budget_exhausted']}")
         if c["converged_before_completion"]:
