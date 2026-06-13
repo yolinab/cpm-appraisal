@@ -114,7 +114,7 @@ def build_run_record(
         jp = js_divergence(dists[i - 1], dist) if i > 0 else None
         js_prev.append(jp)
         rec = {
-            "step": i,
+            "sec": i,
             "tau": step.tau,
             "sec_completed": step.sec.value if step.sec else None,
             "completed_secs": [s.value for s in step.completed_secs],
@@ -168,7 +168,7 @@ def build_run_record(
             "converged_at_sec": conv_step,
             "converged_at_tau": converged_at_tau,
             "converged_before_completion": (conv_step is not None and conv_step < n - 1),
-            "steps_total": n,
+            "secs_total": n,
             "fraction_processed_before_convergence": (
                 converged_at_tau / total_tau
                 if (converged_at_tau is not None and total_tau) else None
