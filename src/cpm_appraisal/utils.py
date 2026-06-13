@@ -15,6 +15,9 @@ def extract_json(text: str, open_char: str = "{", close_char: str = "}") -> str:
     start, end = text.find(open_char), text.rfind(close_char)
     if start != -1 and end != -1:
         extracted = text[start : end + 1]
-        # trailing commas before ] or } are invalid JSON but LLMs produce them
-        return re.sub(r",\s*([}\]])", r"\1", extracted)
+        # strip // line comments (invalid JSON but common LLM output)
+        extracted = re.sub(r"//[^\n]*", "", extracted)
+        # strip trailing commas before ] or }
+        extracted = re.sub(r",\s*([}\]])", r"\1", extracted)
+        return extracted
     return text

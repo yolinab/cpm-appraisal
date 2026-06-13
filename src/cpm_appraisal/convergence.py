@@ -75,9 +75,10 @@ def analyse_trajectory(
     # 1-2. distribution and entropy at each step
     dists: list[EmotionDistribution] = []
     entropy_trace: list[float] = []
-    for step in trajectory:
+    for i, step in enumerate(trajectory):
+        print(f"\n------- APPRAISAL STEP {i+1}, SEC {step.sec}, completed SECs {len(step.completed_secs)} --------\n")
         dist = appraisal_to_distribution(
-            step.vector, prototypes, weights=weights, temperature=temperature
+            step.vector, prototypes, weights=weights, temperature=temperature, verbose=True
         )
         dists.append(dist)
         entropy_trace.append(entropy(dist))

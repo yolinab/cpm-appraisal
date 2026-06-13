@@ -94,4 +94,8 @@ def generate_scenario(llm: LanguageModel, complexity_level: int) -> Scenario:
 
 
 def _parse_events(raw: str) -> list[dict]:
-    return json.loads(extract_json(raw, "[", "]"))
+    try:
+        return json.loads(extract_json(raw, "[", "]"))
+    except json.JSONDecodeError:
+        print(f"[_parse_events] raw LLM output:\n{raw}\n")
+        raise

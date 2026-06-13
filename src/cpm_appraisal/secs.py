@@ -54,6 +54,9 @@ def run_sec(
     prior: AppraisalVector,
     persona_system: str,
 ) -> tuple[AppraisalVector, float]:
+    """
+    Builds a prompt and calls the LLM.
+    """
     raw = llm.generate(
         system=persona_system, user=sec_prompt(sec, event_description, prior)
     ).text
@@ -64,7 +67,11 @@ def run_sec(
 
 
 def _parse_ratings(raw: str) -> dict[str, float]:
-    return {k: float(v) for k, v in json.loads(extract_json(raw)).items()}
+    try:
+        return {k: float(v) for k, v in json.loads(extract_json(raw)).items()}
+    except json.JSONDecodeError:
+        print(f"[_parse_ratings] raw LLM output:\n{raw}\n")
+        raise
 
 
 def _clamp(v: float) -> float:

@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import json
+from datetime import datetime
 from pathlib import Path
 
 from cpm_appraisal.emotions.classify import appraisal_to_distribution
@@ -38,13 +39,14 @@ def main() -> None:
     # dt = 0.1 s, so the 10 s report budget is 100 steps (was 20 at dt = 0.5 s).
     p.add_argument("--t-max", type=int, default=100,
                    help="appraisal-step budget (100 steps = 10 s at dt = 0.1 s)")
-    p.add_argument("--temperature", type=float, default=1.0,
+    p.add_argument("--temperature", type=float, default=0.5,
                    help="softmin temperature for distance -> emotion distribution")
     p.add_argument("--seed", type=int, default=None,
                    help="seed for reproducible event sampling")
     p.add_argument("--full-distribution", action="store_true",
                    help="store the full 13-emotion distribution at every step")
-    p.add_argument("--out", default="data/outputs/results.json")
+    p.add_argument("--out", default=None,
+                   help="output path (default: data/outputs/<model>/<timestamp>.json)")
     args = p.parse_args()
 
     llm_kwargs = {}
@@ -53,6 +55,13 @@ def main() -> None:
     if args.base_url:
         llm_kwargs["base_url"] = args.base_url
     llm = build_llm(args.backend, **llm_kwargs)
+
+    if args.out:
+        out = Path(args.out)
+    else:
+        model_slug = (args.model_id or args.backend).replace("/", "-")
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        out = Path("data/outputs") / model_slug / f"{timestamp}.json"
 
     prototypes = load_prototypes(args.prototypes)
     weights = load_weights(args.weights)
@@ -99,7 +108,6 @@ def main() -> None:
 
         results.append(record)
 
-    out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(results, indent=2))
     print(f"\nWrote {out}")

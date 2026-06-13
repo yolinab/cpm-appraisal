@@ -131,8 +131,13 @@ class OpenAICompatLLM(LanguageModel):
             except RateLimitError as e:
                 if attempt == 5:
                     raise
-                match = re.search(r"try again in (\d+\.?\d*)s", str(e))
-                wait = float(match.group(1)) + 1.0 if match else 15.0
+                match = re.search(r"try again in (?:(\d+)m)?(\d+\.?\d*)s", str(e))
+                if match:
+                    minutes = float(match.group(1) or 0)
+                    seconds = float(match.group(2))
+                    wait = minutes * 60 + seconds + 1.0
+                else:
+                    wait = 15.0
                 print(f"  [rate limit] waiting {wait:.1f}s before retry...")
                 time.sleep(wait)
 
