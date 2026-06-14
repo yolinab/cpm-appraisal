@@ -11,6 +11,8 @@ def extract_json(text: str, open_char: str = "{", close_char: str = "}") -> str:
     - markdown code fences (```json ... ``` or ``` ... ```)
     - trailing commas before ] or } (invalid JSON but common LLM output)
     """
+    # strip <think>...</think> blocks (Qwen3 and other reasoning models)
+    text = re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL).strip()
     text = re.sub(r"```(?:json)?\s*", "", text).strip()
     start, end = text.find(open_char), text.rfind(close_char)
     if start != -1 and end != -1:
