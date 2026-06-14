@@ -1,0 +1,175 @@
+[
+  {
+    "scenario": {
+      "scenario_id": "L1",
+      "complexity_level": 1,
+      "base_seed": "Two parents meet to discuss childcare arrangements for their young child.",
+      "narrative": "I walk into the living room of my apartment, where Sara is already seated on the couch, sipping a cup of coffee. My daughter Mia, four years old, is playing with a puzzle on the floor, completely absorbed in her activity. The clock on the wall reads 7:45 AM. We'd agreed to discuss the childcare arrangements for Mia's collection from daycare, as the schedule has changed slightly.\n\nAs I sit down beside Sara, Mia looks up at us, her eyes sparkling with a mix of curiosity and energy. Sara smiles and sets her coffee cup on the side table. I reach out and ruffle Mia's hair, 'Hey kiddo, Mom and I are just talking about your day.' Sara nods, 'That's right, sweetie. We just need to make a few adjustments to your pickup time.'\n\nSara pulls out a calendar from her bag and we both lean in to examine it. 'Okay, the daycare says they're going to close at 5:30 PM from now on,' she says, her voice calm and matter-of-fact. I nod, taking a moment to think. 'That's not a problem, we can adjust our schedule to pick her up at 5:30. But we should also let her daycare know about our new drop-off time.'\n\nMia, still playing with her puzzle, occasionally glances up at us, sensing the conversation is about her. We occasionally make eye contact, but neither of us feels the need to reassure her, as our tone and body language convey a sense of normalcy.\n\nAs we continue discussing the logistics, Sara pulls out her phone to text the daycare about the updated drop-off time. I glance at the clock, realizing we're running a bit behind schedule. I suggest we head out a bit earlier to account for the changed traffic patterns. Sara agrees, 'That's a good idea, we can leave at 4:45 PM.'\n\nThe conversation flows smoothly, with no signs of disagreement or tension. Our goals are aligned, and we're working together to find a solution that suits everyone. With the new schedule in place, we feel confident and prepared to handle the changes.",
+      "event": {
+        "id": "e4",
+        "description": "Alex ruffles Mia's hair."
+      }
+    },
+    "timing": {
+      "total_tau": 20,
+      "total_ms": 2000.0,
+      "budget_exhausted": false,
+      "per_sec": [
+        {
+          "sec": "relevance",
+          "latency_ms": 150.0,
+          "step_cost": 2,
+          "cumulative_tau": 2
+        },
+        {
+          "sec": "implication",
+          "latency_ms": 550.0,
+          "step_cost": 6,
+          "cumulative_tau": 8
+        },
+        {
+          "sec": "coping",
+          "latency_ms": 650.0,
+          "step_cost": 6,
+          "cumulative_tau": 14
+        },
+        {
+          "sec": "normative",
+          "latency_ms": 650.0,
+          "step_cost": 6,
+          "cumulative_tau": 20
+        }
+      ]
+    },
+    "convergence": {
+      "converged": true,
+      "converged_at_sec": 3,
+      "converged_at_tau": 20,
+      "converged_before_completion": false,
+      "secs_total": 4,
+      "fraction_processed_before_convergence": 1.0,
+      "criterion": {
+        "measure": "js_consecutive",
+        "threshold": 0.01
+      },
+      "final_entropy": 0.04412996444926656,
+      "final_entropy_bits": 0.16330027320822038,
+      "initial_div_from_final": 0.9687044055548675,
+      "max_div_from_final": 0.9687044055548675
+    },
+    "trajectory": [
+      {
+        "sec": 0,
+        "tau": 2,
+        "sec_completed": "relevance",
+        "completed_secs": [
+          "relevance"
+        ],
+        "latency_ms": 150.0,
+        "step_cost": 2,
+        "entropy": 0.14628486765237883,
+        "entropy_bits": 0.5413183344238757,
+        "js_from_prev": null,
+        "js_from_final": 0.9687044055548675,
+        "top": [
+          [
+            "Contempt",
+            0.9246357301133712
+          ],
+          [
+            "Pleasure",
+            0.04328761899652417
+          ]
+        ]
+      },
+      {
+        "sec": 1,
+        "tau": 8,
+        "sec_completed": "implication",
+        "completed_secs": [
+          "relevance",
+          "implication"
+        ],
+        "latency_ms": 550.0,
+        "step_cost": 6,
+        "entropy": 0.6135798290503018,
+        "entropy_bits": 2.2705151696679584,
+        "js_from_prev": 0.8257730225215563,
+        "js_from_final": 0.35959528314804245,
+        "top": [
+          [
+            "Pride",
+            0.405823837963904
+          ],
+          [
+            "Shame",
+            0.2385571433253199
+          ]
+        ]
+      },
+      {
+        "sec": 2,
+        "tau": 14,
+        "sec_completed": "coping",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping"
+        ],
+        "latency_ms": 650.0,
+        "step_cost": 6,
+        "entropy": 0.45058226201923607,
+        "entropy_bits": 1.6673524986658377,
+        "js_from_prev": 0.09261442621917937,
+        "js_from_final": 0.16931330364782698,
+        "top": [
+          [
+            "Pride",
+            0.6673341367344815
+          ],
+          [
+            "Shame",
+            0.10464253431232155
+          ]
+        ]
+      },
+      {
+        "sec": 3,
+        "tau": 20,
+        "sec_completed": "normative",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping",
+          "normative"
+        ],
+        "latency_ms": 650.0,
+        "step_cost": 6,
+        "entropy": 0.04412996444926656,
+        "entropy_bits": 0.16330027320822038,
+        "js_from_prev": 0.16931330364782698,
+        "js_from_final": 0.0,
+        "top": [
+          [
+            "Pride",
+            0.9829198518690427
+          ],
+          [
+            "Sadness",
+            0.005195115886874815
+          ]
+        ]
+      }
+    ],
+    "final_distribution": [
+      [
+        "Pride",
+        0.9829198518690427
+      ],
+      [
+        "Sadness",
+        0.005195115886874815
+      ]
+    ]
+  }
+]

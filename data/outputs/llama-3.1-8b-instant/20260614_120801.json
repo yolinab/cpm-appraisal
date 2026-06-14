@@ -1,0 +1,175 @@
+[
+  {
+    "scenario": {
+      "scenario_id": "L1",
+      "complexity_level": 1,
+      "base_seed": "Two parents meet to discuss childcare arrangements for their young child.",
+      "narrative": "I'm standing in our living room, surrounded by the familiar walls that have seen countless afternoons spent playing with Mia. The sunlight streaming through the window highlights the dust particles dancing in the air as I glance at my watch. It's just past 3 pm. Sara walks in, carrying Mia on her hip. My daughter is babbling excitedly, trying to point to the window. Sara smiles, giving Mia a gentle squeeze before setting her down on the couch.\n\nSara takes a seat next to her on the couch, and I join them, sitting down in the armchair across from the couch. The soft cushions envelop me, a comforting reminder of the countless conversations we've had in this very spot. \n\nSara looks at me and says, 'So, what time do you think you'll be home tomorrow?' Her eyes are focused, her brow slightly furrowed as she waits for my response. I think for a moment before answering, 'I'll probably be home around 5 pm. I've got a meeting that just got pushed back, but it should finish on time.' Sara nods, jotting down a note on her phone.\n\nMia starts babbling again, trying to get my attention. Sara smiles and hands her a toy, distracting her. As I watch Mia's eyes light up with excitement, I feel a sense of calm wash over me. It's moments like these that remind me of how much I value our little family.\n\nSara sets her phone down and says, 'That should work. I was thinking we could drop her off at daycare around 4 pm and then grab a quick coffee before heading to the grocery store.' I nod, a plan forming in my mind. 'That sounds good to me. I can pick her up from daycare around 5 pm and then we can head home together.'\n\nAs we continue to discuss the logistics, our conversation flows smoothly, each of us building on the other's ideas. The air is filled with the gentle hum of the refrigerator in the background, the soft rustle of Mia's toy as she plays with it, and the quiet sound of our voices as we work together to find a solution that suits everyone.",
+      "event": {
+        "id": "e10",
+        "description": "Deciding to pick up Mia from daycare at 5 pm and head home together"
+      }
+    },
+    "timing": {
+      "total_tau": 19,
+      "total_ms": 2070.0,
+      "budget_exhausted": false,
+      "per_sec": [
+        {
+          "sec": "relevance",
+          "latency_ms": 120.0,
+          "step_cost": 1,
+          "cumulative_tau": 1
+        },
+        {
+          "sec": "implication",
+          "latency_ms": 650.0,
+          "step_cost": 6,
+          "cumulative_tau": 7
+        },
+        {
+          "sec": "coping",
+          "latency_ms": 650.0,
+          "step_cost": 6,
+          "cumulative_tau": 13
+        },
+        {
+          "sec": "normative",
+          "latency_ms": 650.0,
+          "step_cost": 6,
+          "cumulative_tau": 19
+        }
+      ]
+    },
+    "convergence": {
+      "converged": true,
+      "converged_at_sec": 3,
+      "converged_at_tau": 19,
+      "converged_before_completion": false,
+      "secs_total": 4,
+      "fraction_processed_before_convergence": 1.0,
+      "criterion": {
+        "measure": "js_consecutive",
+        "threshold": 0.01
+      },
+      "final_entropy": 0.6754990966021732,
+      "final_entropy_bits": 2.499643686635108,
+      "initial_div_from_final": 0.5203036717125991,
+      "max_div_from_final": 0.5203036717125991
+    },
+    "trajectory": [
+      {
+        "sec": 0,
+        "tau": 1,
+        "sec_completed": "relevance",
+        "completed_secs": [
+          "relevance"
+        ],
+        "latency_ms": 120.0,
+        "step_cost": 1,
+        "entropy": 0.4975270441741298,
+        "entropy_bits": 1.8410688351112876,
+        "js_from_prev": null,
+        "js_from_final": 0.5203036717125991,
+        "top": [
+          [
+            "Contempt",
+            0.6494845759405526
+          ],
+          [
+            "Pleasure",
+            0.14686479792833015
+          ]
+        ]
+      },
+      {
+        "sec": 1,
+        "tau": 7,
+        "sec_completed": "implication",
+        "completed_secs": [
+          "relevance",
+          "implication"
+        ],
+        "latency_ms": 650.0,
+        "step_cost": 6,
+        "entropy": 0.7756599777573909,
+        "entropy_bits": 2.8702829894658857,
+        "js_from_prev": 0.4340358961470849,
+        "js_from_final": 0.07134819238973718,
+        "top": [
+          [
+            "Pride",
+            0.305824998295461
+          ],
+          [
+            "Pleasure",
+            0.203616611012709
+          ]
+        ]
+      },
+      {
+        "sec": 2,
+        "tau": 13,
+        "sec_completed": "coping",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping"
+        ],
+        "latency_ms": 650.0,
+        "step_cost": 6,
+        "entropy": 0.7485189858585284,
+        "entropy_bits": 2.769849385053589,
+        "js_from_prev": 0.006255781403425245,
+        "js_from_final": 0.051315971130410185,
+        "top": [
+          [
+            "Pride",
+            0.3677262969839362
+          ],
+          [
+            "Pleasure",
+            0.18745029531480545
+          ]
+        ]
+      },
+      {
+        "sec": 3,
+        "tau": 19,
+        "sec_completed": "normative",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping",
+          "normative"
+        ],
+        "latency_ms": 650.0,
+        "step_cost": 6,
+        "entropy": 0.6754990966021732,
+        "entropy_bits": 2.499643686635108,
+        "js_from_prev": 0.051315971130410185,
+        "js_from_final": 0.0,
+        "top": [
+          [
+            "Pride",
+            0.464947406840466
+          ],
+          [
+            "Joy",
+            0.16445967230064074
+          ]
+        ]
+      }
+    ],
+    "final_distribution": [
+      [
+        "Pride",
+        0.464947406840466
+      ],
+      [
+        "Joy",
+        0.16445967230064074
+      ]
+    ]
+  }
+]

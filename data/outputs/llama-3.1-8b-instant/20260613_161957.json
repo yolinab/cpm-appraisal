@@ -1,0 +1,521 @@
+[
+  {
+    "scenario": {
+      "scenario_id": "L1",
+      "complexity_level": 1,
+      "base_seed": "Two parents meet to discuss childcare arrangements for their young child.",
+      "narrative": "I sit on the sofa in our living room, a warm patch of sunlight streaming through the window behind me. My 4-year-old daughter Mia is engrossed in her play, completely oblivious to the conversation about to unfold. Sara, Mia's mother, enters the room with a calm and focused expression, taking a seat beside me on the couch. We both glance at the clock on the wall, the digital display reading 2:47 PM.\n\nSara begins, \"Hey, I was thinking we should adjust our pickup schedule a bit. I'll be working a bit later this week, so I'll need to pick Mia up from daycare around 6:30 PM instead of 6:00 PM.\"\n\nI nod thoughtfully, taking a moment to consider the change. \"That's fine, I can adjust my plans to accommodate it. Can you send me an email with the updated schedule so I can update my calendar?\" I ask, pulling out my phone and opening the email app.\n\nSara nods, already reaching for her phone. \"Yeah, I'll send it over to you right now.\" She types away on her phone, her brow furrowed in concentration.\n\nMia, sensing our focused attention, looks up from her play and catches my eye. I offer a reassuring smile, which she returns with a smile of her own before returning to her toys.\n\nAs Sara finishes typing, I glance at her and ask, \"Is there anything specific that's changed in your work schedule that's triggering this adjustment?\"\n\nSara sets her phone aside and turns to me. \"Just some additional meetings this week. Nothing too out of the ordinary.\" She pauses, her eyes meeting mine. \"But I wanted to touch base with you and make sure we're on the same page.\"\n\nI nod, feeling a sense of ease and understanding. \"Sounds good to me. I'll make sure to be there at 6:30 PM on the days you need to pick Mia up.\"\n\nThe conversation feels smooth and straightforward, with no areas of contention. We both seem to be on the same page, and the adjustment to the schedule feels like a minor tweak to our established routine.",
+      "event": {
+        "id": "e14",
+        "description": "The conversation concludes with Alex agreeing to pick Mia up at the new time on the days Sara needs to pick her up."
+      }
+    },
+    "timing": {
+      "total_tau": 20,
+      "total_ms": 2130.0,
+      "budget_exhausted": false,
+      "per_sec": [
+        {
+          "sec": "relevance",
+          "latency_ms": 180.0,
+          "step_cost": 2,
+          "cumulative_tau": 2
+        },
+        {
+          "sec": "implication",
+          "latency_ms": 650.0,
+          "step_cost": 6,
+          "cumulative_tau": 8
+        },
+        {
+          "sec": "coping",
+          "latency_ms": 650.0,
+          "step_cost": 6,
+          "cumulative_tau": 14
+        },
+        {
+          "sec": "normative",
+          "latency_ms": 650.0,
+          "step_cost": 6,
+          "cumulative_tau": 20
+        }
+      ]
+    },
+    "convergence": {
+      "converged": true,
+      "converged_at_sec": 3,
+      "converged_at_tau": 20,
+      "converged_before_completion": false,
+      "secs_total": 4,
+      "fraction_processed_before_convergence": 1.0,
+      "criterion": {
+        "measure": "js_consecutive",
+        "threshold": 0.01
+      },
+      "final_entropy": 0.936296089675546,
+      "final_entropy_bits": 3.4647072381755843,
+      "initial_div_from_final": 0.18334258639534606,
+      "max_div_from_final": 0.18334258639534606
+    },
+    "trajectory": [
+      {
+        "sec": 0,
+        "tau": 2,
+        "sec_completed": "relevance",
+        "completed_secs": [
+          "relevance"
+        ],
+        "latency_ms": 180.0,
+        "step_cost": 2,
+        "entropy": 0.7747712703607876,
+        "entropy_bits": 2.866994381317689,
+        "js_from_prev": null,
+        "js_from_final": 0.18334258639534606,
+        "top": [
+          [
+            "Contempt",
+            0.4097389406934832
+          ],
+          [
+            "Pleasure",
+            0.1430804004082634
+          ]
+        ]
+      },
+      {
+        "sec": 1,
+        "tau": 8,
+        "sec_completed": "implication",
+        "completed_secs": [
+          "relevance",
+          "implication"
+        ],
+        "latency_ms": 650.0,
+        "step_cost": 6,
+        "entropy": 0.942549065949459,
+        "entropy_bits": 3.4878459999361655,
+        "js_from_prev": 0.1642224661693099,
+        "js_from_final": 0.04068179058075139,
+        "top": [
+          [
+            "Shame",
+            0.14588796061802747
+          ],
+          [
+            "Guilt",
+            0.13333562012704453
+          ]
+        ]
+      },
+      {
+        "sec": 2,
+        "tau": 14,
+        "sec_completed": "coping",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping"
+        ],
+        "latency_ms": 650.0,
+        "step_cost": 6,
+        "entropy": 0.9406994889393222,
+        "entropy_bits": 3.4810017517060947,
+        "js_from_prev": 0.003287137424785969,
+        "js_from_final": 0.030649159103610234,
+        "top": [
+          [
+            "Pride",
+            0.13426013518206406
+          ],
+          [
+            "Shame",
+            0.13081816867369517
+          ]
+        ]
+      },
+      {
+        "sec": 3,
+        "tau": 20,
+        "sec_completed": "normative",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping",
+          "normative"
+        ],
+        "latency_ms": 650.0,
+        "step_cost": 6,
+        "entropy": 0.936296089675546,
+        "entropy_bits": 3.4647072381755843,
+        "js_from_prev": 0.030649159103610234,
+        "js_from_final": 0.0,
+        "top": [
+          [
+            "Pride",
+            0.19597227245789722
+          ],
+          [
+            "Joy",
+            0.125346710178991
+          ]
+        ]
+      }
+    ],
+    "final_distribution": [
+      [
+        "Pride",
+        0.19597227245789722
+      ],
+      [
+        "Joy",
+        0.125346710178991
+      ]
+    ]
+  },
+  {
+    "scenario": {
+      "scenario_id": "L2",
+      "complexity_level": 2,
+      "base_seed": "Two parents meet to discuss childcare arrangements for their young child.",
+      "narrative": "I'm sitting in our living room, a dimly lit space with morning sunlight streaming through the window, casting a warm glow over the room. It's a Saturday morning, roughly 10:45 am. My wife, Sara, is opposite me, our 4-year-old daughter, Mia, currently engrossed in building a block tower on the coffee table. I'm sipping coffee from a mug, its contents lukewarm now. Sara's hands are clasped together, her eyes fixed on me.\n\n'So, we need to talk about Mia's childcare,' Sara says, her voice calm but laced with an undercurrent of concern.\n\nI nod, taking a sip of my coffee. 'I know. Her kindergarten starts soon and we need to figure out a schedule that works for both of us.'\n\nMia looks up, her big brown eyes watching us with interest. 'Mama stay home?' she asks, her voice hopeful.\n\nSara's expression falters, and I detect a hint of hesitation before she responds. 'Mommy has to work, sweetie.'\n\nI lean forward, my eyes locked on Sara's. 'We can discuss this. Maybe one of us can reduce work hours.'\n\nSara's hands release their grip, and she leans back in her chair. 'That's just it \u2013 we both need to work. Our financial situation isn't stable enough.'\n\nI take a deep breath, my mind racing with solutions. 'But we could adjust our schedules. You could work from home part-time, and I could pick up more hours.'\n\nSara's expression turns thoughtful, her eyes narrowing as she considers the proposal. 'That might work, but what about my career goals? I've been wanting to move up at the office.'\n\nMia, sensing our tension, begins to play with the blocks again, her small voice singing a soft tune. I glance at her, my heart swelling with love and a sense of responsibility.\n\nSara's voice cuts through my thoughts. 'And what about your job? You're already putting in long hours.'\n\nThe air in the room feels charged, the unspoken implications hanging between us like an unseen presence. I take another sip of my coffee, my mind racing with the complexities of our situation.",
+      "event": {
+        "id": "e3",
+        "description": "Mia asks if her mother will stay home from work."
+      }
+    },
+    "timing": {
+      "total_tau": 21,
+      "total_ms": 2100.0,
+      "budget_exhausted": false,
+      "per_sec": [
+        {
+          "sec": "relevance",
+          "latency_ms": 150.0,
+          "step_cost": 2,
+          "cumulative_tau": 2
+        },
+        {
+          "sec": "implication",
+          "latency_ms": 650.0,
+          "step_cost": 6,
+          "cumulative_tau": 8
+        },
+        {
+          "sec": "coping",
+          "latency_ms": 700.0,
+          "step_cost": 7,
+          "cumulative_tau": 15
+        },
+        {
+          "sec": "normative",
+          "latency_ms": 600.0,
+          "step_cost": 6,
+          "cumulative_tau": 21
+        }
+      ]
+    },
+    "convergence": {
+      "converged": true,
+      "converged_at_sec": 3,
+      "converged_at_tau": 21,
+      "converged_before_completion": false,
+      "secs_total": 4,
+      "fraction_processed_before_convergence": 1.0,
+      "criterion": {
+        "measure": "js_consecutive",
+        "threshold": 0.01
+      },
+      "final_entropy": 0.9515786485892223,
+      "final_entropy_bits": 3.521259426174583,
+      "initial_div_from_final": 0.11357226033699006,
+      "max_div_from_final": 0.11357226033699006
+    },
+    "trajectory": [
+      {
+        "sec": 0,
+        "tau": 2,
+        "sec_completed": "relevance",
+        "completed_secs": [
+          "relevance"
+        ],
+        "latency_ms": 150.0,
+        "step_cost": 2,
+        "entropy": 0.8165510701646002,
+        "entropy_bits": 3.0215980119277,
+        "js_from_prev": null,
+        "js_from_final": 0.11357226033699006,
+        "top": [
+          [
+            "Contempt",
+            0.3369573374975157
+          ],
+          [
+            "Pleasure",
+            0.17031795745158443
+          ]
+        ]
+      },
+      {
+        "sec": 1,
+        "tau": 8,
+        "sec_completed": "implication",
+        "completed_secs": [
+          "relevance",
+          "implication"
+        ],
+        "latency_ms": 650.0,
+        "step_cost": 6,
+        "entropy": 0.9477007136903695,
+        "entropy_bits": 3.5069093618505027,
+        "js_from_prev": 0.05514748852910027,
+        "js_from_final": 0.025683319802120012,
+        "top": [
+          [
+            "Contempt",
+            0.16291952145572666
+          ],
+          [
+            "Pleasure",
+            0.13605207014197113
+          ]
+        ]
+      },
+      {
+        "sec": 2,
+        "tau": 15,
+        "sec_completed": "coping",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping"
+        ],
+        "latency_ms": 700.0,
+        "step_cost": 7,
+        "entropy": 0.9503585911894794,
+        "entropy_bits": 3.5167446773141626,
+        "js_from_prev": 0.003257313124607421,
+        "js_from_final": 0.022018659183628893,
+        "top": [
+          [
+            "Contempt",
+            0.16509870261530454
+          ],
+          [
+            "Pleasure",
+            0.13125230053245554
+          ]
+        ]
+      },
+      {
+        "sec": 3,
+        "tau": 21,
+        "sec_completed": "normative",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping",
+          "normative"
+        ],
+        "latency_ms": 600.0,
+        "step_cost": 6,
+        "entropy": 0.9515786485892223,
+        "entropy_bits": 3.521259426174583,
+        "js_from_prev": 0.022018659183628893,
+        "js_from_final": 0.0,
+        "top": [
+          [
+            "Pride",
+            0.1304935292029229
+          ],
+          [
+            "Pleasure",
+            0.12104374343269603
+          ]
+        ]
+      }
+    ],
+    "final_distribution": [
+      [
+        "Pride",
+        0.1304935292029229
+      ],
+      [
+        "Pleasure",
+        0.12104374343269603
+      ]
+    ]
+  },
+  {
+    "scenario": {
+      "scenario_id": "L3",
+      "complexity_level": 3,
+      "base_seed": "Two parents meet to discuss childcare arrangements for their young child.",
+      "narrative": "I step into the warm afternoon sunlight, the residential apartment's front door still ajar behind me. Sara stands in the entrance, her arms crossed, a look of stubbornness etched on her face. I glance at Mia, our 4-year-old daughter, who's fidgeting nervously between us, her eyes darting back and forth. We're in the midst of a tense discussion, our voices raised.\n\nThe air is thick with the scent of fresh paint and yesterday's leftover pizza, a mix of cleanliness and neglect. I take in the cluttered living room, the remnants of our failed weekend plans scattered about \u2013 a half-finished puzzle on the coffee table, a stack of unopened mail on the floor. The apartment's worn furniture seems to close in on us, the tension palpable.\n\nSara's voice rises. \"I'm not doing it, Alex. I won't be responsible for your lack of planning. You're always late, always flaking on our schedule.\" She shakes her head, her words laced with accusation.\n\nI take a deep breath, trying to calm myself. \"That's not fair, Sara. I've been working non-stop, trying to provide for Mia's future. You know how much I want to give her stability.\" I glance down at our daughter, who's watching us with wide, scared eyes.\n\nMia's voice cracks as she speaks up for the first time since we began arguing. \"Mommy, Daddy, can we please just talk about this later? I don't like it when you fight.\"\n\nSara's expression softens for a moment, but only for a moment. \"We were talking, sweetie. Daddy and I need to figure some things out.\" She turns back to me, her anger simmering just below the surface. \"You need to start taking more responsibility, Alex. I've had enough of your excuses.\"\n\nI feel a surge of frustration, but I try to keep my cool. \"I'm trying, Sara. But you're not making it easy. Can we at least agree to put Mia's needs first?\" I glance at our daughter, who's now clinging to Sara's leg, her eyes welling up with tears.",
+      "event": {
+        "id": "e8",
+        "description": "Sara shakes her head with her words laced with accusation."
+      }
+    },
+    "timing": {
+      "total_tau": 20,
+      "total_ms": 2100.0,
+      "budget_exhausted": false,
+      "per_sec": [
+        {
+          "sec": "relevance",
+          "latency_ms": 150.0,
+          "step_cost": 2,
+          "cumulative_tau": 2
+        },
+        {
+          "sec": "implication",
+          "latency_ms": 650.0,
+          "step_cost": 6,
+          "cumulative_tau": 8
+        },
+        {
+          "sec": "coping",
+          "latency_ms": 650.0,
+          "step_cost": 6,
+          "cumulative_tau": 14
+        },
+        {
+          "sec": "normative",
+          "latency_ms": 650.0,
+          "step_cost": 6,
+          "cumulative_tau": 20
+        }
+      ]
+    },
+    "convergence": {
+      "converged": true,
+      "converged_at_sec": 1,
+      "converged_at_tau": 8,
+      "converged_before_completion": true,
+      "secs_total": 4,
+      "fraction_processed_before_convergence": 0.4,
+      "criterion": {
+        "measure": "js_consecutive",
+        "threshold": 0.01
+      },
+      "final_entropy": 0.9528135697225779,
+      "final_entropy_bits": 3.525829177385224,
+      "initial_div_from_final": 0.11192400650977205,
+      "max_div_from_final": 0.11192400650977205
+    },
+    "trajectory": [
+      {
+        "sec": 0,
+        "tau": 2,
+        "sec_completed": "relevance",
+        "completed_secs": [
+          "relevance"
+        ],
+        "latency_ms": 150.0,
+        "step_cost": 2,
+        "entropy": 0.9415473125618499,
+        "entropy_bits": 3.4841390719128746,
+        "js_from_prev": null,
+        "js_from_final": 0.11192400650977205,
+        "top": [
+          [
+            "Guilt",
+            0.1572183831576303
+          ],
+          [
+            "Pride",
+            0.1572183831576303
+          ]
+        ]
+      },
+      {
+        "sec": 1,
+        "tau": 8,
+        "sec_completed": "implication",
+        "completed_secs": [
+          "relevance",
+          "implication"
+        ],
+        "latency_ms": 650.0,
+        "step_cost": 6,
+        "entropy": 0.9382623673038598,
+        "entropy_bits": 3.471983330008289,
+        "js_from_prev": 0.13110641556204003,
+        "js_from_final": 0.005635198950688005,
+        "top": [
+          [
+            "Irritation",
+            0.17536456564530128
+          ],
+          [
+            "Contempt",
+            0.13829871761834683
+          ]
+        ]
+      },
+      {
+        "sec": 2,
+        "tau": 14,
+        "sec_completed": "coping",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping"
+        ],
+        "latency_ms": 650.0,
+        "step_cost": 6,
+        "entropy": 0.9503449675183838,
+        "entropy_bits": 3.5166942637405336,
+        "js_from_prev": 0.001826038646957526,
+        "js_from_final": 0.0026641303069630754,
+        "top": [
+          [
+            "Irritation",
+            0.16270687934930067
+          ],
+          [
+            "Contempt",
+            0.13202107364840954
+          ]
+        ]
+      },
+      {
+        "sec": 3,
+        "tau": 20,
+        "sec_completed": "normative",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping",
+          "normative"
+        ],
+        "latency_ms": 650.0,
+        "step_cost": 6,
+        "entropy": 0.9528135697225779,
+        "entropy_bits": 3.525829177385224,
+        "js_from_prev": 0.0026641303069630754,
+        "js_from_final": 0.0,
+        "top": [
+          [
+            "Rage",
+            0.14065631675893653
+          ],
+          [
+            "Irritation",
+            0.14023714815603458
+          ]
+        ]
+      }
+    ],
+    "final_distribution": [
+      [
+        "Rage",
+        0.14065631675893653
+      ],
+      [
+        "Irritation",
+        0.14023714815603458
+      ]
+    ]
+  }
+]

@@ -1,0 +1,175 @@
+[
+  {
+    "scenario": {
+      "scenario_id": "L1",
+      "complexity_level": 1,
+      "base_seed": "Two parents meet to discuss childcare arrangements for their young child.",
+      "narrative": "I sit on the couch in our residential apartment, surrounded by the familiar comforts of home. The afternoon sun casts a warm glow through the living room window, illuminating the calm atmosphere. Sara, my partner, sits beside me, our 4-year-old daughter Mia playing quietly on the floor nearby. The clock on the wall reads 2:45 PM.\n\nSara and I exchange a relaxed glance before turning our attention to the task at hand. We're discussing the upcoming schedule change that will affect our childcare arrangements. \"So, we need to figure out who will pick up Mia from daycare tomorrow,\" Sara says, her voice smooth and calm. I nod in agreement, my eyes following the gentle movement of Mia's fingers as she builds a tower with blocks.\n\n\"I'm free to pick her up tomorrow, but Friday I have a meeting that runs late,\" I explain, my voice steady and rational. Sara nods thoughtfully, her brow slightly furrowed as she considers the information. \"That's okay, I can pick her up on Friday. What about next Monday?\" She pauses, awaiting my response.\n\nI take a moment to think, mentally reviewing my schedule for the upcoming week. \"I actually have a dentist appointment next Monday, so it's not a good day for me to pick her up. But I can drop her off in the morning before the appointment.\" The sound of Mia's happy chatter fills the air as she proudly displays her block creation to Sara.\n\nSara smiles and nods in understanding. \"That sounds perfect, thank you. I'll make sure to adjust the schedule accordingly.\" We sit in comfortable silence for a moment, the only sound the soft hum of the air conditioner and the occasional clinking of blocks as Mia plays. The atmosphere remains relaxed and calm, our discussion proceeding in a straightforward and efficient manner.\n\nAs we continue to discuss the schedule, our conversation flows easily, each of us contributing our thoughts and ideas without any apparent conflict. The warm sunlight and peaceful atmosphere of our home contribute to the sense of harmony and cooperation that pervades our conversation.",
+      "event": {
+        "id": "e8",
+        "description": "Alex says he has a dentist appointment next Monday, but can drop Mia off in the morning."
+      }
+    },
+    "timing": {
+      "total_tau": 20,
+      "total_ms": 2100.0,
+      "budget_exhausted": false,
+      "per_sec": [
+        {
+          "sec": "relevance",
+          "latency_ms": 150.0,
+          "step_cost": 2,
+          "cumulative_tau": 2
+        },
+        {
+          "sec": "implication",
+          "latency_ms": 650.0,
+          "step_cost": 6,
+          "cumulative_tau": 8
+        },
+        {
+          "sec": "coping",
+          "latency_ms": 650.0,
+          "step_cost": 6,
+          "cumulative_tau": 14
+        },
+        {
+          "sec": "normative",
+          "latency_ms": 650.0,
+          "step_cost": 6,
+          "cumulative_tau": 20
+        }
+      ]
+    },
+    "convergence": {
+      "converged": true,
+      "converged_at_sec": 3,
+      "converged_at_tau": 20,
+      "converged_before_completion": false,
+      "secs_total": 4,
+      "fraction_processed_before_convergence": 1.0,
+      "criterion": {
+        "measure": "js_consecutive",
+        "threshold": 0.01
+      },
+      "final_entropy": 0.1683406843754251,
+      "final_entropy_bits": 0.6229345546418766,
+      "initial_div_from_final": 0.999926457370818,
+      "max_div_from_final": 0.999926457370818
+    },
+    "trajectory": [
+      {
+        "sec": 0,
+        "tau": 2,
+        "sec_completed": "relevance",
+        "completed_secs": [
+          "relevance"
+        ],
+        "latency_ms": 150.0,
+        "step_cost": 2,
+        "entropy": 0.00011557402171384883,
+        "entropy_bits": 0.00042767470033522727,
+        "js_from_prev": null,
+        "js_from_final": 0.999926457370818,
+        "top": [
+          [
+            "Contempt",
+            0.9999771404807267
+          ],
+          [
+            "Pleasure",
+            7.464722348757191e-06
+          ]
+        ]
+      },
+      {
+        "sec": 1,
+        "tau": 8,
+        "sec_completed": "implication",
+        "completed_secs": [
+          "relevance",
+          "implication"
+        ],
+        "latency_ms": 650.0,
+        "step_cost": 6,
+        "entropy": 0.3024611539748713,
+        "entropy_bits": 1.1192392673634022,
+        "js_from_prev": 0.8923222793712016,
+        "js_from_final": 0.7856307282332652,
+        "top": [
+          [
+            "Disgust",
+            0.6251019583358153
+          ],
+          [
+            "Pleasure",
+            0.3409537088520916
+          ]
+        ]
+      },
+      {
+        "sec": 2,
+        "tau": 14,
+        "sec_completed": "coping",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping"
+        ],
+        "latency_ms": 650.0,
+        "step_cost": 6,
+        "entropy": 0.0007529311864201191,
+        "entropy_bits": 0.0027861764672561036,
+        "js_from_prev": 0.21778008653927722,
+        "js_from_final": 0.7530880295210534,
+        "top": [
+          [
+            "Disgust",
+            0.999803236695401
+          ],
+          [
+            "Pleasure",
+            0.00018079673232415539
+          ]
+        ]
+      },
+      {
+        "sec": 3,
+        "tau": 20,
+        "sec_completed": "normative",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping",
+          "normative"
+        ],
+        "latency_ms": 650.0,
+        "step_cost": 6,
+        "entropy": 0.1683406843754251,
+        "entropy_bits": 0.6229345546418766,
+        "js_from_prev": 0.7530880295210534,
+        "js_from_final": 0.0,
+        "top": [
+          [
+            "Pride",
+            0.8758385997324326
+          ],
+          [
+            "Disgust",
+            0.1030247863147085
+          ]
+        ]
+      }
+    ],
+    "final_distribution": [
+      [
+        "Pride",
+        0.8758385997324326
+      ],
+      [
+        "Disgust",
+        0.1030247863147085
+      ]
+    ]
+  }
+]

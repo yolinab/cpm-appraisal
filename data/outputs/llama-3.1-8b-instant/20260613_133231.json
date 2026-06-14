@@ -1,0 +1,521 @@
+[
+  {
+    "scenario": {
+      "scenario_id": "L1",
+      "complexity_level": 1,
+      "base_seed": "Two parents meet to discuss childcare arrangements for their young child.",
+      "narrative": "I'm in our residential apartment, standing in the living room with Sara, my partner, and Mia, our four-year-old daughter. It's a typical Wednesday evening, around 5:45 PM, with the warm glow of the setting sun casting a gentle hue through the window. The air is filled with the faint scent of freshly brewed coffee from earlier. Sara and I are engaged in a calm conversation, seated on the couch, with Mia playing with her toys nearby.\n\nWe're discussing the logistics of picking Mia up from daycare tomorrow. Sara has just mentioned that her schedule has changed, and she won't be able to pick Mia up at the usual 3:30 PM time. I nod thoughtfully, making a mental note of the adjustment. I glance at my watch, a simple leather strap on my wrist, to confirm the revised pickup time she suggests, 4:00 PM.\n\nI respond, 'That's no problem, I can adjust my schedule. What's the new drop-off time for daycare tomorrow?' Sara smiles, her eyes crinkling at the corners, as she checks her phone for the correct time. She looks up, 'It's 8:00 AM. I've already informed them.'\n\nMia, now intrigued by our conversation, walks over to us, holding a stuffed rabbit tight in her arms. Sara makes room for our daughter on the couch, and I continue the conversation, 'Great, I'll plan accordingly. I'll make sure to be at the daycare at 8:00 AM tomorrow.' Sara nods in agreement, 'Sounds good. Thanks for understanding.'\n\nAs we finalize the details, I notice the soft hum of the air conditioner in the background, and the faint sound of Mia's giggles as she plays with her toy rabbit. I glance at Sara, and we exchange a brief, reassuring smile. Our conversation is straightforward, with a clear understanding of the revised schedule.",
+      "event": {
+        "id": "e5",
+        "description": "Mia walks over to Alex and Sara."
+      }
+    },
+    "timing": {
+      "total_tau": 20,
+      "total_ms": 2125.0,
+      "budget_exhausted": false,
+      "per_sec": [
+        {
+          "sec": "relevance",
+          "latency_ms": 175.0,
+          "step_cost": 2,
+          "cumulative_tau": 2
+        },
+        {
+          "sec": "implication",
+          "latency_ms": 650.0,
+          "step_cost": 6,
+          "cumulative_tau": 8
+        },
+        {
+          "sec": "coping",
+          "latency_ms": 650.0,
+          "step_cost": 6,
+          "cumulative_tau": 14
+        },
+        {
+          "sec": "normative",
+          "latency_ms": 650.0,
+          "step_cost": 6,
+          "cumulative_tau": 20
+        }
+      ]
+    },
+    "convergence": {
+      "converged": true,
+      "converged_at_sec": 1,
+      "converged_at_tau": 8,
+      "converged_before_completion": true,
+      "secs_total": 4,
+      "fraction_processed_before_convergence": 0.4,
+      "criterion": {
+        "measure": "js_consecutive",
+        "threshold": 0.01
+      },
+      "final_entropy": 0.9862293702889897,
+      "final_entropy_bits": 3.6494823330146557,
+      "initial_div_from_final": 0.03524584509829119,
+      "max_div_from_final": 0.03524584509829119
+    },
+    "trajectory": [
+      {
+        "sec": 0,
+        "tau": 2,
+        "sec_completed": "relevance",
+        "completed_secs": [
+          "relevance"
+        ],
+        "latency_ms": 175.0,
+        "step_cost": 2,
+        "entropy": 0.9423653449637107,
+        "entropy_bits": 3.487166151503447,
+        "js_from_prev": null,
+        "js_from_final": 0.03524584509829119,
+        "top": [
+          [
+            "Contempt",
+            0.20122385681115915
+          ],
+          [
+            "Pleasure",
+            0.12882024768216063
+          ]
+        ]
+      },
+      {
+        "sec": 1,
+        "tau": 8,
+        "sec_completed": "implication",
+        "completed_secs": [
+          "relevance",
+          "implication"
+        ],
+        "latency_ms": 650.0,
+        "step_cost": 6,
+        "entropy": 0.9868009864954916,
+        "entropy_bits": 3.651597564328729,
+        "js_from_prev": 0.020640787693633658,
+        "js_from_final": 0.006541829400968398,
+        "top": [
+          [
+            "Contempt",
+            0.11503543861058284
+          ],
+          [
+            "Irritation",
+            0.10207325595017736
+          ]
+        ]
+      },
+      {
+        "sec": 2,
+        "tau": 14,
+        "sec_completed": "coping",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping"
+        ],
+        "latency_ms": 650.0,
+        "step_cost": 6,
+        "entropy": 0.9866141929909543,
+        "entropy_bits": 3.6509063462254483,
+        "js_from_prev": 0.0007014914430707841,
+        "js_from_final": 0.0049002502823518816,
+        "top": [
+          [
+            "Contempt",
+            0.11504098071033425
+          ],
+          [
+            "Irritation",
+            0.10278044498100317
+          ]
+        ]
+      },
+      {
+        "sec": 3,
+        "tau": 20,
+        "sec_completed": "normative",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping",
+          "normative"
+        ],
+        "latency_ms": 650.0,
+        "step_cost": 6,
+        "entropy": 0.9862293702889897,
+        "entropy_bits": 3.6494823330146557,
+        "js_from_prev": 0.0049002502823518816,
+        "js_from_final": 0.0,
+        "top": [
+          [
+            "Irritation",
+            0.1018197646981822
+          ],
+          [
+            "Joy",
+            0.10037314179045641
+          ]
+        ]
+      }
+    ],
+    "final_distribution": [
+      [
+        "Irritation",
+        0.1018197646981822
+      ],
+      [
+        "Joy",
+        0.10037314179045641
+      ]
+    ]
+  },
+  {
+    "scenario": {
+      "scenario_id": "L2",
+      "complexity_level": 2,
+      "base_seed": "Two parents meet to discuss childcare arrangements for their young child.",
+      "narrative": "I'm sitting in our living room with Sara, my wife of eight years, at 2:45 PM on a Wednesday afternoon. Mia, our four-year-old daughter, is playing with her dolls on the floor near us. The sun is shining through the window, casting a warm glow over the room. A faint scent of fresh laundry wafts through the air from the clothes drying rack in the corner.\n\nSara and I are facing each other on the couch, our legs crossed in a relaxed yet tense pose. I've got my elbows on my knees, and she's resting her hands on the armrest. We're both dressed casually, Sara in a faded t-shirt and yoga pants, me in a plain white shirt and jeans.\n\nAs we begin the conversation, Mia suddenly interrupts us, asking for a snack. Sara stands up to get her a granola bar from the kitchen, and I take the opportunity to start speaking. \"So, Sara, we need to figure out how to handle the childcare situation. You know, with your new promotion and my project at work, we'll both be working longer hours.\"\n\nSara returns from the kitchen, granola bar in hand, and hands it to Mia, who's now standing beside her, munching on the snack. Sara sits back down beside me, and I continue, \"I was thinking maybe we could find a part-time nanny to help with Mia after school.\"\n\nSara's eyes narrow slightly as she responds, \"I don't know, Alex. I was really looking forward to this new role, and I don't want to give it up. It's a great opportunity for me.\" Her hands are now clenched into fists, and her voice has a hint of firmness.\n\nI nod thoughtfully, my eyes locked onto hers, as I respond, \"I understand, but we need to be realistic about our work hours. If we don't adjust, we'll both be burning out.\" I pause, studying her reaction, before continuing, \"Maybe we could discuss a compromise, like I reduce my work hours to match your new schedule?\"",
+      "event": {
+        "id": "e6",
+        "description": "Alex suggests finding a part-time nanny to help with Mia after school."
+      }
+    },
+    "timing": {
+      "total_tau": 20,
+      "total_ms": 2130.0,
+      "budget_exhausted": false,
+      "per_sec": [
+        {
+          "sec": "relevance",
+          "latency_ms": 180.0,
+          "step_cost": 2,
+          "cumulative_tau": 2
+        },
+        {
+          "sec": "implication",
+          "latency_ms": 650.0,
+          "step_cost": 6,
+          "cumulative_tau": 8
+        },
+        {
+          "sec": "coping",
+          "latency_ms": 650.0,
+          "step_cost": 6,
+          "cumulative_tau": 14
+        },
+        {
+          "sec": "normative",
+          "latency_ms": 650.0,
+          "step_cost": 6,
+          "cumulative_tau": 20
+        }
+      ]
+    },
+    "convergence": {
+      "converged": true,
+      "converged_at_sec": 1,
+      "converged_at_tau": 8,
+      "converged_before_completion": true,
+      "secs_total": 4,
+      "fraction_processed_before_convergence": 0.4,
+      "criterion": {
+        "measure": "js_consecutive",
+        "threshold": 0.01
+      },
+      "final_entropy": 0.9834200368653305,
+      "final_entropy_bits": 3.639086564032246,
+      "initial_div_from_final": 0.02016111472276063,
+      "max_div_from_final": 0.02016111472276063
+    },
+    "trajectory": [
+      {
+        "sec": 0,
+        "tau": 2,
+        "sec_completed": "relevance",
+        "completed_secs": [
+          "relevance"
+        ],
+        "latency_ms": 180.0,
+        "step_cost": 2,
+        "entropy": 0.9731719400004663,
+        "entropy_bits": 3.601164099358145,
+        "js_from_prev": null,
+        "js_from_final": 0.02016111472276063,
+        "top": [
+          [
+            "Pleasure",
+            0.11873864141398946
+          ],
+          [
+            "Contempt",
+            0.10957531767342107
+          ]
+        ]
+      },
+      {
+        "sec": 1,
+        "tau": 8,
+        "sec_completed": "implication",
+        "completed_secs": [
+          "relevance",
+          "implication"
+        ],
+        "latency_ms": 650.0,
+        "step_cost": 6,
+        "entropy": 0.9740022872350722,
+        "entropy_bits": 3.60423674924493,
+        "js_from_prev": 0.02278495726205567,
+        "js_from_final": 0.011287202238723345,
+        "top": [
+          [
+            "Shame",
+            0.14182639252617785
+          ],
+          [
+            "Guilt",
+            0.11601027519187697
+          ]
+        ]
+      },
+      {
+        "sec": 2,
+        "tau": 14,
+        "sec_completed": "coping",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping"
+        ],
+        "latency_ms": 650.0,
+        "step_cost": 6,
+        "entropy": 0.9785785662916489,
+        "entropy_bits": 3.621170994027183,
+        "js_from_prev": 0.0016513911274605073,
+        "js_from_final": 0.00805726459149528,
+        "top": [
+          [
+            "Shame",
+            0.13013597548077463
+          ],
+          [
+            "Pride",
+            0.11279666435154645
+          ]
+        ]
+      },
+      {
+        "sec": 3,
+        "tau": 20,
+        "sec_completed": "normative",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping",
+          "normative"
+        ],
+        "latency_ms": 650.0,
+        "step_cost": 6,
+        "entropy": 0.9834200368653305,
+        "entropy_bits": 3.639086564032246,
+        "js_from_prev": 0.00805726459149528,
+        "js_from_final": 0.0,
+        "top": [
+          [
+            "Pride",
+            0.13142446819813033
+          ],
+          [
+            "Joy",
+            0.10443160231297301
+          ]
+        ]
+      }
+    ],
+    "final_distribution": [
+      [
+        "Pride",
+        0.13142446819813033
+      ],
+      [
+        "Joy",
+        0.10443160231297301
+      ]
+    ]
+  },
+  {
+    "scenario": {
+      "scenario_id": "L3",
+      "complexity_level": 3,
+      "base_seed": "Two parents meet to discuss childcare arrangements for their young child.",
+      "narrative": "I stand in the middle of our living room, my arms crossed, as Sara stands opposite me, her eyes blazing with intensity. The afternoon sunlight streaming through the window highlights the tension between us. Mia, our four-year-old daughter, sits on the couch, her eyes fixed on the floor as she plays with a puzzle. The clock on the wall reads 3:45 PM.\n\nSara and I have been divorced for two years, and we've managed to co-parent without too much drama... until now. A few weeks ago, I started a new job that requires me to travel for work more often, and Sara's been struggling to balance her own career and taking care of Mia. We've been arguing about how to handle the logistics of childcare, but this latest development has pushed us to the breaking point.\n\n\"Mia needs stability,\" Sara says, her voice rising. \"She can't have her routine disrupted every time you go on a whim.\" She gestures, her hand slicing through the air.\n\nI take a deep breath, trying to remain calm. \"I understand where you're coming from, but this is the only job offer I've gotten in months. It's a chance for me to provide a better future for us.\" I glance at Mia, who looks up, her eyes welling up with tears.\n\nSara takes a step closer, her face inches from mine. \"A better future? You're going to be away from our daughter for months at a time. What kind of role model are you going to be?\"\n\nI feel my jaw clenched, but I force myself to remain still. \"I'm doing what's best for us, Sara. You can't control my job, but you can support me.\"\n\nMia starts to whimper, and Sara's eyes flash to her daughter. For a moment, the argument freezes. Then Sara's face contorts in a mixture of anger and desperation. \"Fine. I'll take care of Mia. But you're not going to just waltz back into our lives whenever it suits you.\"\n\nThe air seems to vibrate with unspoken tension as I process Sara's words. I know I need to respond, but for the moment, I'm frozen, unsure of how to navigate this treacherous landscape.",
+      "event": {
+        "id": "e10",
+        "description": "Sara says 'A better future? You're going to be away from our daughter for months at a time. What kind of role model are you going to be?'"
+      }
+    },
+    "timing": {
+      "total_tau": 20,
+      "total_ms": 2100.0,
+      "budget_exhausted": false,
+      "per_sec": [
+        {
+          "sec": "relevance",
+          "latency_ms": 150.0,
+          "step_cost": 2,
+          "cumulative_tau": 2
+        },
+        {
+          "sec": "implication",
+          "latency_ms": 650.0,
+          "step_cost": 6,
+          "cumulative_tau": 8
+        },
+        {
+          "sec": "coping",
+          "latency_ms": 650.0,
+          "step_cost": 6,
+          "cumulative_tau": 14
+        },
+        {
+          "sec": "normative",
+          "latency_ms": 650.0,
+          "step_cost": 6,
+          "cumulative_tau": 20
+        }
+      ]
+    },
+    "convergence": {
+      "converged": true,
+      "converged_at_sec": 1,
+      "converged_at_tau": 8,
+      "converged_before_completion": true,
+      "secs_total": 4,
+      "fraction_processed_before_convergence": 0.4,
+      "criterion": {
+        "measure": "js_consecutive",
+        "threshold": 0.01
+      },
+      "final_entropy": 0.9944064381680577,
+      "final_entropy_bits": 3.679741079772295,
+      "initial_div_from_final": 0.020320183788644613,
+      "max_div_from_final": 0.020320183788644613
+    },
+    "trajectory": [
+      {
+        "sec": 0,
+        "tau": 2,
+        "sec_completed": "relevance",
+        "completed_secs": [
+          "relevance"
+        ],
+        "latency_ms": 150.0,
+        "step_cost": 2,
+        "entropy": 0.9838399825680447,
+        "entropy_bits": 3.6406405477900323,
+        "js_from_prev": null,
+        "js_from_final": 0.020320183788644613,
+        "top": [
+          [
+            "Guilt",
+            0.11311430890366667
+          ],
+          [
+            "Pride",
+            0.11311430890366667
+          ]
+        ]
+      },
+      {
+        "sec": 1,
+        "tau": 8,
+        "sec_completed": "implication",
+        "completed_secs": [
+          "relevance",
+          "implication"
+        ],
+        "latency_ms": 650.0,
+        "step_cost": 6,
+        "entropy": 0.9948767069787358,
+        "entropy_bits": 3.681481281157531,
+        "js_from_prev": 0.022435593972548358,
+        "js_from_final": 0.003196794297193516,
+        "top": [
+          [
+            "Sadness",
+            0.11117242846885379
+          ],
+          [
+            "Contempt",
+            0.09267105470751072
+          ]
+        ]
+      },
+      {
+        "sec": 2,
+        "tau": 14,
+        "sec_completed": "coping",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping"
+        ],
+        "latency_ms": 650.0,
+        "step_cost": 6,
+        "entropy": 0.9960294949408328,
+        "entropy_bits": 3.68574710351907,
+        "js_from_prev": 0.001611058836254071,
+        "js_from_final": 0.002733220871412231,
+        "top": [
+          [
+            "Sadness",
+            0.09646690145411413
+          ],
+          [
+            "Contempt",
+            0.09210225311417669
+          ]
+        ]
+      },
+      {
+        "sec": 3,
+        "tau": 20,
+        "sec_completed": "normative",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping",
+          "normative"
+        ],
+        "latency_ms": 650.0,
+        "step_cost": 6,
+        "entropy": 0.9944064381680577,
+        "entropy_bits": 3.679741079772295,
+        "js_from_prev": 0.002733220871412231,
+        "js_from_final": 0.0,
+        "top": [
+          [
+            "Contempt",
+            0.099388000225523
+          ],
+          [
+            "Sadness",
+            0.09697470327100177
+          ]
+        ]
+      }
+    ],
+    "final_distribution": [
+      [
+        "Contempt",
+        0.099388000225523
+      ],
+      [
+        "Sadness",
+        0.09697470327100177
+      ]
+    ]
+  }
+]
