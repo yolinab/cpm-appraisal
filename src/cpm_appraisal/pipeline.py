@@ -166,7 +166,7 @@ def appraise_scenario(
     weights: dict[str, float] | None = None,
     scheduler_config: SchedulerConfig | None = None,
     seed: int | None = None,
-    temperature: float = 1.0,
+    temperature: float = 0.3,
 ) -> tuple[Scenario, list[AppraisalStep], ConvergencePoint]:
     """Run the full pipeline for one complexity level.
 

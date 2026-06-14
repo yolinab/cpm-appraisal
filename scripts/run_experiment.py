@@ -39,7 +39,7 @@ def main() -> None:
     # dt = 0.1 s, so the 10 s report budget is 100 steps (was 20 at dt = 0.5 s).
     p.add_argument("--t-max", type=int, default=100,
                    help="appraisal-step budget (100 steps = 10 s at dt = 0.1 s)")
-    p.add_argument("--temperature", type=float, default=0.5,
+    p.add_argument("--temperature", type=float, default=0.3,
                    help="softmin temperature for distance -> emotion distribution")
     p.add_argument("--seed", type=int, default=None,
                    help="seed for reproducible event sampling")

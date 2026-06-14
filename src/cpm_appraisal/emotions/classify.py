@@ -53,7 +53,7 @@ def appraisal_to_distribution(
     vec: AppraisalVector,
     prototypes: dict[str, dict[str, float]],
     weights: dict[str, float] | None = None,
-    temperature: float = 1.0,
+    temperature: float = 0.3,
     verbose: bool = False,
 ) -> EmotionDistribution:
     if not vec:

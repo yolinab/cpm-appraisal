@@ -45,7 +45,7 @@ def analyse_trajectory(
     prototypes: dict[str, dict[str, float]],
     weights: dict[str, float] | None = None,
     js_threshold: float = 0.01,
-    temperature: float = 1.0,
+    temperature: float = 0.3,
 ) -> ConvergencePoint:
     """Turn a list of AppraisalStep snapshots into a ConvergencePoint.
 
