@@ -1,0 +1,521 @@
+[
+  {
+    "scenario": {
+      "scenario_id": "L1",
+      "complexity_level": 1,
+      "base_seed": "Two parents meet to discuss childcare arrangements for their young child.",
+      "narrative": "<think>\nOkay, let's tackle this query. The user wants me to write a first-person narrative from Alex's perspective in a specific scenario. The scenario is a low-complexity discussion about childcare logistics between Alex and Sara, his co-parent, at their apartment. The key points are to include who is present (Alex, Sara, their daughter Mia), the setting (residential apartment, time of day), observable actions, dialogue, and sensory details. The complexity is low, meaning there's minimal conflict and aligned goals.\n\nFirst, I need to establish the setting. The apartment in the evening, maybe after work. Alex is home, preparing tea. Sara arrives, so I should describe her entering, maybe the sound of the door, the smell of tea. They need to discuss a schedule change. Since it's low complexity, the conversation should be smooth, no major conflicts. Maybe Sara has a shift change, so she can't pick up Mia on time. They adjust the schedule calmly.\n\nI need to show their interactions through actions and dialogue without mentioning emotions. For example, Alex nods, sips tea, Sara checks her watch, they talk about the time. Include Mia's presence, maybe she's drawing at the table. Sensory details like the steam from the tea, the sound of the clock, the texture of the paper Mia is using.\n\nI have to make sure the narrative stays static, not a list, but a flowing description. Keep it around 350 words. Use present tense. Avoid labeling emotions but show through actions. For example, instead of saying \"they were happy,\" show them nodding in agreement, a smile, etc.\n\nCheck the required elements again: who, where, when, actions, speech, sensory details. Ensure the conflict is minimal, one situational change (the schedule). Maybe Sara's work shift is delayed, so she'll be 15 minutes late. They agree on a new time, maybe Alex will pick up Mia instead. Show their cooperation, maybe Sara leaves, Alex helps Mia with her drawing. \n\nNeed to include the time of day\u2014early evening, maybe 5:30 PM. The apartment's living room setup: coffee table, chairs, Mia's toys. Use specific dialogue lines like \"I\u2019ve got a shift that runs 15 minutes late\" and \"I can take her from there.\" \n\nMake sure the SECs (Subjective Expected Utility Calculus) are aligned, so both parents have the same goal of Mia's well-being, so their discussion is frictionless. No conflicting checks. Show their mutual understanding through actions like Sara setting down her bag, Alex pouring tea, Mia looking up from her drawing.\n\nAvoid any internal friction. Maybe Sara checks her phone to confirm the time, Alex consults the calendar app. Use sensory details like the aroma of chamomile tea, the sound of Mia's crayons, the view from the window. End with a sense of resolution, like Sara leaves, Alex and Mia continue with their activity. Keep the language simple, concise, and in first person present tense.\n</think>\n\nThe apartment hums with the low murmur of the kettle as I pour water into two mugs. Sara arrives at 5:30, her keys clinking against the wooden bowl by the door. She shrugs off her coat, leaving it draped over the back of the sofa, and sits at the small kitchen table where Mia is sketching shapes on a pad of paper. I hand her a mug\u2014chamomile, steaming faintly\u2014and point to the calendar pinned to the wall. She follows my gaze, her fingers tapping the edge of the table as she reads the block labeled *Parent-Teacher Conference*.  \n\n\u201cI\u2019ll need to leave work 15 minutes late tomorrow,\u201d she says. The clock above the microwave ticks past five forty-five. Outside, the sky is the gray of a damp November afternoon, light bleeding through half-closed blinds.  \n\nI nod, setting my phone face-up between us. The shared calendar app glows with our alternating shifts. \u201cI can take her from there,\u201d I say, tapping the *Edit* button. The sound of Mia\u2019s crayon scraping paper continues in the background, a rhythmic scratch as she colors over a scribble of what might be a cat. Sara glances at her, then back at the screen. She tilts her head, considering, before nodding.  \n\nHer wristwatch catches the light as she sets it down\u2014silver face, leather band. I notice the faint smudge of chocolate on her thumb, probably from this morning\u2019s breakfast. \u201cThat works,\u201d she says. The kettle whines again, a short, sharp noise, and she sips her tea, her shoulders easing.  \n\nMia looks up, holding a page with a lopsided circle and jagged lines. \u201cLook\u2014my dad\u2019s schedule,\u201d she says, sliding it toward us. Sara laughs softly, the sound blending with the low hiss of the radiator. I slide my finger across the phone screen, updating the pickup time to 4:45. The change blinks on, accepted.  \n\nSara stands, gathering her keys. Her coat hangs open, and I help her fasten it. The doorknob turns once, then twice\u2014outward, then inward\u2014leaving me alone with the smell of tea and the sound of Mia\u2019s crayon, now drawing a new shape.",
+      "event": {
+        "id": "e9",
+        "description": "Sara nods, sips her tea, and agrees to the revised schedule."
+      }
+    },
+    "timing": {
+      "total_tau": 20,
+      "total_ms": 1920.0,
+      "budget_exhausted": false,
+      "per_sec": [
+        {
+          "sec": "relevance",
+          "latency_ms": 150.0,
+          "step_cost": 2,
+          "cumulative_tau": 2
+        },
+        {
+          "sec": "implication",
+          "latency_ms": 600.0,
+          "step_cost": 6,
+          "cumulative_tau": 8
+        },
+        {
+          "sec": "coping",
+          "latency_ms": 620.0,
+          "step_cost": 6,
+          "cumulative_tau": 14
+        },
+        {
+          "sec": "normative",
+          "latency_ms": 550.0,
+          "step_cost": 6,
+          "cumulative_tau": 20
+        }
+      ]
+    },
+    "convergence": {
+      "converged": true,
+      "converged_at_sec": 3,
+      "converged_at_tau": 20,
+      "converged_before_completion": false,
+      "secs_total": 4,
+      "fraction_processed_before_convergence": 1.0,
+      "criterion": {
+        "measure": "js_consecutive",
+        "threshold": 0.01
+      },
+      "final_entropy": 0.741640430942702,
+      "final_entropy_bits": 2.7443957072396503,
+      "initial_div_from_final": 0.29424328170222747,
+      "max_div_from_final": 0.29424328170222747
+    },
+    "trajectory": [
+      {
+        "sec": 0,
+        "tau": 2,
+        "sec_completed": "relevance",
+        "completed_secs": [
+          "relevance"
+        ],
+        "latency_ms": 150.0,
+        "step_cost": 2,
+        "entropy": 0.8073502917649152,
+        "entropy_bits": 2.9875510860996917,
+        "js_from_prev": null,
+        "js_from_final": 0.29424328170222747,
+        "top": [
+          [
+            "Guilt",
+            0.2235957050583254
+          ],
+          [
+            "Pride",
+            0.2235957050583254
+          ]
+        ]
+      },
+      {
+        "sec": 1,
+        "tau": 8,
+        "sec_completed": "implication",
+        "completed_secs": [
+          "relevance",
+          "implication"
+        ],
+        "latency_ms": 600.0,
+        "step_cost": 6,
+        "entropy": 0.7900863162867652,
+        "entropy_bits": 2.923666785547331,
+        "js_from_prev": 0.2771519197925536,
+        "js_from_final": 0.050722703580466696,
+        "top": [
+          [
+            "Pleasure",
+            0.31275650958692836
+          ],
+          [
+            "Joy",
+            0.22121224778194495
+          ]
+        ]
+      },
+      {
+        "sec": 2,
+        "tau": 14,
+        "sec_completed": "coping",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping"
+        ],
+        "latency_ms": 620.0,
+        "step_cost": 6,
+        "entropy": 0.8090998570560258,
+        "entropy_bits": 2.9940252469923982,
+        "js_from_prev": 0.0017388404969520095,
+        "js_from_final": 0.045386945581707104,
+        "top": [
+          [
+            "Pleasure",
+            0.28505972677521757
+          ],
+          [
+            "Joy",
+            0.2135775758617264
+          ]
+        ]
+      },
+      {
+        "sec": 3,
+        "tau": 20,
+        "sec_completed": "normative",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping",
+          "normative"
+        ],
+        "latency_ms": 550.0,
+        "step_cost": 6,
+        "entropy": 0.741640430942702,
+        "entropy_bits": 2.7443957072396503,
+        "js_from_prev": 0.045386945581707104,
+        "js_from_final": 0.0,
+        "top": [
+          [
+            "Joy",
+            0.35051135868163524
+          ],
+          [
+            "Pride",
+            0.22354709598127337
+          ]
+        ]
+      }
+    ],
+    "final_distribution": [
+      [
+        "Joy",
+        0.35051135868163524
+      ],
+      [
+        "Pride",
+        0.22354709598127337
+      ]
+    ]
+  },
+  {
+    "scenario": {
+      "scenario_id": "L2",
+      "complexity_level": 2,
+      "base_seed": "Two parents meet to discuss childcare arrangements for their young child.",
+      "narrative": "<think>\nOkay, let's tackle this query. The user wants a detailed, first-person narrative from Alex's perspective in a specific scenario. The base scenario is two parents discussing childcare arrangements, with medium complexity involving reducing work hours due to overlapping changes. The required elements include characters (Alex, Sara, Mia), setting (residential apartment, time of day), actions, speech, sensory details, and relational aspects. The style is first person, present tense, around 350 words, static description without labeling emotions.\n\nFirst, I need to establish the setting. The apartment in the late afternoon makes sense, maybe with natural light fading. Including sensory details like the smell of coffee or the sound of a child playing. \n\nCharacters: Alex is 35, Sara 34, Mia 4. They\u2019re discussing work hours reductions. The complexity comes from overlapping dimensions\u2014maybe Alex's promotion and Sara's project both requiring more time, conflicting with childcare. The two contested SECs are Implication (impact on their careers) and Coping Potential (ability to manage the change).\n\nNeed to show their interactions without naming emotions. Alex might be pragmatic, Sara more idealistic. Show their dialogue and actions: Alex adjusting his tie, Sara pacing. Mia\u2019s presence adds another layer, maybe she\u2019s drawing at the table.\n\nEnsure the narrative reflects the medium complexity with two conflicting objectives. Alex\u2019s high conscientiousness and self-efficacy should come through in his actions\u2014organizing papers, proposing solutions. Sara\u2019s frustration could be shown through her movements and speech.\n\nCheck the required elements: who, where, when, actions, speech, sensory details. Make sure it's all in first person, present tense. Avoid listing; instead, describe the scene as it unfolds. Keep it around 350 words. Let me piece this together step by step, ensuring each part meets the criteria without being too verbose.\n</think>\n\nThe late afternoon sun slants through the apartment\u2019s west-facing windows, casting long shadows over the coffee table where I slide a printed calendar toward Sara. She sits across from me, one hand tangled in Mia\u2019s fine hair as the girl draws scribbles on a placemat. The smell of burnt toast lingers from Mia\u2019s attempt to operate the toaster.  \n\nSara\u2019s thumb traces the edge of the calendar page. \u201cYour promotion starts next month. Twelve-hour days,\u201d she says. Her voice doesn\u2019t rise, but her foot taps the floor, steady and sharp. Outside, a car horn blares.  \n\nI adjust my tie, the knot tight from the board meeting I just left. \u201cThe lab needs me in by 6:30 a.m. If you cut your hours instead, you could still finish the grant work.\u201d I gesture to the stack of papers\u2014salary figures, daycare invoices, the pediatrician\u2019s updated schedule. The numbers blur into a grid of what won\u2019t fit.  \n\nMia lifts her head, holding up a picture of three stick figures. \u201cThis is Daddy and Mama and me,\u201d she says. I nod, tucking the drawing into my briefcase. Sara\u2019s gaze follows the motion, her fingers curling around her mug. The ceramic warms her knuckles; steam fogs her glasses.  \n\n\u201cYou\u2019re asking me to resign from the clinic,\u201d she says. Not a question. The mug sets down too hard. Mia flinches, pressing her drawing to her chest.  \n\nI lean forward, elbows on knees. \u201cThe alternative is me leaving at 8 p.m. every night. You know that.\u201d The words land like bricks. Sara\u2019s jaw tightens. Beyond her, the window reflects the amber glow of streetlights switching on. A neighbor\u2019s piano practice seeps through the walls\u2014halting, deliberate notes.  \n\nShe exhales, long and slow. \u201cThe clinic is all I have left after teaching.\u201d Her eyes flick to Mia, then back to the calendar. \u201cBut I\u2019ll talk to Dr. Patel. See if I can trade shifts.\u201d  \n\nI reach for the papers, organizing them into a neater stack. \u201cMonday. We\u2019ll finalize it Monday.\u201d The finality in my voice makes Sara wince. Mia, oblivious, has returned to her drawings, now smearing crayon across the page.  \n\nThe clock on the wall ticks. Somewhere, a pipe rumbles. I wait for Sara to speak, but she only watches me, her expression unreadable. The coffee between us cools.",
+      "event": {
+        "id": "e8",
+        "description": "Alex leans forward, placing his elbows on his knees and stating the necessity of leaving for work by 8 p.m. daily."
+      }
+    },
+    "timing": {
+      "total_tau": 19,
+      "total_ms": 1850.0,
+      "budget_exhausted": false,
+      "per_sec": [
+        {
+          "sec": "relevance",
+          "latency_ms": 150.0,
+          "step_cost": 2,
+          "cumulative_tau": 2
+        },
+        {
+          "sec": "implication",
+          "latency_ms": 500.0,
+          "step_cost": 5,
+          "cumulative_tau": 7
+        },
+        {
+          "sec": "coping",
+          "latency_ms": 600.0,
+          "step_cost": 6,
+          "cumulative_tau": 13
+        },
+        {
+          "sec": "normative",
+          "latency_ms": 600.0,
+          "step_cost": 6,
+          "cumulative_tau": 19
+        }
+      ]
+    },
+    "convergence": {
+      "converged": true,
+      "converged_at_sec": 3,
+      "converged_at_tau": 19,
+      "converged_before_completion": false,
+      "secs_total": 4,
+      "fraction_processed_before_convergence": 1.0,
+      "criterion": {
+        "measure": "js_consecutive",
+        "threshold": 0.01
+      },
+      "final_entropy": 0.6534296171070647,
+      "final_entropy_bits": 2.4179769081527085,
+      "initial_div_from_final": 0.21466258925468518,
+      "max_div_from_final": 0.21466258925468518
+    },
+    "trajectory": [
+      {
+        "sec": 0,
+        "tau": 2,
+        "sec_completed": "relevance",
+        "completed_secs": [
+          "relevance"
+        ],
+        "latency_ms": 150.0,
+        "step_cost": 2,
+        "entropy": 0.8284949220275525,
+        "entropy_bits": 3.0657955157489623,
+        "js_from_prev": null,
+        "js_from_final": 0.21466258925468518,
+        "top": [
+          [
+            "Guilt",
+            0.22170774878862434
+          ],
+          [
+            "Pride",
+            0.22170774878862434
+          ]
+        ]
+      },
+      {
+        "sec": 1,
+        "tau": 7,
+        "sec_completed": "implication",
+        "completed_secs": [
+          "relevance",
+          "implication"
+        ],
+        "latency_ms": 500.0,
+        "step_cost": 5,
+        "entropy": 0.731071800920959,
+        "entropy_bits": 2.705287128940854,
+        "js_from_prev": 0.09766072935428965,
+        "js_from_final": 0.07211970945457177,
+        "top": [
+          [
+            "Pride",
+            0.37163143751608624
+          ],
+          [
+            "Pleasure",
+            0.14930760507632193
+          ]
+        ]
+      },
+      {
+        "sec": 2,
+        "tau": 13,
+        "sec_completed": "coping",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping"
+        ],
+        "latency_ms": 600.0,
+        "step_cost": 6,
+        "entropy": 0.7116966994254773,
+        "entropy_bits": 2.633590733823959,
+        "js_from_prev": 0.007539384706669987,
+        "js_from_final": 0.0516626935378894,
+        "top": [
+          [
+            "Pride",
+            0.42217807480361774
+          ],
+          [
+            "Pleasure",
+            0.156580007901047
+          ]
+        ]
+      },
+      {
+        "sec": 3,
+        "tau": 19,
+        "sec_completed": "normative",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping",
+          "normative"
+        ],
+        "latency_ms": 600.0,
+        "step_cost": 6,
+        "entropy": 0.6534296171070647,
+        "entropy_bits": 2.4179769081527085,
+        "js_from_prev": 0.0516626935378894,
+        "js_from_final": 0.0,
+        "top": [
+          [
+            "Pride",
+            0.4950569841831509
+          ],
+          [
+            "Joy",
+            0.16773826341477943
+          ]
+        ]
+      }
+    ],
+    "final_distribution": [
+      [
+        "Pride",
+        0.4950569841831509
+      ],
+      [
+        "Joy",
+        0.16773826341477943
+      ]
+    ]
+  },
+  {
+    "scenario": {
+      "scenario_id": "L3",
+      "complexity_level": 3,
+      "base_seed": "Two parents meet to discuss childcare arrangements for their young child.",
+      "narrative": "<think>\nOkay, let's tackle this query. The user wants a detailed first-person narrative from Alex's perspective in a high-complexity social situation. The scenario involves a heated argument between divorced parents, Alex and Sara, in front of their 4-year-old daughter Mia. The setting is a residential apartment, and the time of day needs to be specified.\n\nFirst, I need to establish the who, where, and when. The characters are Alex (35), Sara (34), and Mia (4). The location is a residential apartment\u2014probably Sara's place since they're divorced. Time of day should be something that adds tension, maybe late evening, which could imply exhaustion or the end of a long day.\n\nNext, the complexity comes from shifts in character, goal, setting, and causality. For character, maybe Alex is trying to be calm but is frustrated. Sara is agitated. Mia is present, which adds another layer. Goals: Alex wants to discuss childcare arrangements but is being obstructed by Sara's anger. Setting: the apartment is small, maybe Mia's toys are scattered, creating a chaotic environment. Causality: the argument is triggered by multiple issues\u2014maybe missed pickups, new job stress, Mia's school schedule.\n\nThe narrative needs to show observable actions and speech without labeling emotions. For example, Alex might adjust his tie, showing tension. Sara could be pacing, emphasizing her agitation. Mia might be playing but affected by the tension, like pausing her play.\n\nSensory details: the smell of burnt coffee, the ticking clock, the feel of the chair. Relational details: the history between Alex and Sara, how they interact with Mia. The argument should escalate, with contested SECs (Social Exchange Conflicts). Maybe Alex wants a new schedule, Sara resists due to work, Mia's needs are caught in the middle.\n\nNeed to ensure the complexity level is high with multiple dimensions shifting. Show Alex's high conscientiousness and self-efficacy through his actions\u2014trying to stay in control, using logic, perhaps referencing documents or schedules. Sara's perspective might be more emotional, focusing on Mia's well-being.\n\nAvoid using emotion labels. Instead, describe actions: Sara's clenched fists, Alex's controlled breathing. Mia's reactions: clutching a stuffed animal, avoiding eye contact.\n\nTime of day: late afternoon, maybe 5 PM, when they\u2019re both tired after work and school. The apartment is cramped, adding to the tension. The argument starts with a specific issue (pickup time) but escalates to broader issues (custody, reliability).\n\nEnding the scene with a resolution that shows Alex's high agency\u2014maybe he suggests a compromise or a plan, even if Sara is still upset. The key is to show the complexity through the interplay of these elements without explicitly stating emotions. Need to keep it around 350 words, first person, present tense, static description without lists.\n</think>\n\nThe apartment smells of burnt coffee and lavender air freshener. Sara paces near the counter, her hands gripping the edge of the counter as if anchoring herself. Mia sits cross-legged on the floor, clutching a stuffed rabbit, her eyes darting between us. The clock above the stove ticks louder than it should.  \n\nI adjust my tie, the knot tight against my throat, and tap the open calendar on the kitchen table. \"The pediatrician appointment is at 10:15 on the 12th. You agreed to drive her.\" My voice is steady, but the words hang. Sara\u2019s jaw tightens. She crosses her arms, the motion pulling her sweater over knuckles still yellowed from a thumb habit she claims she\u2019s outgrown. \"You missed last week\u2019s rehearsal. Again. What\u2019s the point of a schedule if you treat it like\u2014like\u2014\" Her chin trembles, but she swallows the rest.  \n\nMia hums a nursery rhyme, her toes wiggling in socks with mismatched mittens. I crouch beside her, my shadow falling across her crayon-scrawled worksheet. \"What color is the sky today, sweetheart?\" She holds up a blue crayon, then hesitates. \"Sometimes,\" she whispers, \"Sara yells at the clouds.\"  \n\nSara freezes. The calendar page rustles as I flip to the next week, circling dates with a pen I found in my pocket. \"If we shift your Tuesday pickups to 4:45, it aligns with\u2014\" \"Aligns with what?\" Sara steps closer, her reflection overlapping mine in the window. Outside, a siren wails. \"You think numbers fix this? Mia draws locks in her sleep. Do you know what that means?\"  \n\nThe rabbit slips from Mia\u2019s lap. She doesn\u2019t reach for it. I tuck it back into her arms, my knuckles brushing her wrist. \"Let\u2019s talk about the zoo field trip. You need a permission slip signed by both of us.\" My voice stays even, but the words are a lever. Sara\u2019s breath hitches. She turns to the sink, her back rigid, and twists the faucet. Water gushes, loud and unsteady.  \n\nMia hums again, softer. I slide the permission slip toward Sara. The pen hovers above the line. Somewhere, a clock ticks.",
+      "event": {
+        "id": "e2",
+        "description": "Alex adjusts his tie and taps an open calendar on the kitchen table, referencing a pediatrician appointment. Sara clenches her fists and crosses her arms."
+      }
+    },
+    "timing": {
+      "total_tau": 20,
+      "total_ms": 1920.0,
+      "budget_exhausted": false,
+      "per_sec": [
+        {
+          "sec": "relevance",
+          "latency_ms": 150.0,
+          "step_cost": 2,
+          "cumulative_tau": 2
+        },
+        {
+          "sec": "implication",
+          "latency_ms": 550.0,
+          "step_cost": 6,
+          "cumulative_tau": 8
+        },
+        {
+          "sec": "coping",
+          "latency_ms": 620.0,
+          "step_cost": 6,
+          "cumulative_tau": 14
+        },
+        {
+          "sec": "normative",
+          "latency_ms": 600.0,
+          "step_cost": 6,
+          "cumulative_tau": 20
+        }
+      ]
+    },
+    "convergence": {
+      "converged": true,
+      "converged_at_sec": 3,
+      "converged_at_tau": 20,
+      "converged_before_completion": false,
+      "secs_total": 4,
+      "fraction_processed_before_convergence": 1.0,
+      "criterion": {
+        "measure": "js_consecutive",
+        "threshold": 0.01
+      },
+      "final_entropy": 0.9268037006841838,
+      "final_entropy_bits": 3.429581224931902,
+      "initial_div_from_final": 0.19565148109650135,
+      "max_div_from_final": 0.19565148109650135
+    },
+    "trajectory": [
+      {
+        "sec": 0,
+        "tau": 2,
+        "sec_completed": "relevance",
+        "completed_secs": [
+          "relevance"
+        ],
+        "latency_ms": 150.0,
+        "step_cost": 2,
+        "entropy": 0.747114029153035,
+        "entropy_bits": 2.764650427458313,
+        "js_from_prev": null,
+        "js_from_final": 0.19565148109650135,
+        "top": [
+          [
+            "Contempt",
+            0.4233348066861405
+          ],
+          [
+            "Pleasure",
+            0.12324171977124289
+          ]
+        ]
+      },
+      {
+        "sec": 1,
+        "tau": 8,
+        "sec_completed": "implication",
+        "completed_secs": [
+          "relevance",
+          "implication"
+        ],
+        "latency_ms": 550.0,
+        "step_cost": 6,
+        "entropy": 0.8982003313676357,
+        "entropy_bits": 3.3237361810402892,
+        "js_from_prev": 0.0741678742580539,
+        "js_from_final": 0.0797704952939007,
+        "top": [
+          [
+            "Contempt",
+            0.21632125415938402
+          ],
+          [
+            "Disgust",
+            0.1475743408997964
+          ]
+        ]
+      },
+      {
+        "sec": 2,
+        "tau": 14,
+        "sec_completed": "coping",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping"
+        ],
+        "latency_ms": 620.0,
+        "step_cost": 6,
+        "entropy": 0.9052772573324386,
+        "entropy_bits": 3.34992391896279,
+        "js_from_prev": 0.0028333820718173634,
+        "js_from_final": 0.07987619148104391,
+        "top": [
+          [
+            "Contempt",
+            0.22195549072481538
+          ],
+          [
+            "Disgust",
+            0.15024094180216427
+          ]
+        ]
+      },
+      {
+        "sec": 3,
+        "tau": 20,
+        "sec_completed": "normative",
+        "completed_secs": [
+          "relevance",
+          "implication",
+          "coping",
+          "normative"
+        ],
+        "latency_ms": 600.0,
+        "step_cost": 6,
+        "entropy": 0.9268037006841838,
+        "entropy_bits": 3.429581224931902,
+        "js_from_prev": 0.07987619148104391,
+        "js_from_final": 0.0,
+        "top": [
+          [
+            "Pride",
+            0.13861783235992792
+          ],
+          [
+            "Irritation",
+            0.13078841188053208
+          ]
+        ]
+      }
+    ],
+    "final_distribution": [
+      [
+        "Pride",
+        0.13861783235992792
+      ],
+      [
+        "Irritation",
+        0.13078841188053208
+      ]
+    ]
+  }
+]
