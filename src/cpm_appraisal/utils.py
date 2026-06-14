@@ -19,5 +19,10 @@ def extract_json(text: str, open_char: str = "{", close_char: str = "}") -> str:
         extracted = re.sub(r"//[^\n]*", "", extracted)
         # strip trailing commas before ] or }
         extracted = re.sub(r",\s*([}\]])", r"\1", extracted)
+        # close truncated last object in an array (model cut off before closing })
+        if open_char == "[" and extracted.endswith("]"):
+            inner = extracted[:-1].rstrip()
+            if inner and inner[-1] not in ("}", "]"):
+                extracted = inner + "}]"
         return extracted
     return text
